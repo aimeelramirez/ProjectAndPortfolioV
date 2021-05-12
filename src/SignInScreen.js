@@ -15,7 +15,7 @@ const config = {
     measurementId: "G-MWEWF5L0SC"
 };
 firebase.initializeApp(config);
-
+firebase.auth().tenantId = 'myTenantId1';
 // Configure FirebaseUI.
 const uiConfig = {
     // Popup signin flow rather than redirect flow.
