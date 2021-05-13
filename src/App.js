@@ -6,6 +6,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <SignInScreen />
+        <br />
         <Navigation />
       </header>
     </div>
