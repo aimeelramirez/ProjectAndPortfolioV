@@ -5,10 +5,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <SignInScreen />
-        <br />
-        <Navigation />
+        <h1>Hello</h1>
       </header>
+      <SignInScreen />
+      <br />
+      <Navigation />
     </div>
   );
 }
