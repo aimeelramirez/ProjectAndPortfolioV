@@ -3,9 +3,15 @@ import {
     Switch,
     Route,
     Link
-} from "react-router-dom";
+} from "react-router-dom"
+
 
 const routes = [
+    {
+        path: "/guest",
+        component: Guest
+    },
+
     {
         path: "/sandwiches",
         component: Sandwiches
@@ -27,17 +33,7 @@ const routes = [
     }
 ];
 
-// const Navigation = () => {
-//     return (
-//         <section id="navigation-route">
-//             <article className="users-list">
-//                 <Switch>
-//                     <Route exact path="/Users" component={Users} />
-//                 </Switch>
-//             </article>
-//         </section>
-//     );
-// };
+
 export default function Navigation() {
     return (
         <Router>
@@ -115,4 +111,6 @@ function Cart() {
 }
 
 
-// export default Navigation;
+function Guest() {
+    return <h2>Guest</h2>
+}

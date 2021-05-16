@@ -1,0 +1,211 @@
+// Import FirebaseAuth and firebase.
+// eslint-disable-next-line
+import React, { useState, useEffect } from 'react';
+import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
+import firebase from 'firebase';
+import * as firebaseui from 'firebaseui'
+import 'firebaseui/dist/firebaseui.css'
+import * as actionTypes from "../action/action";
+import Navigation from './Navigation'
+import { useHistory } from 'react-router-dom'
+// Configure Firebase.
+const config = {
+    apiKey: "AIzaSyB-zeAyZvTsatuQKDqW8_wkDNOP_N17XOw",
+    authDomain: "projectandportfoliov-api.firebaseapp.com",
+    projectId: "projectandportfoliov-api",
+    storageBucket: "projectandportfoliov-api.appspot.com",
+    messagingSenderId: "301701598347",
+    appId: "1:301701598347:web:066b1871d7080c8f52588e",
+    measurementId: "G-MWEWF5L0SC"
+};
+firebase.initializeApp(config);
+console.log("Uploading data to the database with the following config:\n");
+console.log("\n\n\n\nMake sure that this is your own database, so that you have write access to it.\n\n\n");
+
+
+const db = firebase.firestore()
+
+
+// Configure FirebaseUI.
+const uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'popup',
+    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+    // signInSuccessUrl: '/Users',
+    callbacks: {
+        // Avoid redirects after sign-in.
+        signInSuccessWithAuthResult: () => true,
+    },
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [
+        {
+            provider: 'apple.com',
+        },
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+        firebase.auth.GithubAuthProvider.PROVIDER_ID,
+        firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
+    ],
+};
+
+
+function SignInScreen() {
+    let history = useHistory()
+
+    const [messageData, setMessages] = useState({})
+    const [loading, setLoading] = useState(true);
+    const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
+    const messageRef = React.useRef();
+
+    useEffect(() => {
+        if (isSignedIn === false) {
+            document.title = `You are signed out! `;
+        } else {
+            document.title = `You are signed in! `;
+        }
+    });
+
+    useEffect(() => {
+        const unregisterAuthObserver =
+            firebase.auth().onAuthStateChanged(user => {
+                setIsSignedIn(!!user);
+
+            });
+        return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
+    }, []);
+    const ShowSuccess = () => {
+        return (
+            <div>
+                Success!
+            </div>
+        )
+    }
+
+    async function UploadData(newMessage) {
+
+        var batch = db.batch();
+        const messages = db.collection('messages');
+        let authUser = firebase.auth().currentUser.providerData[0]
+        console.log(authUser)
+        let postMessage = {
+            user: authUser.displayName,
+            email: authUser.email,
+            provider: authUser.providerId,
+            message: newMessage
+        }
+
+
+        const response = await messages.add(postMessage);
+        console.log("loading...", response)
+
+
+        // return a Spinner when loading is true
+        if (loading) {
+            console.log("loading...")
+            return (
+                <span>Loading</span>
+            );
+        } else {
+            alert("success")
+            return batch.commit()
+        }
+    }
+
+
+    const handleLogout = () => {
+        history.push("/")
+        firebase.auth().signOut()
+    }
+
+
+    const handleSubmit = (user) => {
+
+        if (!user) {
+            history.push("/guest")
+            return (
+                <div>
+                    <h1>My App</h1>
+                    <p>Welcome Guest!
+                    </p>
+                    <a onClick={() => handleLogout()}><button>Sign-out</button></a>
+                </div>
+            );
+        } else if (user.currentUser) {
+            let readUser = user.currentUser.providerData[0]
+            /* TODO */
+            //get to read the data on the page to show poc on send a message 
+            const dataRef = db.collection('messages');
+            dataRef.get()
+                .then(doc => {
+                    if (doc.empty) {
+                        console.log('No such document!');
+                        return;
+                    }
+                    // console.log('Document data:', doc);
+                    setMessages(doc.docs)
+                    doc.forEach(i => {
+                        // console.log(i.data().name);
+                        let newDataName = i.data();
+                        // console.log("doc:", newDataName)
+
+                    })
+                })
+
+            return (
+                // Get private routes unless signed in
+                <div>
+                    <h1>My App</h1>
+                    <p>Welcome {readUser.displayName}!
+                    <br />You are now signed-in with email: {readUser.email}!
+                    <br /> As your sign-in provider: {readUser.providerId}
+                        <Navigation />
+                        <form>
+                            <div>
+                                <label htmlFor="message">Message</label>
+                                <input
+                                    id="message"
+                                    ref={messageRef}
+                                />
+                            </div>
+                            <button type="submit" onClick={(e) => {
+                                e.preventDefault()
+
+                                let sendMessage = messageRef.current.value
+                                UploadData(sendMessage)
+                            }}>Submit</button>
+                        </form>
+                    </p>
+                    <a onClick={() => handleLogout()}><button>Sign-out</button></a>
+                </div >
+            );
+
+        } else {
+            const unregisterAuthObserver =
+                firebase.auth().onAuthStateChanged(user => {
+                    setIsSignedIn(!!user);
+
+                });
+            return () => unregisterAuthObserver(); // 
+        }
+
+    }
+    if (!isSignedIn) {
+        return (
+            <div>
+                <h1>My App</h1>
+                <p>Please sign-in:</p>
+                <StyledFirebaseAuth
+                    uiConfig={uiConfig}
+                    firebaseAuth={firebase.auth()}
+                />
+
+            </div>
+        );
+    } else {
+        return handleSubmit(firebase.auth())
+
+    }
+
+}
+
+export default SignInScreen

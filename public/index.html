@@ -13,6 +13,7 @@
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 
   <!--
       Notice the use of %PUBLIC_URL% in the tags above.
@@ -39,71 +40,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
-</body>
-<div class="login-with-fb">
-  <a href="#" id="call_facebook_login">Continue with Facebook</a>
-</div>
-<div id="fb-root"></div>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"
-  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-<script>
-  window.fbAsyncInit = function () {
-    FB.init
-      ({
-        appId: '563293921726253',
-        status: true,
-        cookie: true,
-        xfbml: true
-      });
-  };
-
-  (function () {
-    var e = document.createElement('script');
-    e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-    e.async = true;
-    document.getElementById('fb-root').appendChild(e);
-  }());
-
-  /** Fb Login **/
-  $(document).on("click", "#call_facebook_login", function () {
-    Login();
-  });
-
-  function Login() {
-    FB.login(function (response) {
-      if (response.authResponse) {
-        getUserInfo();
-      } else {
-        console.log('User cancelled login or did not fully authorize.');
-      }
-    }, { scope: 'public_profile ,email' });
-  }
-  function getUserInfo() {
-    FB.api('/me', { fields: "id,picture,email,first_name,gender,last_name,name" }, function (response) {
-      console.log(response);
-      var pic = response.picture;
-      var first_name = response.first_name;
-      var last_name = response.last_name;
-      var gender = response.gender;
-      var fb_id = response.id;
-      var email = response.email;
-      var profile_pic = pic.data.url;
-      var url = "URL of your REST API";
-      $.ajax({
-        type: "POST",
-        url: url,
-        data: {
-          first_name: first_name, last_name: last_name, gender: gender, fb_id: fb_id, email: email, profile_pic: profile_pic
-        },
-        dataType: "json",
-        success: function (data) {
-
-        }
-      });
-    });
-  }
-                /** End of FB Login **/
-</script>
 </body>
 
 </html>
