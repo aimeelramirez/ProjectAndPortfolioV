@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import './App.css';
 import SignInScreen from './components/SignInScreen'
 import { FiPackage } from "react-icons/fi";

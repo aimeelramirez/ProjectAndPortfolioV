@@ -1,11 +1,10 @@
-// Import FirebaseAuth and firebase.
-// eslint-disable-next-line
 import React, { useState, useEffect } from 'react';
+
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from 'firebase';
 import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
-import * as actionTypes from "../action/action";
+// import * as actionTypes from "../action/action";
 import Navigation from './Navigation'
 import { useHistory } from 'react-router-dom'
 // Configure Firebase.
@@ -21,8 +20,6 @@ const config = {
 firebase.initializeApp(config);
 console.log("Uploading data to the database with the following config:\n");
 console.log("\n\n\n\nMake sure that this is your own database, so that you have write access to it.\n\n\n");
-
-
 const db = firebase.firestore()
 
 
@@ -52,8 +49,8 @@ const uiConfig = {
 function SignInScreen() {
     let history = useHistory()
 
-    const [messageData, setMessages] = useState({})
-    const [loading, setLoading] = useState(true);
+    // const [messageData, setMessages] = useState({})
+    const [loading,] = useState(true);
     const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
     const messageRef = React.useRef();
 
@@ -73,13 +70,6 @@ function SignInScreen() {
             });
         return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
     }, []);
-    const ShowSuccess = () => {
-        return (
-            <div>
-                Success!
-            </div>
-        )
-    }
 
     async function UploadData(newMessage) {
 
@@ -119,37 +109,40 @@ function SignInScreen() {
 
 
     const handleSubmit = (user) => {
+        console.log(user.currentUser.isAnonymous)
+        /* TODO */
+        //get to read the data on the page to show poc on send a message 
+        // const dataRef = db.collection('messages');
+        // dataRef.get()
+        //     .then(doc => {
+        //         if (doc.empty) {
+        //             console.log('No such document!');
+        //             return;
+        //         } else {
+        //             setMessages(doc.docs)
+        //         }
 
-        if (!user) {
+        //         doc.forEach(i => {
+        //             // console.log(i.data().name);
+        //             let newDataName = i.data();
+        //             console.log("doc:", newDataName)
+
+        //         })
+        //     })
+
+        if (user.currentUser.isAnonymous) {
             history.push("/guest")
             return (
                 <div>
                     <h1>My App</h1>
                     <p>Welcome Guest!
                     </p>
-                    <a onClick={() => handleLogout()}><button>Sign-out</button></a>
+                    <button onClick={() => handleLogout()}>Sign-out</button>
                 </div>
             );
-        } else if (user.currentUser) {
+            // eslint-disable-next-line
+        } else if (!user.currentUser.isAnonymous) {
             let readUser = user.currentUser.providerData[0]
-            /* TODO */
-            //get to read the data on the page to show poc on send a message 
-            const dataRef = db.collection('messages');
-            dataRef.get()
-                .then(doc => {
-                    if (doc.empty) {
-                        console.log('No such document!');
-                        return;
-                    }
-                    // console.log('Document data:', doc);
-                    setMessages(doc.docs)
-                    doc.forEach(i => {
-                        // console.log(i.data().name);
-                        let newDataName = i.data();
-                        // console.log("doc:", newDataName)
-
-                    })
-                })
 
             return (
                 // Get private routes unless signed in
@@ -175,17 +168,12 @@ function SignInScreen() {
                             }}>Submit</button>
                         </form>
                     </p>
-                    <a onClick={() => handleLogout()}><button>Sign-out</button></a>
+                    <button onClick={() => handleLogout()}>Sign-out</button>
                 </div >
             );
 
         } else {
-            const unregisterAuthObserver =
-                firebase.auth().onAuthStateChanged(user => {
-                    setIsSignedIn(!!user);
-
-                });
-            return () => unregisterAuthObserver(); // 
+            console.log("catch any odd errors on load.")
         }
 
     }
