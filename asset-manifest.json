@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/ProjectAndPortfolioV/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/ProjectAndPortfolioV/static/js/main.3ed72acd.chunk.js",
+    "main.js.map": "/ProjectAndPortfolioV/static/js/main.3ed72acd.chunk.js.map",
+    "runtime-main.js": "/ProjectAndPortfolioV/static/js/runtime-main.92cc799c.js",
+    "runtime-main.js.map": "/ProjectAndPortfolioV/static/js/runtime-main.92cc799c.js.map",
+    "static/js/2.f5249f78.chunk.js": "/ProjectAndPortfolioV/static/js/2.f5249f78.chunk.js",
+    "static/js/2.f5249f78.chunk.js.map": "/ProjectAndPortfolioV/static/js/2.f5249f78.chunk.js.map",
+    "static/js/3.a0aadfde.chunk.js": "/ProjectAndPortfolioV/static/js/3.a0aadfde.chunk.js",
+    "static/js/3.a0aadfde.chunk.js.map": "/ProjectAndPortfolioV/static/js/3.a0aadfde.chunk.js.map",
+    "index.html": "/ProjectAndPortfolioV/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/ProjectAndPortfolioV/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.f5249f78.chunk.js.LICENSE.txt": "/ProjectAndPortfolioV/static/js/2.f5249f78.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/ProjectAndPortfolioV/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.92cc799c.js",
+    "static/js/2.f5249f78.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.3ed72acd.chunk.js"
+  ]
+}
