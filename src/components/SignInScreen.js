@@ -8,6 +8,7 @@ import 'firebaseui/dist/firebaseui.css'
 import Navigation from './Navigation'
 import { useHistory } from 'react-router-dom'
 // Configure Firebase.
+
 const config = {
     apiKey: "AIzaSyB-zeAyZvTsatuQKDqW8_wkDNOP_N17XOw",
     authDomain: "projectandportfoliov-api.firebaseapp.com",
