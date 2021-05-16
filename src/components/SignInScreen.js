@@ -141,9 +141,41 @@ function SignInScreen() {
                 </div>
             );
             // eslint-disable-next-line
+        }
+        else if (!user.currentUser.isAnonymous && user.currentUser.providerData[0].providerId === 'google.com') {
+            let readUser = user.currentUser
+            console.log(user.currentUser)
+            return (
+                // Get private routes unless signed in
+                <div>
+                    <h1>My App</h1>
+                    <p>Welcome {readUser.displayName}!
+                    <br />You are now signed-in with email: {readUser.email}!
+                    <br /> As your sign-in provider: {user.currentUser.providerData[0].providerId}
+                        <Navigation />
+                        <form>
+                            <div>
+                                <label htmlFor="message">Message</label>
+                                <input
+                                    id="message"
+                                    ref={messageRef}
+                                />
+                            </div>
+                            <button type="submit" onClick={(e) => {
+                                e.preventDefault()
+
+                                let sendMessage = messageRef.current.value
+                                UploadData(sendMessage)
+                            }}>Submit</button>
+                        </form>
+                    </p>
+                    <button onClick={() => handleLogout()}>Sign-out</button>
+                </div >
+            );
+
         } else if (!user.currentUser.isAnonymous) {
             let readUser = user.currentUser.providerData[0]
-
+            console.log(user.currentUser)
             return (
                 // Get private routes unless signed in
                 <div>
