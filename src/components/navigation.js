@@ -8,24 +8,24 @@ import {
 
 const routes = [
     {
-        path: "/guest",
+        path: "#/guest",
         component: Guest
     },
 
     {
-        path: "/sandwiches",
+        path: "#/sandwiches",
         component: Sandwiches
     },
     {
-        path: "/tacos",
+        path: "#/tacos",
         component: Tacos,
         routes: [
             {
-                path: "/tacos/bus",
+                path: "#/tacos/bus",
                 component: Bus
             },
             {
-                path: "/tacos/cart",
+                path: "#/tacos/cart",
                 component: Cart
             },
 
@@ -41,10 +41,10 @@ export default function Navigation() {
                 <div>
                     <ul style={{ listStyleType: "none", padding: 0 }}>
                         <li>
-                            <Link to="/tacos">Tacos</Link>
+                            <Link to="#/tacos">Tacos</Link>
                         </li>
                         <li>
-                            <Link to="/sandwiches">Sandwiches</Link>
+                            <Link to="#/sandwiches">Sandwiches</Link>
                         </li>
                     </ul>
                 </div>
@@ -86,10 +86,10 @@ function Tacos({ routes }) {
             <h2>Tacos</h2>
             <ul>
                 <li>
-                    <Link to="/tacos/bus">Bus</Link>
+                    <Link to="#/tacos/bus">Bus</Link>
                 </li>
                 <li>
-                    <Link to="/tacos/cart">Cart</Link>
+                    <Link to="#/tacos/cart">Cart</Link>
                 </li>
             </ul>
 

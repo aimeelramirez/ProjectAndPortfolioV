@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Raleway&display=swap");
 .App {
   text-align: center;
 }
@@ -32,6 +33,7 @@ ul > .firebaseui-list-item {
 }
 .app-body {
   display: flex;
+  font-family: "Raleway", sans-serif;
 }
 .app-body > div:nth-of-type(1) {
   width: 10rem;
@@ -48,6 +50,7 @@ ul > .firebaseui-list-item {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 .App-link {
