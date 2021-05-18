@@ -5,6 +5,8 @@ import firebase from 'firebase';
 import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
 // import * as actionTypes from "../action/action";
+import Grid from './Grid.tsx'
+
 import Navigation from './navigation'
 import { useHistory } from 'react-router-dom'
 // Configure Firebase.
@@ -91,21 +93,21 @@ function SignInScreen() {
 
 
         // return a Spinner when loading is true
-        if (loading) {
+        if (!loading) {
+            alert("success")
+            return batch.commit()
+        } else {
             console.log("loading...")
             return (
                 <span>Loading</span>
             );
-        } else {
-            alert("success")
-            return batch.commit()
         }
     }
 
 
     const handleLogout = () => {
-        history.push("/")
         firebase.auth().signOut()
+        history.push("/")
     }
 
 
@@ -138,6 +140,7 @@ function SignInScreen() {
                     <h1>My App</h1>
                     <p>Welcome Guest!
                     </p>
+                    <p>Please login to see current build, Thanks!</p>
                     <button onClick={() => handleLogout()}>Sign-out</button>
                 </div>
             );
@@ -154,6 +157,10 @@ function SignInScreen() {
                     <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {user.currentUser.providerData[0].providerId}
                         <Navigation />
+                        <section id="grid">
+                            {/* Example of typescript with animation on grid with react js */}
+                            <Grid />
+                        </section>
                         <form>
                             <div>
                                 <label htmlFor="message">Message</label>
@@ -185,6 +192,10 @@ function SignInScreen() {
                     <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {readUser.providerId}
                         <Navigation />
+                        <section id="grid">
+                            {/* Example of typescript with animation on grid with react js */}
+                            <Grid />
+                        </section>
                         <form>
                             <div>
                                 <label htmlFor="message">Message</label>
