@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Project And Portfolio V
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Github Repository:
 
-## Available Scripts
+Deployed sites:
 
-In the project directory, you can run:
+- Github Pages:
+- Domain Provider: https://aimeelramirez.dev/
 
-### `npm start`
+## Designing:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Designing tools and ideas for this project.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Lofi Frames:
 
-### `npm test`
+https://xd.adobe.com/view/a8f7ed98-3939-4c42-b950-2f320b721022-fda4/?fullscreen
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Application State Flow:
 
-### `npm run build`
+https://xd.adobe.com/view/a8f7ed98-3939-4c42-b950-2f320b721022-fda4/?fullscreen
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Typography and Color Theming:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+https://xd.adobe.com/view/16dbd5f1-1cba-4f31-a0d8-c0287a9394a9-4388/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Logo:
 
-### `npm run eject`
+https://react-icons.github.io/react-icons/icons?name=fi
+"FiPackage"
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Fonts:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+https://fonts.google.com/specimen/Montserrat?preview.size=64&preview.layout=row#pairings
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Color Themes:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- #### Watermelon Summer
 
-## Learn More
+  - PDF: https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:97f7edc2-b965-4ad7-a74a-de6f28ad5fd0
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  - Source:
+    https://coolors.co/282c34-f75c03-f1c40f-d90368-00cc66
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- #### Basic Blues
 
-### Code Splitting
+  - PDF: https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:33322dc7-878f-4bd2-b1ab-2d768afa11ff
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  - Source:
+    https://coolors.co/282c34-16bac5-5fbff9-efe9f4-5863f8
 
-### Analyzing the Bundle Size
+- #### Basic Greys
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  - PDF: https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:399539ab-1956-4a77-a5f4-801ec49bb3ba
 
-### Making a Progressive Web App
+  - Source:
+    https://coolors.co/282c34-e0e2db-d2d4c8-b8bdb5-889696
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- #### Primary Colors
 
-### Advanced Configuration
+  - PDF: https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:9fb9ded0-64bc-426f-bc03-0daaef654c11
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  - Source:
+    https://coolors.co/282c34-fffffa-ff312e-3abeff-ffbe0b
