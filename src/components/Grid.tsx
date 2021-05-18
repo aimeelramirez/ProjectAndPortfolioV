@@ -20,10 +20,10 @@ export default function Grid() {
   const { size, ...rest } = useSpring({
     ref: springApi,
     config: config.stiff,
-    from: { size: "20%", background: "hotpink" },
+    from: { size: "20%", background: "#5863F8" },
     to: {
       size: open ? "100%" : "20%",
-      background: open ? "white" : "hotpink",
+      background: open ? "white" : "#5863F8",
     },
   })
 
@@ -50,6 +50,7 @@ export default function Grid() {
         className={styles.container}
         onClick={() => set((open) => !open)}
       >
+        {!open ? <p id={styles.griddisplay}>Click</p> : open}
         {transition((style, item) => (
           <animated.div
             id='cards'
