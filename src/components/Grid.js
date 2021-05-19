@@ -8,7 +8,7 @@ import {
   useSpringRef,
 } from "@react-spring/web"
 
-import { FiStar } from "react-icons/fi"
+import { MdStar } from "react-icons/md"
 import { data } from "../action/data"
 import styles from "./../styles/styles.module.css"
 
@@ -27,7 +27,6 @@ export default function Grid() {
   })
 
   const transApi = useSpringRef()
-  console.log(data.length)
   const transition = useTransition(open ? data : [], {
     ref: transApi,
     trail: 400 / data.length,
@@ -41,6 +40,7 @@ export default function Grid() {
     0,
     open ? 0.1 : 0.6,
   ])
+
   // TODO get data to only show on authenicated links
   return (
     <div className={styles.wrapper}>
@@ -66,11 +66,11 @@ export default function Grid() {
               <p>{item.name}</p>
               <footer>
                 <p>
-                  <FiStar />
-                  <FiStar />
-                  <FiStar />
-                  <FiStar />
-                  <FiStar />
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
                 </p>
               </footer>
             </article>

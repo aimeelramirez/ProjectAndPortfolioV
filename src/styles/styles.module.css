@@ -16,7 +16,18 @@ article > p:nth-of-type(1) {
   -webkit-user-select: none;
   user-select: none;
 }
-
+.star {
+  color: white;
+  will-change: transform, opacity;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.star:hover {
+  color: gold;
+  will-change: transform, opacity;
+  -webkit-user-select: none;
+  user-select: none;
+}
 .griddisplay {
   max-height: 10rem;
 }
@@ -24,7 +35,7 @@ article {
   color: white;
   font-weight: 800;
   font-size: 1.5rem;
-
+  text-shadow: 0px 2px 40px #00000020, 0px 2px 5px #00000030;
   margin: 0;
 }
 
