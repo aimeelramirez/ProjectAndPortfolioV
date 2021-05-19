@@ -47,6 +47,9 @@ const uiConfig = {
         firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
     ],
 };
+export const handleLogout = () => {
+    firebase.auth().signOut()
+}
 
 
 function SignInScreen() {
@@ -105,10 +108,6 @@ function SignInScreen() {
     }
 
 
-    const handleLogout = () => {
-        firebase.auth().signOut()
-        history.push("/")
-    }
 
 
     const handleSubmit = (user) => {
@@ -140,9 +139,8 @@ function SignInScreen() {
                     <h1>My App</h1>
                     <p>Welcome Guest!
                     </p>
-                    <Images />
                     <p>Please login to see current build, Thanks!</p>
-                    <button onClick={() => handleLogout()}>Sign-out</button>
+                    <Images />
                 </div>
             );
             // eslint-disable-next-line

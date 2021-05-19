@@ -1,6 +1,6 @@
 // import React, { useState, useEffect } from "react"
 import { Parallax, ParallaxLayer } from "@react-spring/parallax"
-
+import { handleLogout } from "./SignInScreen"
 // Get the images to the grid to save in the data to show on load as a component to reuse
 export default function Images() {
   return (
@@ -33,7 +33,17 @@ export default function Images() {
           color: "white",
         }}
       >
-        <p>Scroll up</p>
+        <section>
+          <article>
+            <header>
+              <h2>Signout as Guest:</h2>
+              <button onClick={() => handleLogout()}>Sign-out</button>
+            </header>
+            <hr />
+            <p>Or</p>
+            <p>Scroll up</p>
+          </article>
+        </section>
       </ParallaxLayer>
     </Parallax>
   )
