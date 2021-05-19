@@ -1,5 +1,5 @@
 // import React, { useState, useEffect } from "react"
-import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import { Parallax } from "@react-spring/parallax"
 
 // Get the images to the grid to save in the data to show on load as a component to reuse
 export default function Pages(props: any): any {

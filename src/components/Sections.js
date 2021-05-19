@@ -1,8 +1,8 @@
-import { Parallax, ParallaxLayer } from "@react-spring/parallax"
+import { ParallaxLayer } from "@react-spring/parallax"
 import { handleLogout } from "./SignInScreen"
-import Grid from "./Grid"
+// import Grid from "./Grid"
 import Pages from "./Pages"
-import styles from './../styles/styles.module.css'
+// import styles from './../styles/styles.module.css'
 
 const Sections = () => {
   return (
