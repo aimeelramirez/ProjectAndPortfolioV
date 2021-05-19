@@ -1,3 +1,49 @@
+/* save the global typography */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Raleway&display=swap");
+
+:root {
+  /* CSS HEX */
+  /* --gunmetal: #282c34ff;
+  --maximum-blue-green: #16bac5ff;
+  --maya-blue: #5fbff9ff;
+  --magnolia: #efe9f4ff;
+  --neon-blue: #5863f8ff; */
+
+  /* CSS HSL */
+  --gunmetal: hsla(220, 13%, 18%, 1);
+  --maximum-blue-green: hsla(184, 80%, 43%, 1);
+  --maya-blue: hsla(203, 93%, 67%, 1);
+  --magnolia: hsla(273, 33%, 94%, 1);
+  --neon-blue: hsla(236, 92%, 66%, 1);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Montserrat", sans-serif;
+}
+h1 {
+  font-size: 58px;
+}
+h2 {
+  font-size: 45px;
+}
+h3 {
+  font-size: 40px;
+}
+h4 {
+  font-size: 30px;
+}
+
+h5 {
+  font-size: 25px;
+}
+p {
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+}
 .App {
   text-align: center;
 }

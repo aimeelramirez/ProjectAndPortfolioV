@@ -6,7 +6,7 @@ import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
 // import * as actionTypes from "../action/action";
 import Grid from './Grid.js'
-import Images from './Images'
+import Sections from './Sections'
 import Navigation from './navigation'
 import { useHistory } from 'react-router-dom'
 // Configure Firebase.
@@ -140,7 +140,7 @@ function SignInScreen() {
                     <p>Welcome Guest!
                     </p>
                     <p>Please login to see current build, Thanks!</p>
-                    <Images />
+                    <Sections />
                 </div>
             );
             // eslint-disable-next-line
