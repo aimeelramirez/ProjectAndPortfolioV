@@ -11,11 +11,14 @@ import {
 import { MdStar } from "react-icons/md"
 import { data } from "../action/data"
 import styles from "./../styles/styles.module.css"
+import { FetchProductImages } from '../action/unsplash'
 
 export default function Grid() {
   const [open, set] = useState(false)
-
   const springApi = useSpringRef()
+
+
+
   const { size, ...rest } = useSpring({
     ref: springApi,
     config: config.stiff,
@@ -40,6 +43,8 @@ export default function Grid() {
     0,
     open ? 0.1 : 0.6,
   ])
+
+  FetchProductImages()
 
   // TODO get data to only show on authenicated links
   return (

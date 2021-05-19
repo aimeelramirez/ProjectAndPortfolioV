@@ -6,7 +6,7 @@ import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
 // import * as actionTypes from "../action/action";
 import Grid from './Grid.js'
-
+import Images from './Images'
 import Navigation from './navigation'
 import { useHistory } from 'react-router-dom'
 // Configure Firebase.
@@ -140,6 +140,7 @@ function SignInScreen() {
                     <h1>My App</h1>
                     <p>Welcome Guest!
                     </p>
+                    <Images />
                     <p>Please login to see current build, Thanks!</p>
                     <button onClick={() => handleLogout()}>Sign-out</button>
                 </div>
@@ -184,7 +185,6 @@ function SignInScreen() {
 
         } else if (!user.currentUser.isAnonymous) {
             let readUser = user.currentUser.providerData[0]
-            console.log(user.currentUser)
             return (
                 // Get private routes unless signed in
                 <div>
@@ -192,7 +192,7 @@ function SignInScreen() {
                     <p>Welcome {readUser.displayName}!
                     <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {readUser.providerId}
-                    
+
                         <form>
                             <div>
                                 <label htmlFor="message">Message</label>
