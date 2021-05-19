@@ -1,5 +1,5 @@
 import {
-    BrowserRouter as Router,
+    // BrowserRouter as Router,
     Switch,
     Route,
     Link
@@ -36,28 +36,28 @@ const routes = [
 
 export default function Navigation() {
     return (
-        <Router>
-            <section className="app-body">
-                <div>
-                    <ul style={{ listStyleType: "none", padding: 0 }}>
-                        <li>
-                            <Link to="/tacos">Tacos</Link>
-                        </li>
-                        <li>
-                            <Link to="/sandwiches">Sandwiches</Link>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <Switch>
-                        {routes.map((route, i) => (
-                            <RouteWithSubRoutes key={i}
-                                {...route} />
-                        ))}
-                    </Switch>
-                </div>
-            </section>
-        </Router>
+        // <Router>
+        <section className="app-body">
+            <div>
+                <ul style={{ listStyleType: "none", padding: 0 }}>
+                    <li>
+                        <Link to="/tacos">Tacos</Link>
+                    </li>
+                    <li>
+                        <Link to="/sandwiches">Sandwiches</Link>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <Switch>
+                    {routes.map((route, i) => (
+                        <RouteWithSubRoutes key={i}
+                            {...route} />
+                    ))}
+                </Switch>
+            </div>
+        </section>
+        // </Router>
     );
 }
 

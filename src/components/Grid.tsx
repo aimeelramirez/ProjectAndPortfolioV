@@ -50,7 +50,7 @@ export default function Grid() {
         className={styles.container}
         onClick={() => set((open) => !open)}
       >
-        {!open ? <p id={styles.griddisplay}>Click</p> : open}
+        {!open ? <p className={styles.griddisplay}>Click</p> : open}
         {transition((style, item) => (
           <animated.div
             id='cards'
