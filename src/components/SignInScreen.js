@@ -157,10 +157,7 @@ function SignInScreen() {
                     <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {user.currentUser.providerData[0].providerId}
                         <Navigation />
-                        <section id="grid">
-                            {/* Example of typescript with animation on grid with react js */}
-                            <Grid />
-                        </section>
+
                         <form>
                             <div>
                                 <label htmlFor="message">Message</label>
@@ -178,6 +175,10 @@ function SignInScreen() {
                         </form>
                     </p>
                     <button onClick={() => handleLogout()}>Sign-out</button>
+                    <section id="grid">
+                        {/* Example of typescript with animation on grid with react js */}
+                        <Grid />
+                    </section>
                 </div >
             );
 
@@ -191,11 +192,7 @@ function SignInScreen() {
                     <p>Welcome {readUser.displayName}!
                     <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {readUser.providerId}
-                        <Navigation />
-                        <section id="grid">
-                            {/* Example of typescript with animation on grid with react js */}
-                            <Grid />
-                        </section>
+                    
                         <form>
                             <div>
                                 <label htmlFor="message">Message</label>
@@ -213,6 +210,10 @@ function SignInScreen() {
                         </form>
                     </p>
                     <button onClick={() => handleLogout()}>Sign-out</button>
+                    <section id="grid">
+                        {/* Example of typescript with animation on grid with react js */}
+                        <Grid />
+                    </section>
                 </div >
             );
 

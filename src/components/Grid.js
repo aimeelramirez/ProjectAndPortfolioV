@@ -22,7 +22,7 @@ export default function Grid() {
     from: { size: "20%", background: "#5863F8" },
     to: {
       size: open ? "100%" : "20%",
-      background: open ? "white" : "#5863F8",
+      background: open ? "#282c34" : "#5863F8",
     },
   })
 
@@ -45,7 +45,7 @@ export default function Grid() {
   return (
     <div className={styles.wrapper}>
       <animated.div
-        style={{ ...rest, width: size, height: size }}
+        style={{ ...rest, width: size, minWidth: '10rem', height: size }}
         className={styles.container}
         onClick={() => set((open) => !open)}
       >
