@@ -9,8 +9,7 @@ import {
 } from "@react-spring/web"
 
 import { FiStar } from "react-icons/fi"
-
-import { data } from "./../action/data"
+import { data } from "../action/data"
 import styles from "./../styles/styles.module.css"
 
 export default function Grid() {

@@ -5,7 +5,7 @@ import firebase from 'firebase';
 import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
 // import * as actionTypes from "../action/action";
-import Grid from './Grid.tsx'
+import Grid from './Grid.js'
 
 import Navigation from './navigation'
 import { useHistory } from 'react-router-dom'
