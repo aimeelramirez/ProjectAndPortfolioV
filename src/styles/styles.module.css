@@ -2,7 +2,6 @@ ul > li {
   list-style: none;
 }
 
-.griddisplay,
 article > p:nth-of-type(1) {
   cursor: pointer;
   width: 100%;
@@ -16,20 +15,22 @@ article > p:nth-of-type(1) {
   -webkit-user-select: none;
   user-select: none;
 }
-.star {
+/* .star {
   color: white;
   will-change: transform, opacity;
   -webkit-user-select: none;
   user-select: none;
-}
-.star:hover {
+} */
+.star {
   color: gold;
   will-change: transform, opacity;
   -webkit-user-select: none;
   user-select: none;
 }
 .griddisplay {
-  max-height: 10rem;
+  text-align: center;
+  padding-bottom: 0;
+  margin: 0;
 }
 article {
   color: white;
@@ -71,7 +72,9 @@ article {
   border-radius: 5px;
   will-change: transform, opacity;
 }
-#cards {
+.item > article {
+  display: absolute;
+
   font-size: 1px !important;
 }
 .container > div > div {
