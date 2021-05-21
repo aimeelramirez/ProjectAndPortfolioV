@@ -67,7 +67,7 @@ const Sections = () => {
             justifyContent: 'center',
             pointerEvents: 'none',
           }}>
-          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ width: '60%' }} />
+          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ width: '100%' }} />
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -88,7 +88,7 @@ const Sections = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <img id="firstFlower" alt="design by Nsaeoosh: floral pack" src={forgetmenots} style={{ width: '20%' }} />
+          <img id="firstFlower" alt="design by Nsaeoosh: floral pack" src={forgetmenots} style={{ width: '50%' }} />
 
         </ParallaxLayer>
 
@@ -111,11 +111,11 @@ const Sections = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '40%' }} />
+          <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '50%' }} />
           <section>
             <article>
               <header>
-                <h2>Signout as Guest:</h2>
+                <h4>Signout as Guest:</h4>
                 <button onClick={() => handleLogout()}>Sign-out</button>
               </header>
               <hr />
