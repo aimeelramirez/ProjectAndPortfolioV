@@ -1,18 +1,12 @@
-import './App.css';
-import SignInScreen from './components/SignInScreen'
-
-// import { GrInstall } from "react-icons/gr";
+import "./App.css"
+import SignInScreen from "./components/SignInScreen"
 
 function App() {
   return (
-    <div className="App">
-
+    <div className='App'>
       <SignInScreen />
-
-
-
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
