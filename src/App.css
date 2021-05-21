@@ -143,3 +143,7 @@ button:hover {
 #firstFlower {
   transform: rotate(-80deg);
 }
+
+section {
+  display: flex;
+}

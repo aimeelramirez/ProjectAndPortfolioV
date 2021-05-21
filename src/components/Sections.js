@@ -111,15 +111,19 @@ const Sections = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '50%' }} />
           <section>
             <article>
+              <h4>Signout as Guest:</h4>
+              <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '100%' }} />
+            </article>
+
+            <article>
               <header>
-                <h4>Signout as Guest:</h4>
+                <p>Thanks for Reading!</p>
+
                 <button onClick={() => handleLogout()}>Sign-out</button>
               </header>
-              <hr />
-              <p>Thanks for Reading!</p>
+
             </article>
           </section>
         </ParallaxLayer>
