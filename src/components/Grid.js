@@ -25,7 +25,7 @@ export default function Grid() {
     from: { size: "20%", background: "#5863F8" },
     to: {
       size: open ? "100%" : "20%",
-      background: open ? "#282c34" : "#5863F8",
+      background: open ? "transparent" : "#5863F8",
     },
   })
 

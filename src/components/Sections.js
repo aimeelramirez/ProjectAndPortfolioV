@@ -2,7 +2,7 @@ import { ParallaxLayer } from "@react-spring/parallax"
 import { handleLogout } from "./SignInScreen"
 // import Grid from "./Grid"
 import Pages from "./Pages"
-// import styles from './../styles/styles.module.css'
+import styles from './../styles/styles.module.css'
 
 const Sections = () => {
   return (
@@ -16,7 +16,7 @@ const Sections = () => {
         {/* <img src="https://pbs.twimg.com/profile_images/1360226585035632645/8Ui-iEtX_400x400.jpg" style={{ float: 'right' }}></img> */}
       </ParallaxLayer>
 
-      <ParallaxLayer style={{ backgroundColor: '#282c34ff' }} offset={2} speed={0.3}>
+      <ParallaxLayer className={styles.endding} offset={2} speed={0.3}>
 
         <section>
           <article>
@@ -25,8 +25,7 @@ const Sections = () => {
               <button onClick={() => handleLogout()}>Sign-out</button>
             </header>
             <hr />
-            <p>Or</p>
-            <p>Scroll up</p>
+            <p>Thanks for Reading!</p>
           </article>
         </section>
       </ParallaxLayer>

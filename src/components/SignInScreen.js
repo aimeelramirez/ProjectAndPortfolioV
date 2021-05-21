@@ -5,6 +5,8 @@ import firebase from 'firebase';
 import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
 // import * as actionTypes from "../action/action";
+import Socials from "./Socials"
+import { FiPackage } from "react-icons/fi";
 import Grid from './Grid.js'
 import Sections from './Sections'
 import Navigation from './navigation'
@@ -136,10 +138,6 @@ function SignInScreen() {
             history.push("/guest")
             return (
                 <div>
-                    <h1>My App</h1>
-                    <p>Welcome Guest!
-                    </p>
-                    <p>Please login to see current build, Thanks!</p>
                     <Sections />
                 </div>
             );
@@ -222,15 +220,18 @@ function SignInScreen() {
     }
     if (!isSignedIn) {
         return (
-            <div>
+            <>
+                <header className="App-header">
+                    <h1><FiPackage /></h1>
+                </header>
                 <h1>My App</h1>
                 <p>Please sign-in:</p>
                 <StyledFirebaseAuth
                     uiConfig={uiConfig}
                     firebaseAuth={firebase.auth()}
                 />
-
-            </div>
+                <Socials />
+            </>
         );
     } else {
         return handleSubmit(firebase.auth())
