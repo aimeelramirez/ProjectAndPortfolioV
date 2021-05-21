@@ -25,20 +25,20 @@ h5 {
   font-family: "Montserrat", sans-serif;
 }
 h1 {
-  font-size: 58px;
+  font-size: 58pt;
 }
 h2 {
-  font-size: 45px;
+  font-size: 45pt;
 }
 h3 {
-  font-size: 40px;
+  font-size: 40pt;
 }
 h4 {
-  font-size: 30px;
+  font-size: 30pt;
 }
 
 h5 {
-  font-size: 25px;
+  font-size: 25pt;
 }
 p {
   font-family: "Raleway", sans-serif;
@@ -46,9 +46,16 @@ p {
 }
 .App {
   text-align: center;
+  background-image: linear-gradient(
+    130deg,
+    var(--neon-blue) 5%,
+    var(--maximum-blue-green) 100%
+  );
+
+  color: var(--magnolia);
 }
 a {
-  color: white;
+  color: var(--magnolia);
 }
 
 .App-logo {
@@ -90,7 +97,8 @@ ul > .firebaseui-list-item {
   width: 100%;
 }
 .App-header {
-  background-color: #282c34;
+  background-color: var(--gunmetal);
+  box-shadow: var(--gunmetal) 3px 0px 5px 5px;
   display: flex;
   flex-direction: column;
   align-items: center;

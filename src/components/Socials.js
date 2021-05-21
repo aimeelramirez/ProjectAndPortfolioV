@@ -8,13 +8,17 @@ export default function Socials() {
         <FiTwitter />,
         <FiLinkedin />,
         <FiYoutube />,
-        <FiGithub />,
-        <IoHelp />
+        <FiGithub />
     ]
     return (
         <footer className={styles.socials}>
-            {arraySocials.map((item, i) => (
-                <span key={i} onClick={() => { alert("Under Construction") }}>{item}</span>))}
+            <p>
+                {arraySocials.map((item, i) => (
+                    <span key={i} onClick={() => { alert("404: Under Construction") }}>{item}</span>))}
+            </p>
+            <p>
+                <span onClick={() => { alert("404") }}><IoHelp /></span>
+            </p>
         </footer>
     )
 }

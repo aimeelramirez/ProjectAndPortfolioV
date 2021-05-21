@@ -127,18 +127,17 @@ article {
   background: linear-gradient(to right, tomato 0%, gold 100%);
 }
 
-.socials > span:not(:nth-of-type(6)) {
+.socials > p:nth-child(1) > span {
   margin-right: 0.5rem;
   padding: 0.75rem;
   border: 1px solid white;
   border-radius: 50%;
   width: 10%;
 }
-.socials > span:nth-of-type(6) {
-  padding: 0.75rem;
-}
-.socials > span:nth-of-type(6) > :nth-child(1) {
+.socials > p:nth-child(2) > span {
   float: right;
+}
+.socials > p:nth-child(2) > span > :nth-child(1) {
   font-size: 2.5rem;
   border: 1px solid white;
   border-radius: 50%;
