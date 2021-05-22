@@ -5,7 +5,11 @@ import { Parallax } from "@react-spring/parallax"
 export default function Pages(props: any): any {
   //if i want to pass in more than one item than just a number
   return (
-    <Parallax pages={props.pages} style={{ top: "0", left: "0" }}>
+    <Parallax
+      pages={props.pages}
+      className='parallax'
+      style={{ top: "0", left: "0" }}
+    >
       {props.children}
     </Parallax>
   )

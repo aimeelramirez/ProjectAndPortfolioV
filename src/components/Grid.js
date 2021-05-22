@@ -56,34 +56,36 @@ export default function Grid() {
 
 
   // TODO get data to only show on authenicated links
-  return (
-    <div className={styles.wrapper}>
-      <animated.div
+  if (state) {
+    return (
+      <div id="wrapper" >
+        {/* <animated.div
         style={{ ...rest, width: size, minWidth: '10rem', height: size, paddingBottom: '5rem' }}
         className={styles.container}
         onClick={() => set((open) => !open)}
-      >
-        {!open ? <p className={styles.griddisplay}>Show Products</p> : open}
-        {transition((style, item) => (
-          <animated.div
+      > */}
+        {/* {!open ? <p className={styles.griddisplay}>Show Products</p> : open} */}
+        {/* {transition((style, item) => (
+        <animated.div
 
-            className={styles.item}
-            style={{ ...style, backgroundImage: 'url(' + item.urls.small + ')', backgroundSize: "cover" }}
-          >
-            <article>
+          className={styles.item}
+          style={{ ...style, backgroundImage: 'url(' + item.urls.small + ')', backgroundSize: "cover" }}
+        > */}
+        <div className="item">
+          {state.map((item, i) => (
+            <article style={{ backgroundImage: 'url(' + item.urls.small + ')', backgroundSize: "cover" }}>
               <header>
                 <p style={{
-                  color: 'black', backgroundColor: "white", height: '100%'
+                  color: 'black', backgroundColor: "white"
                 }}>
                   #{item.id}
                 </p>
+                <p>Description:</p>
+                <p style={{
+                  color: 'black', backgroundColor: "white"
+                }}>{item.alt_description ? item.alt_description : item.description}</p>
               </header>
-              <p style={{
-                color: 'black', backgroundColor: "white", height: '100%'
-              }}>Description:</p>
-              <p style={{
-                color: 'black', backgroundColor: "white", height: '100%'
-              }}>{item.alt_description ? item.alt_description : item.description}</p>
+
               <footer>
                 <p>
                   <MdStar className={styles.star} />
@@ -94,9 +96,68 @@ export default function Grid() {
                 </p>
               </footer>
             </article>
-          </animated.div>
-        ))}
-      </animated.div>
-    </div>
-  )
+          ))}
+          {/* </animated.div> */}
+        </div>
+        <div className="item">
+          {state.map((item, i) => (
+            <article style={{ backgroundImage: 'url(' + item.urls.small + ')', backgroundSize: "cover" }}>
+              <header>
+                <p style={{
+                  color: 'black', backgroundColor: "white"
+                }}>
+                  #{item.id}
+                </p>
+                <p>Description:</p>
+                <p style={{
+                  color: 'black', backgroundColor: "white"
+                }}>{item.alt_description ? item.alt_description : item.description}</p>
+              </header>
+
+              <footer>
+                <p>
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                </p>
+              </footer>
+            </article>
+          ))}
+          {/* </animated.div> */}
+        </div>
+        <div className="item">
+          {state.map((item, i) => (
+            <article style={{ backgroundImage: 'url(' + item.urls.small + ')', backgroundSize: "cover" }}>
+              <header>
+                <p style={{
+                  color: 'black', backgroundColor: "white"
+                }}>
+                  #{item.id}
+                </p>
+                <p>Description:</p>
+                <p style={{
+                  color: 'black', backgroundColor: "white"
+                }}>{item.alt_description ? item.alt_description : item.description}</p>
+              </header>
+
+              <footer>
+                <p>
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                  <MdStar className={styles.star} />
+                </p>
+              </footer>
+            </article>
+          ))}
+          {/* </animated.div> */}
+        </div>
+      </div>
+    )
+  } else {
+    return (<p>Loading...</p>)
+  }
 }

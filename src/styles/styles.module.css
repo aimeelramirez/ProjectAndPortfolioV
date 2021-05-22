@@ -7,7 +7,7 @@ article > p:nth-of-type(1) {
   width: 100%;
   height: 100%;
   margin: auto 0;
-  color: white;
+  color: var(--gunmetal);
   font-weight: 800;
   font-size: 1rem;
   will-change: transform, opacity;
@@ -33,7 +33,7 @@ article > p:nth-of-type(1) {
   margin: 0;
 }
 article {
-  color: white;
+  color: var(--gunmetal);
   font-weight: 800;
   font-size: 1.5rem;
   text-shadow: 0px 2px 40px #00000020, 0px 2px 5px #00000030;
@@ -42,16 +42,9 @@ article {
 .endding {
   background-color: #282c34ff;
 }
-.wrapper {
-  width: 100%;
-  height: 100%;
-  /* background: rgb(95, 191, 249); */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+
 /* button expand to container */
-.container {
+/* .container {
   position: relative;
   font-size: 2px !important;
   display: inline;
@@ -59,22 +52,13 @@ article {
   max-height: 5rem;
   border-radius: 5px;
   cursor: pointer;
+  background-color: #5863f8;
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.05);
   will-change: width, height;
-}
+} */
 
-.item {
-  width: 30%;
-  min-width: 10rem;
-  display: inline-block;
-  background: white;
-  margin: 1rem;
-  border-radius: 5px;
-  will-change: transform, opacity;
-}
 .item > article {
   display: absolute;
-
   font-size: 1px !important;
 }
 .container > div > div {
@@ -83,58 +67,24 @@ article {
   justify-content: center;
 }
 
-.text {
-  pointer-events: none;
-  justify-content: start !important;
-  font-family: "Kanit", sans-serif;
-  line-height: 0px;
-  text-transform: uppercase;
-}
-
-.number {
-  font-size: 300px;
-  color: #545864;
-}
-
-.number span {
-  display: inline-block;
-  position: relative;
-}
-
-.slopeBegin {
-  background-color: #20232f;
-  clip-path: polygon(20% 0, 70% 0, 50% 100%, 0% 100%);
-}
-
-.slopeEnd {
-  clip-path: polygon(70% 0, 100% 0, 80% 100%, 50% 100%);
-}
-
-.slopeBegin,
-.slopeEnd {
-  position: absolute;
-  width: 170%;
-  height: 100%;
-  cursor: pointer;
-}
-
-.pink {
-  background: linear-gradient(to right, deeppink 0%, coral 100%);
-}
-
-.teal {
-  background: linear-gradient(to right, SlateBlue 0%, DeepSkyBlue 100%);
-}
-
-.tomato {
-  background: linear-gradient(to right, tomato 0%, gold 100%);
-}
-
 .socials > p:nth-child(1) > span {
   margin-right: 0.5rem;
   padding: 0.75rem;
+  border: 1px solid var(--gunmetal);
+  border-radius: 50%;
+  color: var(--gunmetal);
+  background-color: var(--gold-crayola);
+  width: 10%;
+}
+
+.socials > p:nth-child(1) > span:hover {
+  margin-right: 1rem;
+  padding: 0.75rem;
   border: 1px solid white;
   border-radius: 50%;
+  color: white;
+  background-color: var(--forest-green-web);
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   width: 10%;
 }
 .socials > p:nth-child(2) > span {
@@ -143,6 +93,15 @@ article {
 }
 .socials > p:nth-child(2) > span > :nth-child(1) {
   font-size: 2.5rem;
+  background-color: var(--gold-crayola);
+  border: 1px solid var(--gunmetal);
+  border-radius: 50%;
+  color: var(--gunmetal);
+  padding: 0.6rem;
+}
+.socials > p:nth-child(2) > span > :nth-child(1):hover {
+  font-size: 3rem;
+  background-color: var(--forest-green-web);
   border: 1px solid white;
   border-radius: 50%;
   color: white;

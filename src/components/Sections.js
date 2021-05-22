@@ -89,7 +89,12 @@ const Sections = () => {
             justifyContent: 'center',
           }}>
           <img id="firstFlower" alt="design by Nsaeoosh: floral pack" src={forgetmenots} style={{ width: '50%' }} />
-
+          <p className="greetings">
+            <span className="text">
+              <h4> Project and Portfolio</h4>
+              <p>Learning and educational  purposes </p>
+            </span>
+          </p>
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -100,6 +105,12 @@ const Sections = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
+          <p className="greetings">
+            <span className="text">
+              <h4>About Me:</h4>
+              <p>To be continued.</p>
+            </span>
+          </p>
           <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '40%' }} />
         </ParallaxLayer>
 
@@ -111,16 +122,25 @@ const Sections = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-          <section>
-            <article>
-              <h4>Signout as Guest:</h4>
-              <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '100%' }} />
+          <section style={{ margin: '1rem' }}>
+            <article style={{ width: '50%', margin: '2rem' }}>
+              <header>
+                <p className="greetings">
+                  <span className="text">
+                    <p>Thanks for Reading!</p>
+                  </span>
+                </p>
+                <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '100%' }} />
+              </header>
             </article>
 
             <article>
               <header>
-                <p>Thanks for Reading!</p>
-
+                <p className="greetings">
+                  <span className="text">
+                    <h4>Signout as Guest:</h4>
+                  </span>
+                </p>
                 <button onClick={() => HandleLogout()}>Sign-out</button>
               </header>
 
@@ -128,7 +148,7 @@ const Sections = () => {
           </section>
         </ParallaxLayer>
       </Pages>
-    </div>
+    </div >
 
   )
 }

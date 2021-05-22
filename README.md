@@ -61,3 +61,8 @@ https://fonts.google.com/specimen/Montserrat?preview.size=64&preview.layout=row#
 
   - Source:
     https://coolors.co/282c34-fffffa-ff312e-3abeff-ffbe0b
+
+## Greenery
+
+- PDF:
+- Source: https://coolors.co/282c34-dcc48e-eaefd3-b3c0a4-248232

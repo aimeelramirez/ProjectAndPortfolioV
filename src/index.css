@@ -27,13 +27,14 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(
-    135deg,
-    var(--maximum-blue-green) 5%,
-    var(--neon-blue) 100%
+  /* background-image: linear-gradient(
+    125deg,
+    var(--beige) 5%,
+    var(--forest-green-web) 40%
   );
 
-  background-size: 1500px 1500px;
+  background-size: 1500px 1500px; */
+  background-color: var(--beige);
   color: var(--magnolia);
   font-weight: 600;
 }
