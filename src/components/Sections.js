@@ -1,4 +1,4 @@
-import { handleLogout } from "./SignInScreen"
+import { HandleLogout } from "./Config"
 // import Grid from "./Grid"
 import Pages from "./Pages"
 // import styles from './../styles/styles.module.css'
@@ -121,7 +121,7 @@ const Sections = () => {
               <header>
                 <p>Thanks for Reading!</p>
 
-                <button onClick={() => handleLogout()}>Sign-out</button>
+                <button onClick={() => HandleLogout()}>Sign-out</button>
               </header>
 
             </article>

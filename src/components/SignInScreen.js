@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-
+import { auth, db, uiConfig, HandleLogout } from './Config'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import firebase from 'firebase';
-import * as firebaseui from 'firebaseui'
 import 'firebaseui/dist/firebaseui.css'
 // import * as actionTypes from "../action/action";
 import Socials from "./Socials"
@@ -11,52 +9,10 @@ import Grid from './Grid.js'
 import Sections from './Sections'
 import Navigation from './navigation'
 import { useHistory } from 'react-router-dom'
-// Configure Firebase.
-
-const config = {
-    apiKey: "AIzaSyB-zeAyZvTsatuQKDqW8_wkDNOP_N17XOw",
-    authDomain: "projectandportfoliov-api.firebaseapp.com",
-    projectId: "projectandportfoliov-api",
-    storageBucket: "projectandportfoliov-api.appspot.com",
-    messagingSenderId: "301701598347",
-    appId: "1:301701598347:web:066b1871d7080c8f52588e",
-    measurementId: "G-MWEWF5L0SC"
-};
-firebase.initializeApp(config);
-console.log("Uploading data to the database with the following config:\n");
-console.log("\n\n\n\nMake sure that this is your own database, so that you have write access to it.\n\n\n");
-const db = firebase.firestore()
-
-
-// Configure FirebaseUI.
-const uiConfig = {
-    // Popup signin flow rather than redirect flow.
-    signInFlow: 'popup',
-    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-    // signInSuccessUrl: '/Users',
-    callbacks: {
-        // Avoid redirects after sign-in.
-        signInSuccessWithAuthResult: () => true,
-    },
-    // We will display Google and Facebook as auth providers.
-    signInOptions: [
-        {
-            provider: 'apple.com',
-        },
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-        firebase.auth.GithubAuthProvider.PROVIDER_ID,
-        firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID,
-    ],
-};
-export const handleLogout = () => {
-    firebase.auth().signOut()
-}
 
 
 function SignInScreen() {
     let history = useHistory()
-
     // const [messageData, setMessages] = useState({})
     const [loading,] = useState(true);
     const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
@@ -72,7 +28,7 @@ function SignInScreen() {
 
     useEffect(() => {
         const unregisterAuthObserver =
-            firebase.auth().onAuthStateChanged(user => {
+            auth.onAuthStateChanged(user => {
                 setIsSignedIn(!!user);
 
             });
@@ -83,7 +39,7 @@ function SignInScreen() {
 
         var batch = db.batch();
         const messages = db.collection('messages');
-        let authUser = firebase.auth().currentUser.providerData[0]
+        let authUser = auth.currentUser.providerData[0]
         console.log(authUser)
         let postMessage = {
             user: authUser.displayName,
@@ -171,7 +127,7 @@ function SignInScreen() {
                             }}>Submit</button>
                         </form>
                     </p>
-                    <button onClick={() => handleLogout()}>Sign-out</button>
+                    <button onClick={() => HandleLogout()}>Sign-out</button>
                     <section id="grid">
                         {/* Example of typescript with animation on grid with react js */}
                         <Grid />
@@ -205,7 +161,7 @@ function SignInScreen() {
                             }}>Submit</button>
                         </form>
                     </p>
-                    <button onClick={() => handleLogout()}>Sign-out</button>
+                    <button onClick={() => HandleLogout()}>Sign-out</button>
                     <section id="grid">
                         {/* Example of typescript with animation on grid with react js */}
                         <Grid />
@@ -228,13 +184,13 @@ function SignInScreen() {
                 <p>Please sign-in:</p>
                 <StyledFirebaseAuth
                     uiConfig={uiConfig}
-                    firebaseAuth={firebase.auth()}
+                    firebaseAuth={auth}
                 />
                 <Socials />
             </>
         );
     } else {
-        return handleSubmit(firebase.auth())
+        return handleSubmit(auth)
 
     }
 
