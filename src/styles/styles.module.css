@@ -43,19 +43,41 @@ article {
   background-color: #282c34ff;
 }
 
+.wrapper {
+  width: 100%;
+  height: 100%;
+  /* background: rgb(95, 191, 249); */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 /* button expand to container */
-/* .container {
+.container {
   position: relative;
   font-size: 2px !important;
   display: inline;
   padding: 2rem;
   max-height: 5rem;
+  background: white;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #5863f8;
   box-shadow: 0px 10px 10px -5px rgba(0, 0, 0, 0.05);
   will-change: width, height;
-} */
+}
+.container:hover {
+  background-color: var(--gold-crayola) !important;
+}
+
+.item {
+  width: 30%;
+  min-width: 10rem;
+  display: inline-block;
+  background: white;
+  margin: 1rem;
+  border-radius: 5px;
+  will-change: transform, opacity;
+}
 
 .item > article {
   display: absolute;

@@ -5,7 +5,7 @@ import { MdDashboard, MdSearch } from "react-icons/md";
 
 import { useState } from 'react'
 import Socials from "./components/Socials"
-
+import Favorites from "./components/Favorites"
 function App() {
   const [toggle, setToggle] = useState(false)
   const handleSubmit = () => {
@@ -62,7 +62,9 @@ function App() {
               </p>
             </nav>
           </header>
-
+          <h2>Project and Portfolio.</h2>
+          <p>Under construction.</p>
+          <Favorites />
         </>
       )
     } else {
