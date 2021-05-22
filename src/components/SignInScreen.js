@@ -5,12 +5,12 @@ import 'firebaseui/dist/firebaseui.css'
 // import * as actionTypes from "../action/action";
 import Grid from './Grid.js'
 import Sections from './Sections'
-import Navigation from './navigation'
-import { useHistory } from 'react-router-dom'
+// import Navigation from './navigation'
+// import { useHistory } from 'react-router-dom'
 
 
 function SignInScreen() {
-    let history = useHistory()
+    // let history = useHistory()
     // const [messageData, setMessages] = useState({})
     const [loading,] = useState(true);
     const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
@@ -89,7 +89,6 @@ function SignInScreen() {
         //     })
 
         if (user.currentUser.isAnonymous) {
-            history.push("/guest")
             return (
                 <div>
                     <Sections />
@@ -107,8 +106,7 @@ function SignInScreen() {
                     <p>Welcome {readUser.displayName}!
                     <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {user.currentUser.providerData[0].providerId}
-                        <Navigation />
-
+                        {/* <Navigation /> */}
                         <form>
                             <div>
                                 <label htmlFor="message">Message</label>
