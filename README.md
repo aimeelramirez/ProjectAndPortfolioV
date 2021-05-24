@@ -4,8 +4,9 @@ Github Repository:
 
 Deployed sites:
 
-- Github Pages:
-- Domain Provider: https://aimeelramirez.dev/
+- Github Pages: https://aimeelramirez.github.io/ProjectAndPortfolioV/
+
+- <s> Domain Provider: https://aimeelramirez.dev/</s>
 
 ## Designing:
 
