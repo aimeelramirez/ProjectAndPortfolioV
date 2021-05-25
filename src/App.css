@@ -110,6 +110,7 @@ ul > .firebaseui-list-item {
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: var(--gunmetal);
+  height: 50%;
 }
 
 .App-link {

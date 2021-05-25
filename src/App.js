@@ -36,7 +36,6 @@ function App() {
       return (
         <>
           <header className="App-header">
-            <h1><FiPackage /></h1>
             <nav className="navigation-left" >
               <p>
                 <button onClick={handleSubmit}>
@@ -62,6 +61,10 @@ function App() {
               </p>
             </nav>
           </header>
+          <p>
+            <h1 style={{ color: 'white', fontSize: '5rem' }}><FiPackage /></h1>
+
+          </p>
           <h2>Project and Portfolio.</h2>
           <p>Under construction.</p>
           <Favorites />
@@ -71,7 +74,6 @@ function App() {
       return (
         <>
           <header className="App-header">
-            <h1><FiPackage /></h1>
             <nav className="navigation-left" >
               <p>
                 <button onClick={handleSubmit}>
@@ -96,6 +98,10 @@ function App() {
               </p>
             </nav>
           </header>
+          <p>
+            <h1 style={{ color: 'white', fontSize: '5rem' }}><FiPackage /></h1>
+
+          </p>
           <SignInScreen />
           <Socials />
         </>
