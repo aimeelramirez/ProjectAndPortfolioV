@@ -23,11 +23,11 @@ export default function Grid() {
         ref: springApi,
         config: config.stiff,
         from: {
-            size: "20%", backgroundImage: "linear-gradient(125deg,#16bac5ff 20%, #5863f8ff 100%)",
+            size: "20%", backgroundColor: "transparent",
         },
         to: {
             size: open ? "100%" : "20%",
-            backgroundImage: open ? "tranparent" : "linear-gradient(125deg,#16bac5ff 20%, #5863f8ff 100%) ",
+            backgroundImage: open ? "tranparent" : "transparent",
         },
     })
 
@@ -61,11 +61,8 @@ export default function Grid() {
             <animated.div
                 style={{ ...rest, width: size, minWidth: '10rem', height: size }}
                 className={styles.container}
-                onClick={(open) => {
-                    set(open => !open)
-
-                }}>
-                {!open ? <p className={styles.griddisplay} style={{ color: '#fff' }}>Favorites</p> : open}
+            >
+                {/* {!open ? <p className={styles.griddisplay} style={{ color: '#fff' }}>Favorites</p> : open} */}
                 {transition((style, item) => (
                     <animated.div
                         id='cards'

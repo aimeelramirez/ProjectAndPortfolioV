@@ -27,13 +27,14 @@ body {
   margin: 0;
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     125deg,
     var(--neon-blue) 5%,
     var(--maximum-blue-green) 40%
   );
 
-  background-size: 100% 1000%;
+  background-size: 100% 1000%; */
+  background-color: white;
   color: var(--gunmetal);
   font-weight: 600;
 }

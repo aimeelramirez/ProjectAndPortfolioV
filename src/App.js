@@ -62,11 +62,16 @@ function App() {
             </nav>
           </header>
           <p>
-            <h1 style={{ color: 'white', fontSize: '5rem' }}><FiPackage /></h1>
+            <svg width="0" height="0">
+              <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                <stop stopColor="#16bac5ff" offset="0%" />
+                <stop stopColor="#5863f8ff" offset="100%" />
+              </linearGradient>
+            </svg>
+            <h1 ><FiPackage style={{ stroke: "url(#blue-gradient)" }} /></h1>
 
           </p>
-          <h2>Project and Portfolio.</h2>
-          <p>Under construction.</p>
+          <h2>Favorites</h2>
           <Favorites />
         </>
       )
@@ -99,7 +104,13 @@ function App() {
             </nav>
           </header>
           <p>
-            <h1 style={{ color: 'white', fontSize: '5rem' }}><FiPackage /></h1>
+            <svg width="0" height="0">
+              <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+                <stop stopColor="#16bac5ff" offset="0%" />
+                <stop stopColor="#5863f8ff" offset="100%" />
+              </linearGradient>
+            </svg>
+            <h1><FiPackage style={{ stroke: "url(#blue-gradient)" }} /></h1>
 
           </p>
           <SignInScreen />
