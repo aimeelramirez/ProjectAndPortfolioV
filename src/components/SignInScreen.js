@@ -38,29 +38,34 @@ function SignInScreen() {
         var batch = db.batch();
         const messages = db.collection('messages');
         let authUser = auth.currentUser.providerData[0]
-        console.log(authUser)
-        let postMessage = {
-            user: authUser.displayName,
-            email: authUser.email,
-            provider: authUser.providerId,
-            message: newMessage
-        }
+        if (newMessage !== "") {
+            console.log(authUser)
+            let postMessage = {
+                user: authUser.displayName,
+                email: authUser.email,
+                provider: authUser.providerId,
+                message: newMessage
+            }
 
+            const response = await messages.add(postMessage);
+            console.log("loading...", response)
+            alert("success:" + JSON.stringify(postMessage) + " to firestore: "
+                + JSON.stringify(response.firestore._delegate._app.options_.projectId))
 
-        const response = await messages.add(postMessage);
-        console.log("loading...", response)
-        alert("success:" + JSON.stringify(postMessage) + " to firestore: "
-            + JSON.stringify(response.firestore._delegate._app.options_.projectId))
-
-        if (loading) {
-            return batch.commit()
+            if (loading) {
+                return batch.commit()
+            } else {
+                console.log("loading...")
+                alert("success")
+                return (
+                    <span>Loading</span>
+                );
+            }
         } else {
-            console.log("loading...")
-            alert("success")
-            return (
-                <span>Loading</span>
-            );
+            alert("Please enter vaild post that isn't empty.")
+            return null
         }
+
     }
 
 
