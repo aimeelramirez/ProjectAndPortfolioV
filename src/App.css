@@ -50,11 +50,11 @@ h4 {
 }
 
 h5 {
-  font-size: 25pt;
+  font-size: 15pt;
 }
 p {
   font-family: "Raleway", sans-serif;
-  font-size: 20px;
+  font-size: 14pt;
   color: var(--gunmetal);
 }
 .App {
@@ -269,7 +269,7 @@ label {
   display: flex;
   padding: 1rem;
   margin: 1rem;
-  overflow-y: auto;
+  /* overflow-y: auto; */
   scrollbar-color: black;
 }
 
@@ -291,6 +291,16 @@ label {
   width: 100%;
   height: 100%;
 } */
+
+section {
+  width: 100%;
+}
+
+section > article {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+}
 @media (min-width: 200px) and (max-width: 700px) {
   /* .navigation-left {
     display: flex;
@@ -302,5 +312,14 @@ label {
   }
   .navigation-left > p:nth-of-type(2) > form {
     display: none;
+  }
+  section {
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column !important;
+  }
+  section > article {
+    width: 100%;
   }
 }

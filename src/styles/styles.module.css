@@ -33,6 +33,7 @@ article > p:nth-of-type(1) {
   margin: 0;
 }
 article {
+  width: 100%;
   color: var(--gunmetal);
   font-weight: 800;
   font-size: 1.5rem;
@@ -46,6 +47,7 @@ article {
 .wrapper {
   width: 100%;
   height: 100%;
+
   /* background: rgb(95, 191, 249); */
   background-color: transparent;
   display: flex;
@@ -74,8 +76,10 @@ article {
 } */
 
 .item {
+  outline: 1px solid red;
   width: 30%;
   min-width: 10rem;
+  height: 10rem;
   display: inline-block;
   background: white;
   margin: 1rem;
@@ -147,4 +151,52 @@ footer:after {
   content: "";
   clear: both;
   float: none;
+}
+.message {
+  width: 30%;
+  margin: 0.5rem;
+  display: inline-block;
+  background: white;
+  margin: 1rem;
+  border-radius: 5px;
+  will-change: transform, opacity;
+  border: 1px solid var(--gunmetal);
+}
+.message > p:nth-child(1) {
+  font-size: 1rem;
+}
+.welcome > section:nth-child(1) {
+  width: 70%;
+}
+
+.message > p {
+  font-size: 1rem;
+}
+.welcome > ul > li {
+  display: inline-block;
+}
+.welcome > ul {
+  width: 100%;
+}
+.welcome > section > article:nth-child(1) {
+  border-right: 1px solid grey;
+}
+.welcome > section > article:nth-child(2) {
+  background-image: linear-gradient(
+    125deg,
+    var(--maximum-blue-green) 20%,
+    var(--neon-blue) 100%
+  );
+}
+@media (min-width: 200px) and (max-width: 700px) {
+  /* .navigation-left {
+    display: flex;
+    outline: 1px solid red;
+  } */
+  .message > p:nth-child(1) {
+    font-size: 0.7rem;
+  }
+  .welcome > section > article:nth-child(1) {
+    border-right: none;
+  }
 }

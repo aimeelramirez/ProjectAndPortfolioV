@@ -5,13 +5,17 @@ import 'firebaseui/dist/firebaseui.css'
 // import * as actionTypes from "../action/action";
 import Grid from './Grid.js'
 import Sections from './Sections'
+import styles from "./../styles/styles.module.css"
+import { FiTrash, FiEdit } from "react-icons/fi";
+
 // import Navigation from './navigation'
 // import { useHistory } from 'react-router-dom'
 
+let items = []
 
 function SignInScreen() {
     // let history = useHistory()
-    // const [messageData, setMessages] = useState({})
+    const [feed, setFeed] = useState({ items: [] })
     const [loading,] = useState(true);
     const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
     const messageRef = React.useRef();
@@ -32,7 +36,31 @@ function SignInScreen() {
             });
         return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
     }, []);
+    useEffect(() => {
+        const dataRef = db.collection('messages');
+        dataRef.get()
+            .then(doc => {
+                if (doc.empty) {
+                    console.log('No such document!');
+                    return;
+                } else {
+                    console.log(doc.docs.messages)
 
+
+                }
+
+                doc.forEach(i => {
+                    // console.log(i.data().name);
+                    let newDataName = i.data();
+                    items.push(newDataName)
+                    console.log(items)
+                    return setFeed({ items: items })
+
+                })
+            })
+
+
+    }, [])
     async function UploadData(newMessage) {
 
         var batch = db.batch();
@@ -70,29 +98,29 @@ function SignInScreen() {
     }
 
 
+    let ShowFeed = () => {
 
+        return feed.items.map((item) => {
+            return <li className={styles.message}>
+                <p><h5>Email:</h5> <hr />{item.email}</p>
+                <p><h5>Provider:</h5><hr /> {item.provider}</p>
 
+                <p><h5>Message:</h5><hr /> {item.message}</p>
+                <p><FiTrash onClick={(e) => {
+                    e.preventDefault()
+                    alert("404")
+                }} />
+                    <FiEdit onClick={(e) => {
+                        e.preventDefault()
+                        alert("404")
+                    }} /></p>
+            </li>
+        })
+    }
     const handleSubmit = (user) => {
         console.log(user.currentUser.isAnonymous)
         /* TODO */
-        //get to read the data on the page to show poc on send a message 
-        // const dataRef = db.collection('messages');
-        // dataRef.get()
-        //     .then(doc => {
-        //         if (doc.empty) {
-        //             console.log('No such document!');
-        //             return;
-        //         } else {
-        //             setMessages(doc.docs)
-        //         }
-
-        //         doc.forEach(i => {
-        //             // console.log(i.data().name);
-        //             let newDataName = i.data();
-        //             console.log("doc:", newDataName)
-
-        //         })
-        //     })
+        //get to read the data on the page to show poc on send a message
 
         if (user.currentUser.isAnonymous) {
             return (
@@ -105,34 +133,50 @@ function SignInScreen() {
         else if (!user.currentUser.isAnonymous && user.currentUser.providerData[0].providerId === 'google.com') {
             let readUser = user.currentUser
             console.log(user.currentUser)
+
+
+
             return (
                 // Get private routes unless signed in
-                <div>
+                <div className={styles.welcome}>
 
-                    <p>Welcome {readUser.displayName}!
-                    <br />You are now signed-in with email: {readUser.email}!
+                    <section>
+                        <article>
+                            <p>Welcome {readUser.displayName}!
+                   <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {user.currentUser.providerData[0].providerId}
-                        {/* <Navigation /> */}
-                        <form>
-                            <h5>Post a Message:</h5>
-                            <div>
-                                <label htmlFor="message">Message</label>
-                                <textarea
-                                    rows="8" cols="30"
-                                    id="message"
-                                    ref={messageRef}
-                                />
-                            </div>
-                            <button type="submit" onClick={(e) => {
-                                e.preventDefault()
+                                <button onClick={() => HandleLogout()}>Sign-out</button>
+                            </p>
 
-                                let sendMessage = messageRef.current.value
-                                UploadData(sendMessage)
-                            }}>Submit</button>
-                        </form>
-                        <h4>OR</h4>
-                    </p>
-                    <button onClick={() => HandleLogout()}>Sign-out</button>
+                        </article>
+
+
+
+                        <article>
+                            <form>
+                                <h5>Post a Message:</h5>
+                                <div>
+                                    <label htmlFor="message">Message</label>
+                                    <textarea
+                                        rows="8" cols="30"
+                                        id="message"
+                                        ref={messageRef}
+                                    />
+                                </div>
+                                <button type="submit" onClick={(e) => {
+                                    e.preventDefault()
+                                    let sendMessage = messageRef.current.value
+                                    UploadData(sendMessage)
+                                }}>Submit</button>
+                            </form>
+                        </article>
+                    </section>
+
+                    <h4> Feed: </h4>
+                    <ul className={styles.messages}>
+                        <ShowFeed />
+                    </ul>
+
                     <section id="grid">
                         {/* Example of typescript with animation on grid with react js */}
                         <Grid />
@@ -144,31 +188,44 @@ function SignInScreen() {
             let readUser = user.currentUser.providerData[0]
             return (
                 // Get private routes unless signed in
-                <div>
-                    <p>Welcome {readUser.displayName}!
+                <div className={styles.welcome}>
+                    <section>
+                        <article>
+                            <p>Welcome {readUser.displayName}!
                     <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {readUser.providerId}
-                        <form>
-                            <h5>Post a Message:</h5>
-                            <div>
-                                <label htmlFor="message">Message</label>
-                                <textarea
-                                    rows="8" cols="30"
-                                    id="message"
-                                    ref={messageRef}
-                                />
-                            </div>
-                            <button type="submit" onClick={(e) => {
-                                e.preventDefault()
 
-                                let sendMessage = messageRef.current.value
-                                UploadData(sendMessage)
-                            }}>Submit</button>
-                        </form>
-                        <h4>OR</h4>
+                                <button onClick={() => HandleLogout()}>Sign-out</button>
+                            </p>
+                        </article>
+                        <article>
+                            <form>
+                                <h5>Post a Message:</h5>
+                                <div>
+                                    <label htmlFor="message">Message</label>
+                                    <textarea
+                                        rows="8" cols="30"
+                                        id="message"
+                                        ref={messageRef}
+                                    />
+                                </div>
+                                <button type="submit" onClick={(e) => {
+                                    e.preventDefault()
 
-                    </p>
-                    <button onClick={() => HandleLogout()}>Sign-out</button>
+                                    let sendMessage = messageRef.current.value
+                                    UploadData(sendMessage)
+                                }}>Submit</button>
+                            </form>
+                        </article>
+                    </section>
+
+                    <h4> Feed: </h4>
+
+                    <ul className={styles.messages}>
+                        <ShowFeed />
+                    </ul>
+
+
                     <section id="grid">
                         {/* Example of typescript with animation on grid with react js */}
                         <Grid />
@@ -181,11 +238,10 @@ function SignInScreen() {
         }
 
     }
+
     if (!isSignedIn) {
         return (
             <>
-
-
                 <p>Please sign-in:</p>
                 <StyledFirebaseAuth
                     uiConfig={uiConfig}
