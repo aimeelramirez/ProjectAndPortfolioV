@@ -210,19 +210,6 @@ section {
 label {
   display: none;
 }
-@media (min-width: 200px) and (max-width: 600px) {
-  /* .navigation-left {
-    display: flex;
-    outline: 1px solid red;
-  } */
-  .navigation-left > p:nth-of-type(3) {
-    width: 100%;
-    text-align: right;
-  }
-  .navigation-left > p:nth-of-type(2) > form {
-    display: none;
-  }
-}
 
 .greetings {
   position: relative;
@@ -262,30 +249,19 @@ label {
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px var(--gunmetal);
+  background-color: transparent;
   border-radius: 10px;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(
-    125deg,
-    var(--maximum-blue-green) 5%,
-    var(--neon-blue) 40%
-  );
+  background-color: transparent;
   border-radius: 10px;
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-image: linear-gradient(
-    125deg,
-    var(--neon-blue) 5%,
-    var(--maximum-blue-green) 40%
-  );
+  background-color: transparent;
 }
 #wrapper > div {
   display: flex;
@@ -299,6 +275,7 @@ label {
   padding: 1rem;
   margin: 1rem;
 }
+
 /* #wrapper > div {
   text-align: left;
   display: inline-block;
@@ -312,3 +289,16 @@ label {
   width: 100%;
   height: 100%;
 } */
+@media (min-width: 200px) and (max-width: 700px) {
+  /* .navigation-left {
+    display: flex;
+    outline: 1px solid red;
+  } */
+  .navigation-left > p:nth-of-type(3) {
+    width: 100%;
+    text-align: right;
+  }
+  .navigation-left > p:nth-of-type(2) > form {
+    display: none;
+  }
+}
