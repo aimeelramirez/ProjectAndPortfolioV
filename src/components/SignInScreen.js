@@ -49,10 +49,9 @@ function SignInScreen() {
 
         const response = await messages.add(postMessage);
         console.log("loading...", response)
-        alert("success:" + JSON.stringify(response))
+        alert("success:" + JSON.stringify(postMessage) + " to firestore: "
+            + JSON.stringify(response.firestore._delegate._app.options_.projectId))
 
-
-        // return a Spinner when loading is true
         if (loading) {
             return batch.commit()
         } else {
