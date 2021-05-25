@@ -226,6 +226,7 @@ label {
 
 .greetings {
   position: relative;
+  margin: 1rem !important;
 }
 .greetings:before {
   content: "";
@@ -234,6 +235,8 @@ label {
   right: 0;
   left: 0;
   bottom: 0;
+  margin: 1 rem;
+
   background: rgba(255, 255, 255, 0.7);
   opacity: 0.5;
   height: 100%;

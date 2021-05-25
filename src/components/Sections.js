@@ -86,6 +86,8 @@ const Sections = () => {
           style={{
             backgroundSize: '80%',
             backgroundPosition: 'center',
+            margin: '1rem',
+
             backgroundImage: { leaves },
           }}
         />
@@ -116,16 +118,7 @@ const Sections = () => {
             alignItems: 'center',
             justifyContent: 'center',
           }}>
-
-          <p className="greetings">
-            <span className="text">
-              <h4>About Me:</h4>
-              <p>To be continued.</p>
-              <p>Lorem ipsum enim ad minim veniam, ex ea commodo consequat. .</p>
-            </span>
-          </p>
           <img id="secondFlower" alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '70%' }} />
-
         </ParallaxLayer>
 
         <ParallaxLayer
