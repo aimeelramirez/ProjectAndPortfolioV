@@ -44,7 +44,8 @@ function SignInScreen() {
                 user: authUser.displayName,
                 email: authUser.email,
                 provider: authUser.providerId,
-                message: newMessage
+                message: newMessage,
+                favs: ["veggies", "fruits"]
             }
 
             const response = await messages.add(postMessage);

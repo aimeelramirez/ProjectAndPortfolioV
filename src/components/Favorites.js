@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import {
     useTransition,
     useSpring,
@@ -47,15 +47,24 @@ export default function Grid() {
     ])
 
     FetchProductImages()
+    useEffect(() => {
 
+        set(open => !open)
+
+        return () => {
+
+        }
+    }, [])
     // TODO get data to only show on authenicated links
     return (
         <div className={styles.wrapper}>
             <animated.div
                 style={{ ...rest, width: size, minWidth: '10rem', height: size }}
                 className={styles.container}
-                onClick={() => set((open) => !open)}
-            >
+                onClick={(open) => {
+                    set(open => !open)
+
+                }}>
                 {!open ? <p className={styles.griddisplay} style={{ color: '#fff' }}>Favorites</p> : open}
                 {transition((style, item) => (
                     <animated.div
