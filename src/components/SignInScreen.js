@@ -108,9 +108,11 @@ function SignInScreen() {
                     <br /> As your sign-in provider: {user.currentUser.providerData[0].providerId}
                         {/* <Navigation /> */}
                         <form>
+                            <h5>Post a Message:</h5>
                             <div>
                                 <label htmlFor="message">Message</label>
-                                <input
+                                <textarea
+                                    rows="8" cols="30"
                                     id="message"
                                     ref={messageRef}
                                 />
@@ -122,6 +124,7 @@ function SignInScreen() {
                                 UploadData(sendMessage)
                             }}>Submit</button>
                         </form>
+                        <h4>OR</h4>
                     </p>
                     <button onClick={() => HandleLogout()}>Sign-out</button>
                     <section id="grid">
@@ -140,11 +143,12 @@ function SignInScreen() {
                     <p>Welcome {readUser.displayName}!
                     <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {readUser.providerId}
-
                         <form>
+                            <h5>Post a Message:</h5>
                             <div>
                                 <label htmlFor="message">Message</label>
-                                <input
+                                <textarea
+                                    rows="8" cols="30"
                                     id="message"
                                     ref={messageRef}
                                 />
@@ -156,6 +160,8 @@ function SignInScreen() {
                                 UploadData(sendMessage)
                             }}>Submit</button>
                         </form>
+                        <h4>OR</h4>
+
                     </p>
                     <button onClick={() => HandleLogout()}>Sign-out</button>
                     <section id="grid">
