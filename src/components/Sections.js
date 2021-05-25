@@ -101,13 +101,13 @@ const Sections = () => {
             justifyContent: 'center',
           }}>
           <img id="firstFlower" alt="design by Nsaeoosh: floral pack" src={forgetmenots} style={{ width: '50%' }} />
-          <p className="greetings">
-            <span className="text">
+          <div className="greetings">
+            <div className="text">
               <h4> Project and Portfolio</h4>
               <p>Learning and educational  purposes </p>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-            </span>
-          </p>
+            </div>
+          </div>
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -124,31 +124,31 @@ const Sections = () => {
         <ParallaxLayer
           offset={2}
           speed={-0}
-          style={{
-            display: 'flex',
+          pantyle={{
+            dianlay: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
           }}>
           <section>
             <article>
               <header style={{ fontSize: '1rem', textAlign: 'center' }}>
-                <p className="greetings">
-                  <span className="text" >
+                <div className="greetings">
+                  <div className="text" >
                     <h4>Contact:</h4>
-                    <p>Contact Information</p>
+                    < >Contact Information</ >
                     {/* TODO fix the contacts and info page */}
                     <p>email@mail.com</p>
                     <p>1(234)567-8910</p>
                     <p>Thanks for reading!</p>
-                  </span>
-                </p>
+                  </div>
+                </div>
                 <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '100%' }} />
               </header>
             </article>
 
             <article style={{ padding: '1rem' }}>
               <header>
-                <h4>Signout as Guest:</h4>
+                <h4 style={{ color: '#fff', fontSize: '18px' }}>Signout as Guest:</h4>
                 <button onClick={() => HandleLogout()}>Sign-out</button>
               </header>
 
