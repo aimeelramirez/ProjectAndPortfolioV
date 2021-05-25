@@ -3,6 +3,7 @@ import { auth, db, uiConfig, HandleLogout } from './Config'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import 'firebaseui/dist/firebaseui.css'
 // import * as actionTypes from "../action/action";
+
 import Grid from './Grid.js'
 import Sections from './Sections'
 import styles from "./../styles/styles.module.css"
@@ -16,7 +17,7 @@ let items = []
 function SignInScreen() {
     // let history = useHistory()
     const [feed, setFeed] = useState({ items: [] })
-    const [loading,] = useState(true);
+    const [loading,] = useState(false);
     const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
     const messageRef = React.useRef();
 
@@ -37,6 +38,11 @@ function SignInScreen() {
         return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
     }, []);
     useEffect(() => {
+        GetData()
+
+    }, [])
+
+    const GetData = () => {
         const dataRef = db.collection('messages');
         dataRef.get()
             .then(doc => {
@@ -54,13 +60,12 @@ function SignInScreen() {
                     let newDataName = i.data();
                     items.push(newDataName)
                     console.log(items)
+                    setFeed({ items: [] })
                     return setFeed({ items: items })
 
                 })
             })
-
-
-    }, [])
+    }
     async function UploadData(newMessage) {
 
         var batch = db.batch();
@@ -81,14 +86,13 @@ function SignInScreen() {
             alert("success:" + JSON.stringify(postMessage) + " to firestore: "
                 + JSON.stringify(response.firestore._delegate._app.options_.projectId))
 
-            if (loading) {
+            if (!loading) {
+                alert("success")
+                // window.location.reload()
+
                 return batch.commit()
             } else {
                 console.log("loading...")
-                alert("success")
-                return (
-                    <span>Loading</span>
-                );
             }
         } else {
             alert("Please enter vaild post that isn't empty.")
@@ -99,23 +103,26 @@ function SignInScreen() {
 
 
     let ShowFeed = () => {
+        if (feed.items.length > 0) {
+            return feed.items.map((item) => {
+                return <li className={styles.message}>
+                    <p><h5>Email:</h5> <hr />{item.email}</p>
+                    <p><h5>Provider:</h5><hr /> {item.provider}</p>
 
-        return feed.items.map((item) => {
-            return <li className={styles.message}>
-                <p><h5>Email:</h5> <hr />{item.email}</p>
-                <p><h5>Provider:</h5><hr /> {item.provider}</p>
-
-                <p><h5>Message:</h5><hr /> {item.message}</p>
-                <p><FiTrash onClick={(e) => {
-                    e.preventDefault()
-                    alert("404")
-                }} />
-                    <FiEdit onClick={(e) => {
+                    <p><h5>Message:</h5><hr /> {item.message}</p>
+                    <p><FiTrash onClick={(e) => {
                         e.preventDefault()
                         alert("404")
-                    }} /></p>
-            </li>
-        })
+                    }} />
+                        <FiEdit onClick={(e) => {
+                            e.preventDefault()
+                            alert("404")
+                        }} /></p>
+                </li>
+            })
+        } else {
+            return (<span>There are no entries.</span>)
+        }
     }
     const handleSubmit = (user) => {
         console.log(user.currentUser.isAnonymous)
@@ -149,9 +156,6 @@ function SignInScreen() {
                             </p>
 
                         </article>
-
-
-
                         <article>
                             <form>
                                 <h5>Post a Message:</h5>
