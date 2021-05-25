@@ -49,14 +49,15 @@ function SignInScreen() {
 
         const response = await messages.add(postMessage);
         console.log("loading...", response)
+        alert("success:" + JSON.stringify(response))
 
 
         // return a Spinner when loading is true
-        if (!loading) {
-            alert("success")
+        if (loading) {
             return batch.commit()
         } else {
             console.log("loading...")
+            alert("success")
             return (
                 <span>Loading</span>
             );
