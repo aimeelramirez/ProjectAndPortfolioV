@@ -22,10 +22,12 @@ export default function Grid() {
     const { size, ...rest } = useSpring({
         ref: springApi,
         config: config.stiff,
-        from: { size: "20%", background: "#248232ff" },
+        from: {
+            size: "20%", backgroundImage: "linear-gradient(125deg,#16bac5ff 20%, #5863f8ff 100%)",
+        },
         to: {
             size: open ? "100%" : "20%",
-            background: open ? "tranparent" : "#248232ff",
+            backgroundImage: open ? "tranparent" : "linear-gradient(125deg,#16bac5ff 20%, #5863f8ff 100%) ",
         },
     })
 
@@ -54,12 +56,12 @@ export default function Grid() {
                 className={styles.container}
                 onClick={() => set((open) => !open)}
             >
-                {!open ? <p className={styles.griddisplay}>Favorites</p> : open}
+                {!open ? <p className={styles.griddisplay} style={{ color: '#fff' }}>Favorites</p> : open}
                 {transition((style, item) => (
                     <animated.div
                         id='cards'
                         className={styles.item}
-                        style={{ ...style, background: item.css }}
+                        style={{ ...style, backgroundImage: item.css }}
                     >
                         <article>
                             <header>
@@ -82,6 +84,6 @@ export default function Grid() {
                     </animated.div>
                 ))}
             </animated.div>
-        </div>
+        </div >
     )
 }
