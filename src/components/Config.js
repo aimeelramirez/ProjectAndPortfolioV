@@ -36,6 +36,10 @@ export const uiConfig = {
     ],
 };
 export const HandleLogout = () => {
+    if (firebase.auth().currentUser.isAnonymous) {
+        //delete guest token
+        firebase.auth().currentUser.delete()
+    }
     firebase.auth().signOut()
 }
 
