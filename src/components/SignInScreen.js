@@ -108,7 +108,7 @@ function SignInScreen() {
             return (
                 // Get private routes unless signed in
                 <div>
-                    <h1>My App</h1>
+
                     <p>Welcome {readUser.displayName}!
                     <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {user.currentUser.providerData[0].providerId}
@@ -145,7 +145,6 @@ function SignInScreen() {
             return (
                 // Get private routes unless signed in
                 <div>
-                    <h1>My App</h1>
                     <p>Welcome {readUser.displayName}!
                     <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {readUser.providerId}
@@ -186,7 +185,7 @@ function SignInScreen() {
         return (
             <>
 
-                <h1>My App</h1>
+
                 <p>Please sign-in:</p>
                 <StyledFirebaseAuth
                     uiConfig={uiConfig}

@@ -96,6 +96,7 @@ article {
 .socials > p:nth-child(1) > span {
   margin-right: 0.5rem;
   padding: 0.75rem;
+  border: 1px solid var(--gunmetal);
   border-radius: 50%;
   color: var(--gunmetal);
   width: 10%;
@@ -121,6 +122,7 @@ article {
 }
 .socials > p:nth-child(2) > span > :nth-child(1) {
   font-size: 2.5rem;
+  border: 1px solid var(--gunmetal);
   border-radius: 50%;
   color: var(--gunmetal);
   padding: 0.6rem;
