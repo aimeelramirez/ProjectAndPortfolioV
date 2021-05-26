@@ -127,7 +127,7 @@ function App() {
           <Link to="/favorites">
             <ShowFavs />
           </Link>
-          <Socials />
+
 
         </>
       )
@@ -137,7 +137,10 @@ function App() {
           <Link to="/auth">
             <ShowAuth />
           </Link>
-          <Socials />
+          <div className="app-container">
+
+            <Socials />
+          </div>
         </>
       )
     }

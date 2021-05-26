@@ -253,14 +253,11 @@ function SignInScreen() {
     if (!isSignedIn) {
         return (
             <>
-
                 <p>Please sign-in:</p>
                 <StyledFirebaseAuth
                     uiConfig={uiConfig}
                     firebaseAuth={auth}
                 />
-
-
             </>
         );
     } else {

@@ -306,7 +306,9 @@ label {
   padding: 1rem;
   margin: 1rem;
 }
-
+.app-container {
+  height: 50rem;
+}
 /* #wrapper > div {
   text-align: left;
   display: inline-block;
