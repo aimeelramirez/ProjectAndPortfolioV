@@ -17,10 +17,8 @@ function SignInScreen() {
     // let history = useHistory()
     const [feed, setFeed] = useState({ items: [] })
     const [loading,] = useState(false);
-    const [submitted, setSubmit] = useState(false)
     const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
     const messageRef = React.useRef();
-    const { from } = window.location.state || '/loggedin'
 
     useEffect(() => {
         if (isSignedIn === false) {

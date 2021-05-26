@@ -223,8 +223,7 @@ label {
   right: 0;
   left: 0;
   bottom: 0;
-  margin: 1 rem;
-
+  margin: 1rem;
   background: rgba(255, 255, 255, 0.7);
   opacity: 0.5;
   height: 100%;
@@ -234,6 +233,35 @@ label {
   position: relative;
   padding: 1rem;
 }
+.card-description {
+  position: relative;
+  padding: 0;
+}
+.card-description:before {
+  content: "";
+  position: absolute;
+  opacity: 0.5;
+  border-radius: 5px;
+}
+.item > section article div:nth-child(1) {
+  width: 100%;
+  height: 15rem;
+  outline: 1px solid red;
+  margin-top: 15rem;
+}
+
+.text {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.7);
+}
+.text > p {
+  font-size: 1rem;
+}
 #wrapper {
   content: "";
   clear: both;
@@ -241,7 +269,7 @@ label {
   display: block;
 }
 #wrapper {
-  width: 100%;
+  width: 50%;
   color: white;
   padding: 0.5rem 1rem;
 }
@@ -266,13 +294,15 @@ label {
 }
 #wrapper > div {
   display: flex;
+
   padding: 1rem;
   margin: 1rem;
   /* overflow-y: auto; */
   scrollbar-color: black;
 }
 
-#wrapper > div > article {
+#wrapper > div article {
+  display: inline-block;
   padding: 1rem;
   margin: 1rem;
 }

@@ -78,7 +78,7 @@ article {
 .item {
   width: 30%;
   min-width: 10rem;
-  height: 10rem;
+
   display: inline-block;
   background: white;
   margin: 1rem;

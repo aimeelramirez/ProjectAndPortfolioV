@@ -73,7 +73,6 @@ function App() {
 
         </p>
         <SignInScreen />
-        <Socials />
       </>
 
     )
@@ -128,6 +127,8 @@ function App() {
           <Link to="/favorites">
             <ShowFavs />
           </Link>
+          <Socials />
+
         </>
       )
     } else if (!toggle) {
@@ -136,6 +137,7 @@ function App() {
           <Link to="/auth">
             <ShowAuth />
           </Link>
+          <Socials />
         </>
       )
     }
