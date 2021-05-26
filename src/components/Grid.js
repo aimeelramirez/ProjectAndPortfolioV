@@ -79,7 +79,7 @@ export default function Grid() {
               className={styles.item}
               style={{ ...style, backgroundImage: item.css }}
             > paddingBottom: '4rem'
-              <div style={{ backgroundImage: 'url(' + item.urls.full + ')', backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "left" }}
+              <div className={styles.images} style={{ backgroundImage: 'url(' + item.urls.full + ')', backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "top" }}
                 onClick={((e) => {
                   e.preventDefault()
                   let message = '404, You clicked: ' + item.alt_description;
@@ -93,7 +93,6 @@ export default function Grid() {
                       <MdStar className={styles.star} />
                       <MdStar className={styles.star} />
                       <MdStar className={styles.star} />
-
                     </p>
 
                       <header className="text" style={{
@@ -104,6 +103,8 @@ export default function Grid() {
                         </p>
                         <p>Description:</p>
                         <p>{item.alt_description ? item.alt_description : item.description}</p>
+                        <p style={{ float: 'right', color: 'red', fontSize: '20px', marginBottom: '3rem' }}><FaHeart /></p>
+
                       </header>
 
 
@@ -113,7 +114,6 @@ export default function Grid() {
                   </article>
 
                 </section>
-                <p style={{ float: 'right', marginLeft: '10rem', marginTop: '15rem', color: 'red', fontSize: '20px', marginBottom: '3rem' }}><FaHeart /></p>
 
               </div>
 

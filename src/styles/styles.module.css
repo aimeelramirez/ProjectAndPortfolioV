@@ -198,4 +198,30 @@ footer:after {
   .welcome > section > article:nth-child(1) {
     border-right: none;
   }
+
+  #wrapper,
+  section,
+  article {
+    content: "";
+    clear: both;
+    float: none;
+    margin: 1rem;
+    display: block;
+    padding: 1rem;
+  }
+  #wrapper,
+  .item,
+  .text {
+    width: 100%;
+    min-width: 20rem;
+    margin-right: 3rem;
+
+    height: 30rem !important;
+    margin: 0;
+  }
+  .images {
+    margin: 0 auto;
+    margin-left: -5rem;
+    width: 115%;
+  }
 }

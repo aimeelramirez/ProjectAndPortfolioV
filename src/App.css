@@ -276,28 +276,24 @@ label {
 }
 
 /* width */
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   width: 10px;
-}
+} */
 /* Track */
-::-webkit-scrollbar-track {
+/* ::-webkit-scrollbar-track {
   background-color: transparent;
   border-radius: 10px;
-}
+} */
 /* Handle */
-::-webkit-scrollbar-thumb {
+/* ::-webkit-scrollbar-thumb {
   background-color: transparent;
   border-radius: 10px;
-}
+} */
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+/* ::-webkit-scrollbar-thumb:hover {
   background-color: transparent;
-}
+} */
 
-#grid {
-  width: 100%;
-  margin-bottom: 4rem;
-}
 #wrapper {
   width: 100%;
   display: flex;
