@@ -1,14 +1,14 @@
-import { HandleLogout } from "./Config"
+import { HandleLogout } from "./../Config/config"
 // import Grid from "./Grid"
 import Pages from "./Pages"
 import { Redirect, Link } from 'react-router-dom'
 
 // import styles from './../styles/styles.module.css'
-import rose from './../styles/images/rose.svg'
-import roses from './../styles/images/roses.svg'
-import flower from './../styles/images/flower.svg'
-import forgetmenots from './../styles/images/forgetmenots.svg'
-import leaves from './../styles/images/leaves.svg'
+import rose from './../../styles/images/rose.svg'
+import roses from './../../styles/images/roses.svg'
+import flower from './../../styles/images/flower.svg'
+import forgetmenots from './../../styles/images/forgetmenots.svg'
+import leaves from './../../styles/images/leaves.svg'
 import React, { useRef } from "react"
 import { ParallaxLayer } from "@react-spring/parallax"
 // Something for learning as i go.

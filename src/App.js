@@ -4,9 +4,11 @@ import { FiPackage } from "react-icons/fi";
 import { MdDashboard, MdSearch } from "react-icons/md";
 import { Switch, Route, Link, Redirect } from 'react-router-dom';
 import { useState } from 'react'
-import Socials from "./components/Socials"
-import Favorites from "./components/Favorites"
-import Sections from './components/Sections'
+import Socials from "./components/Socials/socials.js";
+// import Favorites from "./components/Favorites"
+import Sections from './components/Guest/Sections'
+import Grid from './components/Grid'
+import Spinner from './components/Spinner/spinner'
 function App() {
   const [toggle, setToggle] = useState(false)
   const handleSubmit = () => {
@@ -49,7 +51,6 @@ function App() {
                 <label for="site-search">Search the site:</label>
                 <input type="search" id="site-search"
                   aria-label="Search through site content" />
-
                 <button onClick={ShowSearch}>
                   <MdSearch />
                 </button>
@@ -72,7 +73,7 @@ function App() {
           <h1><FiPackage style={{ stroke: "url(#blue-gradient)" }} /></h1>
 
         </p>
-        <SignInScreen />
+        {SignInScreen ? <SignInScreen /> : <Spinner />}
       </>
 
     )
@@ -117,7 +118,10 @@ function App() {
 
       </p>
       <h2>Favorites</h2>
-      <Favorites />
+      <section id="grid">
+        {/* Example of typescript with animation on grid with react js */}
+        {Grid ? <Grid /> : <Spinner />}
+      </section>
     </>)
   }
   const ShowLogin = () => {
@@ -127,7 +131,6 @@ function App() {
           <Link to="/favorites">
             <ShowFavs />
           </Link>
-
 
         </>
       )

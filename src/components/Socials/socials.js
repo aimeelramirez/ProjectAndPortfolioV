@@ -1,6 +1,6 @@
 import { FiFacebook, FiTwitter, FiLinkedin, FiYoutube, FiGithub } from "react-icons/fi"
 import { IoHelp } from "react-icons/io5";
-import styles from "./../styles/styles.module.css"
+import styles from "./../../styles/styles.module.css"
 //getting footer for reusable component
 export default function Socials() {
     const arraySocials = [

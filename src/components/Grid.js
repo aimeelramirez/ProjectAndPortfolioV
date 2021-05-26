@@ -8,14 +8,16 @@ import {
   useSpringRef,
 } from "@react-spring/web"
 import { MdStar } from "react-icons/md"
+import { FaHeart } from "react-icons/fa";
+
 import styles from "./../styles/styles.module.css"
 import { FetchProductImages } from '../action/unsplash'
+import Spinner from './Spinner/spinner'
+
 
 export default function Grid() {
   const [open, set] = useState(false)
   const springApi = useSpringRef()
-
-
   const [state, setState] = useState()
 
   useEffect(() => {
@@ -30,8 +32,7 @@ export default function Grid() {
 
   }, [])
 
-  // const [state1, setState1] = useState()
-  // const [state2, setState2] = useState()
+
   const { size, ...rest } = useSpring({
     ref: springApi,
     config: config.stiff,
@@ -66,46 +67,33 @@ export default function Grid() {
   }, [])
 
 
-
-
-  // useEffect(() => {
-  //   FetchProductImages1().then(res => {
-  //     console.log(res.results)
-  //     if (res.results != "") {
-  //       return setState1(res.results)
-  //     } else {
-  //       return <p>Loading...</p>
-  //     }
-  //   })
-
-  // }, [])
-
-
-  // TODO get data to only show on authenicated links
   if (state) {
     return (
-      <div id="wrapper" style={{ height: '30rem' }}>
-
-
+      <div id="wrapper">
         <animated.div
           style={{ ...rest, width: size, minWidth: '10rem', height: size }}
           className={styles.container}
         >
           {transition((style, item) => (
             <animated.div
-              id='cards'
               className={styles.item}
               style={{ ...style, backgroundImage: item.css }}
-            >
-              <div className={styles.item}>
+            > paddingBottom: '4rem'
+              <div style={{ backgroundImage: 'url(' + item.urls.full + ')', backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "left" }}
+                onClick={((e) => {
+                  e.preventDefault()
+                  let message = '404, You clicked: ' + item.alt_description;
+                  alert(message)
+                })} >
                 <section>
-                  <article style={{ backgroundImage: 'url(' + item.urls.full + ')', backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "left" }}>
+                  <article>
                     <div className="card-description"><p style={{ display: 'flex' }}>
                       <MdStar className={styles.star} />
                       <MdStar className={styles.star} />
                       <MdStar className={styles.star} />
                       <MdStar className={styles.star} />
                       <MdStar className={styles.star} />
+
                     </p>
 
                       <header className="text" style={{
@@ -119,13 +107,15 @@ export default function Grid() {
                       </header>
 
 
+
                     </div>
 
                   </article>
 
                 </section>
+                <p style={{ float: 'right', marginLeft: '10rem', marginTop: '15rem', color: 'red', fontSize: '20px', marginBottom: '3rem' }}><FaHeart /></p>
 
-              </div >
+              </div>
 
             </animated.div>
           ))}
@@ -135,6 +125,6 @@ export default function Grid() {
     )
   }
   else {
-    return (<p>Loading...</p>)
+    return (<Spinner />)
   }
 }

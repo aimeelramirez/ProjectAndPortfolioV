@@ -51,7 +51,7 @@ export default function Favorites() {
         return () => {
         }
     }, [])
-    // TODO get data to only show on authenicated links
+
     return (
         <div className={styles.wrapper}>
             <animated.div

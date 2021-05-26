@@ -111,6 +111,7 @@ ul > .firebaseui-list-item {
   font-size: calc(10px + 2vmin);
   color: var(--gunmetal);
   height: 50%;
+  width: 100%;
 }
 
 .App-link {
@@ -292,23 +293,28 @@ label {
 ::-webkit-scrollbar-thumb:hover {
   background-color: transparent;
 }
-#wrapper > div {
-  display: flex;
 
-  padding: 1rem;
-  margin: 1rem;
+#grid {
+  width: 100%;
+  margin-bottom: 4rem;
+}
+#wrapper {
+  width: 100%;
+  display: flex;
+  margin-bottom: 4rem;
+}
+#wrapper > div {
+  display: inline-block !important;
+  margin-bottom: 4rem;
   /* overflow-y: auto; */
   scrollbar-color: black;
 }
-
 #wrapper > div article {
-  display: inline-block;
   padding: 1rem;
   margin: 1rem;
+  margin-bottom: 4rem;
 }
-.app-container {
-  height: 50rem;
-}
+
 /* #wrapper > div {
   text-align: left;
   display: inline-block;
