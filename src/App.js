@@ -41,7 +41,7 @@ function App() {
           <nav className="navigation-left" >
             <p>
               <button onClick={handleSubmit}>
-                {toggle ? "Favorites" : "Sign-In"}
+                {toggle ? "Sign-In" : "Favorites"}
               </button>
             </p>
             <p>
@@ -85,7 +85,7 @@ function App() {
         <nav className="navigation-left" >
           <p>
             <button onClick={handleSubmit}>
-              {toggle ? "Favorites" : "Sign-In"}
+              {toggle ? "Sign-In" : "Favorites"}
             </button>
           </p>
           <p>
@@ -122,7 +122,7 @@ function App() {
     </>)
   }
   const ShowLogin = () => {
-    if (!toggle) {
+    if (toggle) {
       return (
         <>
           <Link to="/favorites">
@@ -130,7 +130,7 @@ function App() {
           </Link>
         </>
       )
-    } else if (toggle) {
+    } else if (!toggle) {
       return (
         <>
           <Link to="/auth">
@@ -143,11 +143,11 @@ function App() {
   return (<div className='App'>
     <ShowLogin />
     <Switch>
-      <Redirect from="/" to="/favorites" />
+      <Redirect from="/" to="/auth" />
       <Route exact path="/favorites" component={ShowFavs} />
       <Route exact path="/auth" component={ShowAuth} />
       <Route exact path="/guest" component={Sections} />
-      <Route exact path="/loggedin" component={SignInScreen} />
+      <Route path="/loggedin" component={SignInScreen} />
 
     </Switch>
 

@@ -17,8 +17,10 @@ function SignInScreen() {
     // let history = useHistory()
     const [feed, setFeed] = useState({ items: [] })
     const [loading,] = useState(false);
+    const [submitted, setSubmit] = useState(false)
     const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
     const messageRef = React.useRef();
+    const { from } = window.location.state || '/loggedin'
 
     useEffect(() => {
         if (isSignedIn === false) {
@@ -87,9 +89,11 @@ function SignInScreen() {
 
             if (!loading) {
                 alert("success")
-                // window.location.reload()
+                batch.commit()
+                return window.location.reload()
 
-                return batch.commit()
+
+
             } else {
                 console.log("loading...")
             }
@@ -102,7 +106,7 @@ function SignInScreen() {
 
 
     let ShowFeed = () => {
-        if (feed.items.length > 0) {
+        if (feed.items.length > 0 && !loading) {
             return feed.items.map((item) => {
                 return <li className={styles.message}>
                     <p><h5>Email:</h5> <hr />{item.email}</p>
@@ -119,7 +123,9 @@ function SignInScreen() {
                         }} /></p>
                 </li>
             })
-        } else {
+        } else if (loading) {
+            return (<>Loading...</>)
+        } else if (feed.items.length === 0) {
             return (<span>There are no entries.</span>)
         }
     }
@@ -170,6 +176,7 @@ function SignInScreen() {
                                         UploadData(sendMessage)
                                     }}>Submit</button>
                                 </form>
+
                             </article>
                         </section>
 

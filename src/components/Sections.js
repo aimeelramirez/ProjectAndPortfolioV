@@ -118,9 +118,12 @@ const Sections = () => {
             speed={0.1}
             style={{
               display: 'flex',
+              flexDirection: 'column',
+              margin: '3rem',
               alignItems: 'center',
               justifyContent: 'center',
             }}>
+
             <img id="secondFlower" alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '70%' }} />
           </ParallaxLayer>
 
@@ -128,34 +131,31 @@ const Sections = () => {
             offset={2}
             speed={-0}
             pantyle={{
-              dianlay: 'flex',
+              display: 'flex',
+              flexDirection: 'column',
+              margin: '3rem',
               alignItems: 'center',
               justifyContent: 'center',
             }}>
-            <article style={{ padding: '1rem' }}>
-              <header>
-                <h4 style={{ color: '#fff', fontSize: '18px' }}>Signout as Guest:</h4>
-                <button onClick={() => HandleLogout()}>Sign-out</button>
-              </header>
 
-            </article>
             <section style={{ fontSize: '.2rem', margin: "3rem" }}>
-              <article>
-                <header>
-                  <div className="greetings">
-                    <div className="text" >
-                      <h4>Contact:</h4>
-                      < >Contact Information</ >
-                      {/* TODO fix the contacts and info page */}
-                      <p>email@mail.com</p>
-                      <p>1(234)567-8910</p>
-                      <p>Thanks for reading!</p>
-                    </div>
-                  </div>
-                  <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '100%' }} />
-                </header>
 
-              </article>
+              <header>
+                <div className="greetings">
+                  <div className="text" >
+                    <h4>Contact:</h4>
+                    < >Contact Information</ >
+                    {/* TODO fix the contacts and info page */}
+                    <p>email@mail.com</p>
+                    <p>1(234)567-8910</p>
+                    <p>Thanks for reading!</p>
+                    <p className="greetings" >
+                      <span className="text">Sign-Out as Guest: </span> </p>
+                    <button onClick={() => HandleLogout()}>Sign-out</button>
+                  </div>
+                </div>
+                <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '100%', opacity: 0.6 }} />
+              </header>
 
 
             </section>
