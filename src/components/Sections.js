@@ -1,6 +1,8 @@
 import { HandleLogout } from "./Config"
 // import Grid from "./Grid"
 import Pages from "./Pages"
+import { Redirect, Link } from 'react-router-dom'
+
 // import styles from './../styles/styles.module.css'
 import rose from './../styles/images/rose.svg'
 import roses from './../styles/images/roses.svg'
@@ -14,138 +16,122 @@ const Sections = () => {
   const parallax = useRef(0)
   return (
     <div>
-
-      <Pages ref={parallax} pages={3}>
-        <ParallaxLayer offset={1} speed={1} />
-        <ParallaxLayer offset={2} speed={1} />
-        <ParallaxLayer
-          offset={0}
-          speed={0}
-          factor={3}
-        />
-        <p>Please Scroll Down.</p>
-        <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '20%', marginLeft: '60%' }} />
-
-
-        <ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
-          <img alt="design by Nsaeoosh: floral pack" src={flower} style={{ width: '15%', marginLeft: '70%' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '20%', marginLeft: '55%' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '10%', marginLeft: '15%' }} />
-        </ParallaxLayer>
-        <ParallaxLayer offset={1} speed={0.2} style={{ opacity: 0.2 }}>
-          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '10%', marginLeft: '10%' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '20%', marginLeft: '75%' }} />
-        </ParallaxLayer>
-        <ParallaxLayer offset={2} speed={0.8} style={{ opacity: 0.2 }}>
-          <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '20%', marginLeft: '55%' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '10%', marginLeft: '15%' }} />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={1.75} speed={0.5} style={{ opacity: 0.3 }}>
-          <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '20%', marginLeft: '70%' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '20%', marginLeft: '40%' }} />
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={0.5} speed={-0.1} style={{ opacity: 0.3 }}>
+      <Redirect from="/auth" to="/guest" />
+      <Link to="/guest">
+        <Pages ref={parallax} pages={3}>
+          <ParallaxLayer offset={1} speed={1} />
+          <ParallaxLayer offset={2} speed={1} />
+          <ParallaxLayer
+            offset={0}
+            speed={0}
+            factor={3}
+          />
+          <p>Please Scroll Down.</p>
           <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '20%', marginLeft: '60%' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '25%', marginLeft: '30%' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '10%', marginLeft: '80%' }} />
-        </ParallaxLayer>
 
 
-        <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.3 }}>
-          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '20%', marginLeft: '60%' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '25%', marginLeft: '30%' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '10%', marginLeft: '80%' }} />
-        </ParallaxLayer>
+          <ParallaxLayer offset={1.3} speed={-0.3} style={{ pointerEvents: 'none' }}>
+            <img alt="design by Nsaeoosh: floral pack" src={flower} style={{ width: '15%', marginLeft: '70%' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '20%', marginLeft: '55%' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '10%', marginLeft: '15%' }} />
+          </ParallaxLayer>
+          <ParallaxLayer offset={1} speed={0.2} style={{ opacity: 0.2 }}>
+            <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '10%', marginLeft: '10%' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '20%', marginLeft: '75%' }} />
+          </ParallaxLayer>
+          <ParallaxLayer offset={2} speed={0.8} style={{ opacity: 0.2 }}>
+            <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '20%', marginLeft: '55%' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '10%', marginLeft: '15%' }} />
+          </ParallaxLayer>
 
-        <ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
-          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '20%', marginLeft: '5%' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '15%', marginLeft: '75%' }} />
-        </ParallaxLayer>
-        <ParallaxLayer offset={2} speed={0.4} style={{ opacity: 0.6 }}>
-          <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ display: 'block', width: '50%', marginLeft: '45%', transform: 'rotate(340deg)' }} />
-          <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '30%', marginLeft: '30%' }} />
-        </ParallaxLayer>
+          <ParallaxLayer offset={1.75} speed={0.5} style={{ opacity: 0.3 }}>
+            <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '20%', marginLeft: '70%' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '20%', marginLeft: '40%' }} />
+          </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={2.5}
-          speed={-0.4}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            pointerEvents: 'none',
-          }}>
-          <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ width: '100%' }} />
-        </ParallaxLayer>
+          <ParallaxLayer offset={0.5} speed={-0.1} style={{ opacity: 0.3 }}>
+            <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '20%', marginLeft: '60%' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '25%', marginLeft: '30%' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '10%', marginLeft: '80%' }} />
+          </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={2}
-          speed={-0.3}
-          style={{
-            backgroundSize: '80%',
-            backgroundPosition: 'center',
-            margin: '1rem',
 
-            backgroundImage: { leaves },
-          }}
-        />
+          <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.3 }}>
+            <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '20%', marginLeft: '60%' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '25%', marginLeft: '30%' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '10%', marginLeft: '80%' }} />
+          </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={0}
-          speed={0.1}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <img id="firstFlower" alt="design by Nsaeoosh: floral pack" src={forgetmenots} style={{ width: '50%' }} />
-          <div className="greetings">
-            <div className="text">
-              <h4> Project and Portfolio</h4>
-              <p>Learning and educational  purposes </p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
+            <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ display: 'block', width: '20%', marginLeft: '5%' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '15%', marginLeft: '75%' }} />
+          </ParallaxLayer>
+          <ParallaxLayer offset={2} speed={0.4} style={{ opacity: 0.6 }}>
+            <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ display: 'block', width: '50%', marginLeft: '45%', transform: 'rotate(340deg)' }} />
+            <img alt="design by Nsaeoosh: floral pack" src={leaves} style={{ display: 'block', width: '30%', marginLeft: '30%' }} />
+          </ParallaxLayer>
+
+          <ParallaxLayer
+            offset={2.5}
+            speed={-0.4}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              pointerEvents: 'none',
+            }}>
+            <img alt="design by Nsaeoosh: floral pack" src={roses} style={{ width: '100%' }} />
+          </ParallaxLayer>
+
+          <ParallaxLayer
+            offset={2}
+            speed={-0.3}
+            style={{
+              backgroundSize: '80%',
+              backgroundPosition: 'center',
+              margin: '1rem',
+
+              backgroundImage: { leaves },
+            }}
+          />
+
+          <ParallaxLayer
+            offset={0}
+            speed={0.1}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <img id="firstFlower" alt="design by Nsaeoosh: floral pack" src={forgetmenots} style={{ width: '50%' }} />
+            <div className="greetings">
+              <div className="text">
+                <h4> Project and Portfolio</h4>
+                <p>Learning and educational  purposes </p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
             </div>
-          </div>
-        </ParallaxLayer>
+          </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={1}
-          speed={0.1}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <img id="secondFlower" alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '70%' }} />
-        </ParallaxLayer>
+          <ParallaxLayer
+            offset={1}
+            speed={0.1}
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <img id="secondFlower" alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '70%' }} />
+          </ParallaxLayer>
 
-        <ParallaxLayer
-          offset={2}
-          speed={-0}
-          pantyle={{
-            dianlay: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}>
-          <section>
-            <article>
-              <header style={{ fontSize: '1rem', textAlign: 'center' }}>
-                <div className="greetings">
-                  <div className="text" >
-                    <h4>Contact:</h4>
-                    < >Contact Information</ >
-                    {/* TODO fix the contacts and info page */}
-                    <p>email@mail.com</p>
-                    <p>1(234)567-8910</p>
-                    <p>Thanks for reading!</p>
-                  </div>
-                </div>
-                <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '100%' }} />
-              </header>
-            </article>
-
+          <ParallaxLayer
+            offset={2}
+            speed={-0}
+            pantyle={{
+              dianlay: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
             <article style={{ padding: '1rem' }}>
               <header>
                 <h4 style={{ color: '#fff', fontSize: '18px' }}>Signout as Guest:</h4>
@@ -153,9 +139,29 @@ const Sections = () => {
               </header>
 
             </article>
-          </section>
-        </ParallaxLayer>
-      </Pages>
+            <section style={{ fontSize: '.2rem', margin: "3rem" }}>
+              <article>
+                <header>
+                  <div className="greetings">
+                    <div className="text" >
+                      <h4>Contact:</h4>
+                      < >Contact Information</ >
+                      {/* TODO fix the contacts and info page */}
+                      <p>email@mail.com</p>
+                      <p>1(234)567-8910</p>
+                      <p>Thanks for reading!</p>
+                    </div>
+                  </div>
+                  <img alt="design by Nsaeoosh: floral pack" src={rose} style={{ width: '100%' }} />
+                </header>
+
+              </article>
+
+
+            </section>
+          </ParallaxLayer>
+        </Pages>
+      </Link>
     </div >
 
   )

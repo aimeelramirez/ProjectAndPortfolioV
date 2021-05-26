@@ -3,12 +3,11 @@ import { auth, db, uiConfig, HandleLogout } from './Config'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import 'firebaseui/dist/firebaseui.css'
 // import * as actionTypes from "../action/action";
-
 import Grid from './Grid.js'
 import Sections from './Sections'
 import styles from "./../styles/styles.module.css"
 import { FiTrash, FiEdit } from "react-icons/fi";
-
+import { Redirect } from 'react-router-dom'
 // import Navigation from './navigation'
 // import { useHistory } from 'react-router-dom'
 
@@ -140,52 +139,52 @@ function SignInScreen() {
         else if (!user.currentUser.isAnonymous && user.currentUser.providerData[0].providerId === 'google.com') {
             let readUser = user.currentUser
             console.log(user.currentUser)
-
-
-
             return (
-                // Get private routes unless signed in
-                <div className={styles.welcome}>
+                <>
+                    <div className={styles.welcome}>
+                        <Redirect from="/auth" to="/loggedin" />
 
-                    <section>
-                        <article>
-                            <p>Welcome {readUser.displayName}!
+                        <section>
+                            <article>
+                                <p>Welcome {readUser.displayName}!
                    <br />You are now signed-in with email: {readUser.email}!
                     <br /> As your sign-in provider: {user.currentUser.providerData[0].providerId}
-                                <button onClick={() => HandleLogout()}>Sign-out</button>
-                            </p>
+                                    <button onClick={() => HandleLogout()}>Sign-out</button>
+                                </p>
 
-                        </article>
-                        <article>
-                            <form>
-                                <h5>Post a Message:</h5>
-                                <div>
-                                    <label htmlFor="message">Message</label>
-                                    <textarea
-                                        rows="8" cols="30"
-                                        id="message"
-                                        ref={messageRef}
-                                    />
-                                </div>
-                                <button type="submit" onClick={(e) => {
-                                    e.preventDefault()
-                                    let sendMessage = messageRef.current.value
-                                    UploadData(sendMessage)
-                                }}>Submit</button>
-                            </form>
-                        </article>
-                    </section>
+                            </article>
+                            <article>
+                                <form>
+                                    <h5>Post a Message:</h5>
+                                    <div>
+                                        <label htmlFor="message">Message</label>
+                                        <textarea
+                                            rows="8" cols="30"
+                                            id="message"
+                                            ref={messageRef}
+                                        />
+                                    </div>
+                                    <button type="submit" onClick={(e) => {
+                                        e.preventDefault()
+                                        let sendMessage = messageRef.current.value
+                                        UploadData(sendMessage)
+                                    }}>Submit</button>
+                                </form>
+                            </article>
+                        </section>
 
-                    <h4> Feed: </h4>
-                    <ul className={styles.messages}>
-                        <ShowFeed />
-                    </ul>
+                        <h4> Feed: </h4>
+                        <ul className={styles.messages}>
+                            <ShowFeed />
+                        </ul>
 
-                    <section id="grid">
-                        {/* Example of typescript with animation on grid with react js */}
-                        <Grid />
-                    </section>
-                </div >
+                        <section id="grid">
+                            {/* Example of typescript with animation on grid with react js */}
+                            <Grid />
+                        </section>
+
+                    </div >
+                </>
             );
 
         } else if (!user.currentUser.isAnonymous) {
@@ -193,6 +192,8 @@ function SignInScreen() {
             return (
                 // Get private routes unless signed in
                 <div className={styles.welcome}>
+                    <Redirect from="/auth" to="/loggedin" />
+
                     <section>
                         <article>
                             <p>Welcome {readUser.displayName}!
@@ -234,6 +235,7 @@ function SignInScreen() {
                         {/* Example of typescript with animation on grid with react js */}
                         <Grid />
                     </section>
+
                 </div >
             );
 
@@ -246,11 +248,13 @@ function SignInScreen() {
     if (!isSignedIn) {
         return (
             <>
+
                 <p>Please sign-in:</p>
                 <StyledFirebaseAuth
                     uiConfig={uiConfig}
                     firebaseAuth={auth}
                 />
+
 
             </>
         );
