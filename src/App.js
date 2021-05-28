@@ -66,8 +66,8 @@ function App() {
         <p>
           <svg width="0" height="0">
             <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-              <stop stopColor="#16bac5ff" offset="0%" />
-              <stop stopColor="#5863f8ff" offset="100%" />
+              <stop stopColor="#dcc48eff" offset="0%" />
+              <stop stopColor="#eaefd3ff" offset="100%" />
             </linearGradient>
           </svg>
           <h1><FiPackage style={{ stroke: "url(#blue-gradient)" }} /></h1>
@@ -110,8 +110,10 @@ function App() {
       <p>
         <svg width="0" height="0">
           <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-            <stop stopColor="#16bac5ff" offset="0%" />
-            <stop stopColor="#5863f8ff" offset="100%" />
+            <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+              <stop stopColor="#dcc48eff" offset="0%" />
+              <stop stopColor="#eaefd3ff" offset="100%" />
+            </linearGradient>
           </linearGradient>
         </svg>
         <h1 ><FiPackage style={{ stroke: "url(#blue-gradient)" }} /></h1>

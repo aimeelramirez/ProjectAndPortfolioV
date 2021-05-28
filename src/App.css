@@ -145,7 +145,7 @@ button {
   line-height: 40px;
   padding: 0 14px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-  color: #fff;
+  color: black;
   border-radius: 4px;
   font-size: 15px;
   font-weight: 600;
@@ -153,22 +153,27 @@ button {
   letter-spacing: 0.025em;
   background-image: linear-gradient(
     125deg,
-    var(--neon-blue) 20%,
-    var(--maximum-blue-green) 100%
+    var(--beige) 20%,
+    var(--gold-crayola) 100%
   );
   text-decoration: none;
   -webkit-transition: all 150ms ease;
   transition: all 150ms ease;
   margin-top: 10px;
 }
-
+svg:hover {
+  color: var(--forest-green-web);
+  cursor: pointer;
+  stroke: linear-gradient(125deg, var(--laurel-green) 20%, var(--beige) 100%);
+  transform: translateY(-1px);
+}
 button:hover {
-  color: #fff;
+  color: var(--forest-green-web);
   cursor: pointer;
   background-image: linear-gradient(
     125deg,
-    var(--maximum-blue-green) 20%,
-    var(--neon-blue) 100%
+    var(--laurel-green) 20%,
+    var(--beige) 100%
   );
   transform: translateY(-1px);
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
