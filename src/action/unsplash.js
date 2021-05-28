@@ -1,6 +1,6 @@
 
 export const FetchProductImages = async () => {
-    return await fetch('https://api.unsplash.com/search/photos?page=2&query=product', {
+    return await fetch('https://api.unsplash.com/search/photos?page=1&per_page=30&query=yellow gold', {
         method: 'GET',
         headers: {
             'Authorization': 'Client-ID ' + process.env.REACT_APP_UNSPLASH_APIKEY,

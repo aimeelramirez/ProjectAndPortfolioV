@@ -49,7 +49,7 @@ export default function Grid() {
   const transApi = useSpringRef()
   const transition = useTransition(open ? state : [], {
     ref: transApi,
-    trail: 400 / 10,
+    trail: 400 / 30,
     from: { opacity: 0, scale: 0 },
     enter: { opacity: 1, scale: 1 },
     leave: { opacity: 0, scale: 0 },
