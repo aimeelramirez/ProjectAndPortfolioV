@@ -130,7 +130,7 @@ const Sections = () => {
           <ParallaxLayer
             offset={2}
             speed={-0}
-            pantyle={{
+            style={{
               display: 'flex',
               flexDirection: 'column',
               margin: '3rem',
@@ -138,7 +138,9 @@ const Sections = () => {
               justifyContent: 'center',
             }}>
 
-            <section style={{ fontSize: '.2rem', margin: "3rem" }}>
+            <section style={{
+              fontSize: '.2rem', margin: "3rem"
+            }}>
 
               <header>
                 <div className="greetings">

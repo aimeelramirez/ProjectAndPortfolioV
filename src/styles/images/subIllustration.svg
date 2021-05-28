@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="253.605" height="412" viewBox="0 0 253.605 412">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3c3c3c;
+      }
+
+      .cls-2 {
+        fill: #737373;
+      }
+
+      .cls-3 {
+        fill: #3d3d3d;
+      }
+
+      .cls-4 {
+        fill: #fbfbfb;
+      }
+    </style>
+  </defs>
+  <g id="Illustration" transform="translate(-385.308 0)">
+    <path id="Path_FILL:STYLE1_brand_" data-name="Path [FILL:STYLE1/brand]" class="cls-1" d="M657.257,252.119a17.87,17.87,0,0,0,12.285-3.259,33.7,33.7,0,0,0,8.81-9.45,61.233,61.233,0,0,0,8.622-20.034,11.744,11.744,0,0,0,11.443,3.981c6.816-1.53,10.9-9.483,9.575-16.342s-6.956-12.3-13.377-15.048-13.577-3.207-20.563-3.192c-4.607.01-9.3.225-13.628,1.805s-8.291,4.729-9.829,9.071c-.964,2.723-.932,5.736-2.028,8.408-1.989,4.851-7.149,7.5-11.992,9.51s-10.107,4.051-12.963,8.448c-3.225,4.965-2.294,11.9,1.26,16.631s9.261,7.482,15.07,8.63,11.792.864,17.706.576" transform="translate(-175.351 -188.775)"/>
+    <path id="Path_FILL:STYLE1_TEXT_" data-name="Path [FILL:STYLE1/TEXT]" class="cls-2" d="M432.84,428.775,413.755,420.5l10.356-21.314,15.413,9.02Z" transform="translate(-3.802 -53.502)"/>
+    <path id="Path_FILL:STYLE1_foreground_" data-name="Path [FILL:STYLE1/foreground]" class="cls-3" d="M504.241,300.409,485.808,337.9,453.28,404.073l-33.538-16.116,37.022-86.677.1-10.911.331-33.952Z" transform="translate(-4.602 -34.423)"/>
+    <path id="Path_FILL:STYLE1_TEXT_2" data-name="Path [FILL:STYLE1/TEXT]" class="cls-2" d="M573.507,410.754l-19.6,6.969-6.969-22.649,17.422-3.919Z" transform="translate(-21.6 -52.429)"/>
+    <path id="Path_FILL:STYLE1_TEXT_3" data-name="Path [FILL:STYLE1/TEXT]" class="cls-2" d="M729.385,370.373l-59.236-16.987,17.422-11.76L733.3,356l20.68,4.963a10.219,10.219,0,0,1,6.938,14.123h0a10.22,10.22,0,0,1-14.237,4.775Z" transform="translate(-181.834 -209.257)"/>
+    <path id="Path_FILL:STYLE1_BACKGROUND_" data-name="Path [FILL:STYLE1/BACKGROUND]" class="cls-4" d="M691.046,331.58,667.09,345.518c-2.114-17.431,8.308-48.459,21.342-82.321h0a26.048,26.048,0,0,1,10.534,24.6Z" transform="translate(-181.389 -198.751)"/>
+    <path id="Path_FILL:STYLE1_TEXT_4" data-name="Path [FILL:STYLE1/TEXT]" class="cls-2" d="M572.374,374.487l-.5,17.879a10.311,10.311,0,0,1-12.974,9.669h0a10.311,10.311,0,0,1-6.708-14.25l6.683-14.6,20.907-49.654,14.374,5.227Z" transform="translate(-165.945 -206.837)"/>
+    <circle id="Path_FILL:STYLE1_TEXT_5" data-name="Path [FILL:STYLE1/TEXT]" class="cls-2" cx="18.729" cy="18.729" r="18.729" transform="translate(485.048 9.378)"/>
+    <path id="Path_FILL:STYLE1_TEXT_6" data-name="Path [FILL:STYLE1/TEXT]" class="cls-2" d="M517.938,72.567,496.16,62.114l10.888-24.392,18.294,3.485Z" transform="translate(-14.814 -5.041)"/>
+    <path id="Path_FILL:STYLE1_BACKGROUND_2" data-name="Path [FILL:STYLE1/BACKGROUND]" class="cls-4" d="M664.3,352.5l-44.427-10.889,8.921-81.778a14.386,14.386,0,0,1,15.6-12.766l14.676,1.334,20.036,9.147,7.4,7.84-2.259,9.662c2.106,19.9.483,37.169-11.088,47.417Z" transform="translate(-175.115 -196.557)"/>
+    <path id="Path_FILL:STYLE1_BACKGROUND_3" data-name="Path [FILL:STYLE1/BACKGROUND]" class="cls-4" d="M602.236,321.764l-23.085-6.1,30.949-51.26a33.107,33.107,0,0,1,31.772-15.817h0l-11.76,38.765C619.239,295.56,610.1,307.353,602.236,321.764Z" transform="translate(-169.673 -196.744)"/>
+    <path id="Path_FILL:STYLE1_foreground_2" data-name="Path [FILL:STYLE1/foreground]" class="cls-3" d="M725.859,550.8l-35.28,10.453C647.618,491.506,586.1,416.344,610,366.119l8.711-20.471,45.3,13.938,2.613,54.01L694.5,457.151Z" transform="translate(-173.082 -209.895)"/>
+    <path id="Path_FILL:STYLE1_brand_2" data-name="Path [FILL:STYLE1/brand]" class="cls-1" d="M757.969,631.848l-31.354-.308a11.294,11.294,0,0,1-11.22-11.294v-15.63a3.6,3.6,0,0,1,4.67-3.456c5.663,1.816,10.3,1.211,13.8-2.08,2.1-1.973,2.341-2.369,4.836-.934l14.156,15.462,5.741.37a8.944,8.944,0,0,1,8.343,8.256h0a8.944,8.944,0,0,1-8.969,9.613Z" transform="translate(-187.881 -243.523)"/>
+    <path id="Path_FILL:STYLE1_brand_3" data-name="Path [FILL:STYLE1/brand]" class="cls-1" d="M589.289,653.664l-21.953-22.388a11.294,11.294,0,0,1,.052-15.919L578.441,604.3a3.6,3.6,0,0,1,5.746.858c2.721,5.289,6.427,8.14,11.227,8.285,2.877.087,3.331-.02,4.08,2.759l-.924,20.943,3.8,4.321a8.944,8.944,0,0,1,.061,11.738h0a8.944,8.944,0,0,1-13.139.455Z" transform="translate(-167.659 -244.319)"/>
+    <path id="Path_FILL:STYLE1_brand_4" data-name="Path [FILL:STYLE1/brand]" class="cls-1" d="M680.758,213.4a22.423,22.423,0,0,0,10.868,8.969c3.182,1.225,7.219,1.53,9.607-.9,1.73-1.763,2.075-4.476,1.829-6.933-.766-7.671-6.532-14.351-13.685-17.225s-15.412-2.246-22.551.664c-6.736,2.746-13.133,8.37-13.495,15.635-.186,3.723,1.162,7.822-.836,10.969-1.505,2.37-4.412,3.333-7.016,4.382s-5.4,2.705-5.933,5.462a6.111,6.111,0,0,0,1.793,5.21,14.146,14.146,0,0,0,4.816,3.02c4.247,1.808,8.921,2.935,13.483,2.236s8.974-3.477,10.759-7.733c1.375-3.278,1.093-6.976.935-10.527s-.111-7.332,1.785-10.339,6.3-4.69,9.131-2.543" transform="translate(-177.737 -189.666)"/>
+    <path id="Path_FILL:STYLE1_foreground_3" data-name="Path [FILL:STYLE1/foreground]" class="cls-3" d="M59.585,0H2.04A2.037,2.037,0,0,0,.911,3.733L29.682,22.914a2.035,2.035,0,0,0,2.261,0L60.714,3.733A2.037,2.037,0,0,0,59.585,0Z" transform="translate(558.289 112.523) rotate(-16)"/>
+    <path id="Path_FILL:STYLE1_foreground_4" data-name="Path [FILL:STYLE1/foreground]" class="cls-3" d="M73.6.345,39.515,23.07a2.041,2.041,0,0,1-2.261,0L3.168.345A2.038,2.038,0,0,0,0,2.041V45.453a2.037,2.037,0,0,0,2.038,2.038H74.731a2.037,2.037,0,0,0,2.038-2.038V2.041A2.038,2.038,0,0,0,73.6.345Z" transform="translate(552.028 118.152) rotate(-16)"/>
+  </g>
+</svg>
