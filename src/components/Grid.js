@@ -37,11 +37,11 @@ export default function Grid() {
     ref: springApi,
     config: config.stiff,
     from: {
-      size: "20%", backgroundColor: "transparent",
+      size: "20%", backgroundColor: 'url(' + loadingPhoto + ')',
     },
     to: {
       size: open ? "100%" : "20%",
-      backgroundImage: open ? "tranparent" : "transparent",
+      backgroundImage: 'url(' + loadingPhoto + ')',
     },
   })
   console.log("results outside STATE:", state)
@@ -67,7 +67,7 @@ export default function Grid() {
   }, [])
 
 
-  if (state) {
+  if (state && state.length > 9) {
     return (
       <div id="wrapper">
         <animated.div
@@ -79,8 +79,52 @@ export default function Grid() {
               //refactor to pass props
               return (<animated.div
                 className={styles.item}
-                style={{ ...style, backgroundImage: item.css }}
-              > paddingBottom: '4rem'
+                style={{ ...style, backgroundImage: 'transparent' }}>
+                <div className={styles.images} style={{
+                  height: '100%', backgroundImage: 'url(' + item.urls.full + ')', backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: 'top'
+                }}
+                  onClick={((e) => {
+                    e.preventDefault()
+                    let message = '404, You clicked: ' + item.alt_description;
+                    alert(message)
+                  })} >
+                  <section>
+                    <article>
+                      <div className="card-description"><p style={{ display: 'flex' }}>
+                        <MdStar className={styles.star} />
+                        <MdStar className={styles.star} />
+                        <MdStar className={styles.star} />
+                        <MdStar className={styles.star} />
+                        <MdStar className={styles.star} />
+                      </p>
+
+                        <header className="text" style={{
+                          color: 'black'
+                        }}>
+                          <p>
+                            #{item.id}
+                          </p>
+                          <p>Description:</p>
+                          <p>{item.alt_description ? item.alt_description : item.description}</p>
+                          <p style={{ float: 'right', color: 'red', fontSize: '20px', marginBottom: '3rem' }}><FaHeart /></p>
+
+                        </header>
+
+                      </div>
+
+                    </article>
+
+                  </section>
+
+                </div>
+
+              </animated.div>)
+            } else {
+
+              //refactor to pass props
+              return (<animated.div
+                className={styles.item}
+                style={{ ...style, backgroundImage: 'transparent' }}>
                 <div className={styles.images} style={{
                   height: '100%', backgroundImage: 'url(' + loadingPhoto + ')', backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: 'top'
                 }}
@@ -108,70 +152,15 @@ export default function Grid() {
                           <p>Description:</p>
                           <p>{item.alt_description ? item.alt_description : item.description}</p>
                           <p style={{ float: 'right', color: 'red', fontSize: '20px', marginBottom: '3rem' }}><FaHeart /></p>
-
                         </header>
-
-
-
                       </div>
-
                     </article>
-
                   </section>
-
                 </div>
-
-              </animated.div>)
-            } else {
-              return (<animated.div
-                className={styles.item}
-                style={{ ...style, backgroundImage: item.css }}
-              > paddingBottom: '4rem'
-                <div className={styles.images} style={{
-                  height: '100%', backgroundImage: 'url(' + item.urls.full + ')', backgroundSize: "cover", backgroundRepeat: "no-repeat"
-                }}
-                  onClick={((e) => {
-                    e.preventDefault()
-                    let message = '404, You clicked: ' + item.alt_description;
-                    alert(message)
-                  })} >
-                  <section>
-                    <article>
-                      <div className="card-description"><p style={{ display: 'flex' }}>
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                      </p>
-
-                        <header className="text" style={{
-                          color: 'black'
-                        }}>
-                          <p>
-                            #{item.id}
-                          </p>
-                          <p>Description:</p>
-                          <p>{item.alt_description ? item.alt_description : item.description}</p>
-                          <p style={{ float: 'right', color: 'red', fontSize: '20px', marginBottom: '3rem' }}><FaHeart /></p>
-
-                        </header>
-
-
-
-                      </div>
-
-                    </article>
-
-                  </section>
-
-                </div>
-
               </animated.div>)
             }
           })}
         </animated.div>
-
       </div >
     )
   }
