@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 import {
   useTransition,
   useSpring,
@@ -14,12 +14,14 @@ import styles from "./../styles/styles.module.css"
 import { FetchProductImages } from '../action/unsplash'
 import Spinner from './Spinner/spinner'
 import loadingPhoto from './../styles/images/loadingImage.svg'
+import Rater from 'react-rater'
+import 'react-rater/lib/react-rater.css'
 
 export default function Grid() {
   const [open, set] = useState(false)
   const springApi = useSpringRef()
   const [state, setState] = useState()
-
+  let starRef = useRef()
   useEffect(() => {
     const getApi = async () => {
       await FetchProductImages().then(res => {
@@ -65,7 +67,11 @@ export default function Grid() {
     return set(open => !open)
 
   }, [])
-
+  const handleStars = (e) => {
+    console.log(e)
+    console.log(starRef)
+    return starRef
+  }
 
   if (state && state.length > 9) {
     return (
@@ -90,13 +96,10 @@ export default function Grid() {
                   })} >
                   <section>
                     <article>
-                      <div className="card-description"><p style={{ display: 'flex' }}>
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                      </p>
+                      <div className="card-description">
+                        <p style={{ display: 'flex' }}>
+                          <Rater className={styles.star} total={5} rating={2} ref={starRef} onClick={handleStars} />
+                        </p>
 
                         <header className="text" style={{
                           color: 'black'
@@ -136,11 +139,7 @@ export default function Grid() {
                   <section>
                     <article>
                       <div className="card-description"><p style={{ display: 'flex' }}>
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
-                        <MdStar className={styles.star} />
+                        <Rater total={5} rating={2} ref={starRef} onClick={handleStars} />
                       </p>
 
                         <header className="text" style={{

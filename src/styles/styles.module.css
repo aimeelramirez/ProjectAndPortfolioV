@@ -16,13 +16,15 @@ article > p:nth-of-type(1) {
   user-select: none;
 }
 .star:hover {
-  color: white;
+  display: flex;
+  color: #666;
   will-change: transform, opacity;
   -webkit-user-select: none;
   user-select: none;
 }
-.star {
-  color: rgb(219, 202, 106);
+.star:active {
+  display: flex;
+  color: rgb(219, 202, 106) !important;
   will-change: transform, opacity;
   -webkit-user-select: none;
   user-select: none;

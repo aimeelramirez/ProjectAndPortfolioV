@@ -12,6 +12,10 @@ Deployed sites:
 
 Designing tools and ideas for this project.
 
+### Dependencies:
+
+[react-rater](https://www.npmjs.com/package/react-rater)
+
 ### Lofi Frames:
 
 https://xd.adobe.com/view/a8f7ed98-3939-4c42-b950-2f320b721022-fda4/?fullscreen
@@ -34,20 +38,6 @@ https://react-icons.github.io/react-icons/icons?name=fi
 https://fonts.google.com/specimen/Montserrat?preview.size=64&preview.layout=row#pairings
 
 ### Color Themes:
-
-- #### Watermelon Summer
-
-  - PDF: https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:97f7edc2-b965-4ad7-a74a-de6f28ad5fd0
-
-  - Source:
-    https://coolors.co/282c34-f75c03-f1c40f-d90368-00cc66
-
-- #### Basic Blues
-
-  - PDF: https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:33322dc7-878f-4bd2-b1ab-2d768afa11ff
-
-  - Source:
-    https://coolors.co/282c34-16bac5-5fbff9-efe9f4-5863f8
 
 - #### Basic Greys
 
