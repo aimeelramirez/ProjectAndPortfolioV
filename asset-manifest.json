@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ProjectAndPortfolioV/static/css/main.dd6615af.chunk.css",
+    "main.css": "/ProjectAndPortfolioV/static/css/main.4515bc66.chunk.css",
     "main.js": "/ProjectAndPortfolioV/static/js/main.64c92e22.chunk.js",
     "main.js.map": "/ProjectAndPortfolioV/static/js/main.64c92e22.chunk.js.map",
     "runtime-main.js": "/ProjectAndPortfolioV/static/js/runtime-main.21361267.js",
@@ -12,7 +12,7 @@
     "static/js/3.e0693d08.chunk.js.map": "/ProjectAndPortfolioV/static/js/3.e0693d08.chunk.js.map",
     "index.html": "/ProjectAndPortfolioV/index.html",
     "static/css/2.dfd2d5fd.chunk.css.map": "/ProjectAndPortfolioV/static/css/2.dfd2d5fd.chunk.css.map",
-    "static/css/main.dd6615af.chunk.css.map": "/ProjectAndPortfolioV/static/css/main.dd6615af.chunk.css.map",
+    "static/css/main.4515bc66.chunk.css.map": "/ProjectAndPortfolioV/static/css/main.4515bc66.chunk.css.map",
     "static/js/2.a46ec59c.chunk.js.LICENSE.txt": "/ProjectAndPortfolioV/static/js/2.a46ec59c.chunk.js.LICENSE.txt",
     "static/media/flower.abb5dbf2.svg": "/ProjectAndPortfolioV/static/media/flower.abb5dbf2.svg",
     "static/media/forgetmenots.13ac54a3.svg": "/ProjectAndPortfolioV/static/media/forgetmenots.13ac54a3.svg",
@@ -25,7 +25,7 @@
     "static/js/runtime-main.21361267.js",
     "static/css/2.dfd2d5fd.chunk.css",
     "static/js/2.a46ec59c.chunk.js",
-    "static/css/main.dd6615af.chunk.css",
+    "static/css/main.4515bc66.chunk.css",
     "static/js/main.64c92e22.chunk.js"
   ]
 }
