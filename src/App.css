@@ -161,12 +161,7 @@ button {
   transition: all 150ms ease;
   margin-top: 10px;
 }
-svg:hover {
-  color: var(--forest-green-web);
-  cursor: pointer;
-  stroke: linear-gradient(125deg, var(--laurel-green) 20%, var(--beige) 100%);
-  transform: translateY(-1px);
-}
+
 button:hover {
   color: var(--forest-green-web);
   cursor: pointer;
