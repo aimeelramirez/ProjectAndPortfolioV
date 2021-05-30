@@ -46,14 +46,16 @@ function App() {
                 {toggle ? "Sign-In" : "Favorites"}
               </button>
             </p>
-            <form>
-              <label htmlFor="site-search">Search the site:</label>
-              <input type="search" id="site-search"
-                aria-label="Search through site content" />
-              <button onClick={ShowSearch}>
-                <MdSearch />
-              </button>
-            </form>
+            <p>
+              <form>
+                <label for="site-search">Search the site:</label>
+                <input type="search" id="site-search"
+                  aria-label="Search through site content" />
+                <button onClick={ShowSearch}>
+                  <MdSearch />
+                </button>
+              </form>
+            </p>
             <p>
               <button onClick={ShowDashboard}>
                 <MdDashboard />
@@ -62,19 +64,17 @@ function App() {
           </nav>
         </header>
         <p>
+          <svg width="0" height="0">
+            <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
+              <stop stopColor="#dcc48eff" offset="0%" />
+              <stop stopColor="#eaefd3ff" offset="100%" />
+            </linearGradient>
+          </svg>
+          <h1><FiPackage style={{ stroke: "url(#blue-gradient)" }} /></h1>
 
         </p>
-        <svg width="0" height="0">
-          <linearGradient id="blue-gradient" x1="100%" y1="100%" x2="0%" y2="0%">
-            <stop stopColor="#dcc48eff" offset="0%" />
-            <stop stopColor="#eaefd3ff" offset="100%" />
-          </linearGradient>
-        </svg>
-        <h1><FiPackage style={{ stroke: "url(#blue-gradient)" }} /></h1>
-
         {SignInScreen ? <SignInScreen /> : <Spinner />}
       </>
-
     )
   }
   const ShowFavs = () => {

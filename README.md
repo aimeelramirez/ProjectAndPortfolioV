@@ -14,7 +14,7 @@ Designing tools and ideas for this project.
 
 ### Dependencies:
 
-[react-rater](https://www.npmjs.com/package/react-rater)
+[List of Dependencies](https://github.com/aimeelramirez/ProjectAndPortfolioV/blob/final/package.json)
 
 ### Lofi Frames:
 
