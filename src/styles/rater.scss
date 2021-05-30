@@ -1,0 +1,16 @@
+$react-rater-link: #ccc !default;
+$react-rater-hover: orange !default;
+$react-rater-active: rgb(219, 202, 106) !default;
+
+.react-rater-star {
+  cursor: pointer;
+  color: $react-rater-link;
+  position: relative;
+  display: flex;
+  &.will-be-active {
+    color: $react-rater-hover;
+  }
+  &.is-active {
+    color: $react-rater-active;
+  }
+}

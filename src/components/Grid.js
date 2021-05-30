@@ -7,6 +7,8 @@ import {
   animated,
   useSpringRef,
 } from "@react-spring/web"
+import '../styles/rater.scss'
+
 // import { MdStar } from "react-icons/md"
 import { FaHeart } from "react-icons/fa";
 import styles from "./../styles/styles.module.css"
@@ -14,7 +16,6 @@ import { FetchProductImages } from '../action/unsplash'
 import Spinner from './Spinner/spinner'
 import loadingPhoto from '../styles/images/loadingImage.svg'
 import Rater from 'react-rater'
-import 'react-rater/lib/react-rater.css'
 
 export default function Grid() {
   const [open, set] = useState(false)
@@ -97,7 +98,7 @@ export default function Grid() {
                     <article>
                       <div className="card-description">
                         <p style={{ display: 'flex' }}>
-                          <Rater total={5} rating={2} ref={starRef} onClick={handleStars} />
+                          <Rater className="react-rater-star" total={5} rating={2} ref={starRef} onClick={handleStars} />
                         </p>
 
                         <header className="text" style={{
@@ -138,7 +139,7 @@ export default function Grid() {
                   <section>
                     <article>
                       <div className="card-description"><p style={{ display: 'flex' }}>
-                        <Rater total={5} rating={2} ref={starRef} onClick={handleStars} />
+                        <Rater className="react-rater-star" total={5} rating={2} ref={starRef} onClick={handleStars} />
                       </p>
 
                         <header className="text" style={{
