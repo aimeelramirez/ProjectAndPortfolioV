@@ -5,7 +5,6 @@
 //     Link
 // } from "react-router-dom"
 
-
 // const routes = [
 //     {
 //         path: "/guest",
@@ -32,7 +31,6 @@
 //         ]
 //     }
 // ];
-
 
 // export default function Navigation() {
 //     return (
@@ -109,7 +107,6 @@
 // function Cart() {
 //     return <h3>Cart</h3>;
 // }
-
 
 // function Guest() {
 //     return <h2>Guest</h2>

@@ -57,6 +57,7 @@
     "autoprefixer-loader": "^3.2.0",
     "css-loader": "^5.2.6",
     "node-sass": "^6.0.0",
+    "prettier": "2.3.0",
     "sass-loader": "^11.1.1",
     "style-loader": "^2.0.0"
   }

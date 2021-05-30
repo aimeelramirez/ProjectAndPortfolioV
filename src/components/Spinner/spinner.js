@@ -2,4 +2,4 @@ import "./spinner.css";
 
 const Spinner = () => <div className="Loader">Loading..</div>;
 
-export default Spinner
+export default Spinner;
