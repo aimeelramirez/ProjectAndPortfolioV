@@ -80,78 +80,90 @@ export default function Grid() {
   const handleChange = (e, item) => {
     setStarCount(e.rating);
     var batch = db.batch();
-    let authUser = auth.currentUser.providerData[0];
-    if (!authUser.isAnonymous && authUser.providerId === "google.com") {
-      let readUser = auth.currentUser;
-      let docRef = db.collection("users").doc(readUser.uid);
-      docRef.get().then(function (thisDoc) {
-        let n = {
-          item: item,
-          stars: e.rating,
-        };
-
-        if (thisDoc.exists) {
-          const items = thisDoc.data().favorites.card.items;
-          items.push(n);
-          let o = {
-            "favorites.card.items": items,
-          };
-          //user is already there, write only last login
-          o.lastLoginDate = Date.now();
-          let response = docRef.update(o);
-          console.log(response.firestore);
-        } else {
-          const items = thisDoc.data().favorites.card.items;
-
-          console.log(items);
-          items.push(n);
-          let o = {
-            "favorites.card.items": items,
-          };
-          // Send it
-          docRef.set(o, { merge: true });
-        }
-      });
+    if (!auth.currentUser) {
+      alert("~~~~Please sign in before saving favorites.~~~~~~");
+      return false;
     } else {
-      let docRef = db.collection("users").doc(authUser.uid);
+      let authUser = auth.currentUser.providerData[0];
 
-      docRef.get().then(function (thisDoc) {
-        let n = {
-          item: item,
-          stars: e.rating,
-        };
-
-        if (thisDoc.exists) {
-          const items = thisDoc.data().favorites.card.items;
-          console.log(thisDoc.data());
-          console.log(items);
-          items.push(n);
-          let o = {
-            "favorites.card.items": items,
+      if (authUser.isAnonymous) {
+        alert("~~~~Please sign in before saving favorites.~~~~~~");
+        return false;
+      } else if (
+        !authUser.isAnonymous &&
+        authUser.providerId === "google.com"
+      ) {
+        let readUser = auth.currentUser;
+        let docRef = db.collection("users").doc(readUser.uid);
+        docRef.get().then(function (thisDoc) {
+          let n = {
+            item: item,
+            stars: e.rating,
           };
-          //user is already there, write only last login
-          o.lastLoginDate = Date.now();
-          let response = docRef.update(o);
-          console.log(response.firestore);
-        } else {
-          const items = thisDoc.data().favorites.card.items;
 
-          console.log(items);
-          items.push(n);
-          let o = {
-            "favorites.card.items": items,
+          if (thisDoc.exists) {
+            const items = thisDoc.data().favorites.card.items;
+            items.push(n);
+            let o = {
+              "favorites.card.items": items,
+            };
+            //user is already there, write only last login
+            o.lastLoginDate = Date.now();
+            let response = docRef.update(o);
+            console.log(response.firestore);
+          } else {
+            const items = thisDoc.data().favorites.card.items;
+
+            console.log(items);
+            items.push(n);
+            let o = {
+              "favorites.card.items": items,
+            };
+            // Send it
+            docRef.set(o, { merge: true });
+          }
+        });
+      } else {
+        let docRef = db.collection("users").doc(authUser.uid);
+
+        docRef.get().then(function (thisDoc) {
+          let n = {
+            item: item,
+            stars: e.rating,
           };
-          // Send it
-          docRef.set(o, { merge: true });
-        }
-      });
-    }
 
-    if (!loading) {
-      alert("success");
-      batch.commit();
-    } else {
-      console.log("loading...");
+          if (thisDoc.exists) {
+            const items = thisDoc.data().favorites.card.items;
+            console.log(thisDoc.data());
+            console.log(items);
+            items.push(n);
+            let o = {
+              "favorites.card.items": items,
+            };
+            //user is already there, write only last login
+            o.lastLoginDate = Date.now();
+            let response = docRef.update(o);
+            console.log(response.firestore);
+          } else {
+            const items = thisDoc.data().favorites.card.items;
+
+            console.log(items);
+            items.push(n);
+            let o = {
+              "favorites.card.items": items,
+            };
+            // Send it
+            docRef.set(o, { merge: true });
+          }
+        });
+      }
+
+      if (!loading) {
+        alert("success");
+        batch.commit();
+      } else {
+        console.log("loading...");
+      }
     }
   };
   const handleStars = (e) => {
