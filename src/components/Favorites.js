@@ -107,6 +107,7 @@ export default function Favorites() {
                           total={5}
                           rating={fav.stars}
                         />
+                        <br />
                         <header
                           className="text"
                           style={{
@@ -160,6 +161,7 @@ export default function Favorites() {
                           total={5}
                           rating={fav.stars}
                         />
+                        <br />
                         <header
                           className="text"
                           style={{

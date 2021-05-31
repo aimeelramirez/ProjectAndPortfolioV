@@ -9,25 +9,110 @@ import Socials from "./components/Socials/socials.js";
 import Sections from "./components/Guest/Sections";
 import Grid from "./components/Grid";
 import Spinner from "./components/Spinner/spinner";
-import Dashboard from "./components/Dashboard";
+// import Dashboard from "./components/Dashboard";
+import Modal from "./components/Modal/Modal";
+import styles from "./styles/styles.module.css";
+import Navigation from "./components/Navigation/Navigation.tsx";
+import { FiHome, FiHeart, FiTruck, FiEdit, FiSettings } from "react-icons/fi";
+import history from "./history";
+
 function App() {
   const [toggle, setToggle] = useState(false);
-  const [toggleDash, setToggleDash] = useState(false);
+  const [stateModal, setStateModal] = useState({
+    show: false,
+  });
+  let arrayIcons = {
+    icons: [
+      <FiHome />,
+      <FiHeart />,
+      <FiTruck />,
+      <FiEdit />,
+      <FiSettings />,
+    ],
+    names: [
+      'Home',
+      'Favorites',
+      'Orders',
+      'Edit',
+      'Settings'
+    ]
+  }
+  // const showModal = () => {
+  //   setStateModal({ show: true });
+
+  // };
+  const hideModal = () => {
+    // let message = "Disregarded for edits.";
+    setStateModal({ show: false });
+    history.push(window.location.hash, "/boardfeed")
+
+  };
+
+  const Dashboard = () => {
+    return (
+      <div>
+        <Link to="/dashboard">
+          <Modal show={stateModal.show}>
+
+            <form>
+              <div id="buttons-modal">
+                <span className={styles.modalClose} onClick={hideModal}>
+                  <p>
+                    <span>Close</span>
+                  </p>
+                </span>
+              </div>
+
+              <div id="modal-message">
+                <h5
+                  style={{
+                    textDecoration: "underline",
+                    fontWeight: "700",
+                    fontSize: "1.rem",
+                    textAlign: 'center'
+                  }}
+                >
+                  Dashboard:
+                </h5>
+                {/* Moving this to best see the push history */}
+                {arrayIcons.icons.map((item, i) => {
+                  return (
+                    <Navigation>
+                      <Link to="/boardfeed">
+                        <p
+                          onClick={() => {
+                            alert("404, under construction.");
+                            return (
+                              hideModal()
+                            );
+                          }}
+                        >
+
+                          <span style={{ paddingRight: '0.5rem' }}>{item}</span>
+                          {arrayIcons.names[i]}
+                        </p>
+                      </Link>
+                    </Navigation>
+                  );
+                })}
+              </div>
+            </form>
+          </Modal>
+        </Link>
+      </div>
+    );
+  };
 
   const handleSubmit = () => {
     if (toggle) {
+      history.push(window.location.hash, "/auth");
       setToggle(false);
     } else {
+      history.push(window.location.hash, "/boardfeed");
       setToggle(true);
     }
   };
-  const ShowDashboard = (e) => {
-    if (toggleDash) {
-      setToggleDash(false);
-    } else {
-      setToggleDash(true);
-    }
-  };
+
   const ShowSearch = (e) => {
     e.preventDefault();
     alert("Under Construction");
@@ -40,7 +125,6 @@ function App() {
     return (
       <>
         <Redirect from="/boardfeed" to="/auth" />
-        {toggleDash ? <Dashboard /> : null}
 
         <header className="App-header">
           <nav className="navigation-left">
@@ -63,7 +147,12 @@ function App() {
               </form>
             </p>
             <p>
-              <button onClick={ShowDashboard}>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setStateModal({ show: true });
+                }}
+              >
                 <MdDashboard />
               </button>
             </p>
@@ -94,7 +183,6 @@ function App() {
     return (
       <>
         <Redirect from="/auth" to="/boardfeed" />
-        {toggleDash ? <Dashboard show={"dashboard"} /> : null}
 
         <header className="App-header">
           <nav className="navigation-left">
@@ -119,7 +207,12 @@ function App() {
               </form>
             </p>
             <p>
-              <button onClick={ShowDashboard}>
+              <button
+                onClick={(e) => {
+                  e.preventDefault();
+                  setStateModal({ show: true });
+                }}
+              >
                 <MdDashboard />
               </button>
             </p>
@@ -163,6 +256,7 @@ function App() {
       return (
         <>
           <Link to="/boardfeed">
+            <Dashboard />
             <ShowFavs />
           </Link>
         </>
@@ -171,6 +265,7 @@ function App() {
       return (
         <>
           <Link to="/auth">
+            <Dashboard />
             <ShowAuth />
           </Link>
           <div className="app-container">
@@ -185,12 +280,12 @@ function App() {
       <ShowLogin />
       <Switch>
         <Redirect from="/" to="/auth" />
-        <Route exact path="/dashboard" component={Dashboard} />
-        <Route exact path="/boardfeed" component={ShowFavs} />
         <Route exact path="/auth" component={ShowAuth} />
+        <Route exact path="/boardfeed" component={ShowFavs} />
         <Route exact path="/guest" component={Sections} />
         <Route path="/loggedin" component={SignInScreen} />
       </Switch>
+      <Route exact path="/dashboard" component={Dashboard} />
     </div>
   );
 }

@@ -1,31 +1,54 @@
-import { useState, useRef, useEffect } from "react";
-import styles from "./../styles/styles.module.css";
+// import { useState, useRef, useEffect } from "react";
+// import styles from "./../styles/styles.module.css";
+// import Modal from './Modal/Modal'
+// import Navigation from "./Navigation/Navigation";
+// import { Switch, Route, Link, Redirect } from "react-router-dom";
 
-import Navigation from "./Navigation/Navigation";
-const Dashboard = () => {
-  var subtitle;
+// const Dashboard = () => {
+//   const [, setIsOpen] = useState(false);
+//   const modalRef = useRef();
+//   const [stateModal, setStateModal] = useState({
+//     show: false,
+//   });
+//   var subtitle;
 
-  const [, setIsOpen] = useState(false);
-  const modalRef = useRef();
-  useEffect(() => {
-    subtitle.style.color = "green";
-  }, [subtitle]);
+//   function closeModal() {
+//     setIsOpen(false);
+//     modalRef.current.style.cssText = "display:none";
+//   }
+//   const submitModal = () => {
+//     let message = "Success!";
+//     setStateModal({ show: false });
 
-  function closeModal() {
-    setIsOpen(false);
-    modalRef.current.style.cssText = "display:none";
-  }
-  return (
-    <div className="modal modal-main" ref={modalRef}>
-      <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Dashboard</h2>
+//   };
+//   const hideModal = () => {
+//     let message = "Disregarded for edits.";
+//     setStateModal({ show: false });
 
-      <span className={styles.modalClose} onClick={closeModal}>
-        <p>
-          <span>Close</span>
-        </p>
-      </span>
-      <Navigation />
-    </div>
-  );
-};
-export default Dashboard;
+//     return false;
+//   };
+//   return (
+//     <div>
+//       <Link to="/dashboard">
+//         <Modal
+//           show={stateModal.show}>
+//           <form>
+//             <div id="modal-message">
+//               <h5 style={{ textDecoration: 'underline', fontWeight: '700', fontSize: '1.70rem' }}>Dashboard:</h5>
+
+//               <Navigation />
+//               <div id="buttons-modal">
+//                 <span className={styles.modalClose} onClick={hideModal}>
+//                   <p>
+//                     <span>Close</span>
+//                   </p>
+//                 </span>
+//               </div>
+//             </div>
+//           </form>
+//         </Modal>
+//       </Link>
+//     </div>
+//   );
+// };
+// export default Dashboard;

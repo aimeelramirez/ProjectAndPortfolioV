@@ -173,17 +173,19 @@ function SignInScreen() {
       }
       let docRef = db.collection("users").doc(readUser.uid);
       let o = {
-        favorites: {
-          card: {
-            items: [],
-          },
-        },
+
       };
       docRef.get().then(function (thisDoc) {
         if (thisDoc.exists) {
+          const items = thisDoc.data().favorites.card.items;
+          o = {
+            "favorites.card.items": items
+          };
+
           //user is already there, write only last login
           o.lastLoginDate = Date.now();
-          docRef.update(o);
+          docRef.update(o, { merge: true });
+
         } else {
           //new user
           o.displayName = auth.currentUser.displayName;
@@ -270,9 +272,16 @@ function SignInScreen() {
       };
       docRef.get().then(function (thisDoc) {
         if (thisDoc.exists) {
+
+          const items = thisDoc.data().favorites.card.items;
+          o = {
+            "favorites.card.items": items
+          };
+
           //user is already there, write only last login
           o.lastLoginDate = Date.now();
-          docRef.update(o);
+          docRef.update(o, { merge: true });
+
         } else {
           //new user
           o.displayName = auth.currentUser.displayName;

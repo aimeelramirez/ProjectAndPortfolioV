@@ -15,6 +15,11 @@ article > p:nth-of-type(1) {
   -webkit-user-select: none;
   user-select: none;
 }
+.capital::first-letter {
+  text-transform: capitalize;
+  font-size: 2rem;
+}
+
 /* .react-rater-star {
   outline: 1px solid red;
   color: orange !important;
@@ -141,6 +146,7 @@ article {
 }
 .modalClose > p > span {
   float: right !important;
+  margin-top: -10%;
   margin-right: 20%;
   color: var(--gunmetal);
   width: 5%;

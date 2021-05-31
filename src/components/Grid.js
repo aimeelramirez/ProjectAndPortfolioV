@@ -53,7 +53,7 @@ export default function Grid() {
   const transApi = useSpringRef();
   const transition = useTransition(open ? state : [], {
     ref: transApi,
-    trail: 400 / 30,
+    trail: 400 / state ? state.length : [],
     from: { opacity: 0, scale: 0 },
     enter: { opacity: 1, scale: 1 },
     leave: { opacity: 0, scale: 0 },
@@ -89,9 +89,7 @@ export default function Grid() {
       if (authUser.isAnonymous) {
         alert("~~~~Please sign in before saving favorites.~~~~~~");
         return false;
-      } else if (
-        authUser.providerId === "google.com"
-      ) {
+      } else if (authUser.providerId === "google.com") {
         let readUser = auth.currentUser;
         let docRef = db.collection("users").doc(readUser.uid);
 
@@ -100,7 +98,7 @@ export default function Grid() {
             item: item,
             stars: e.rating,
           };
-          alert(item)
+          alert(item);
           if (thisDoc.exists) {
             const items = thisDoc.data().favorites.card.items;
             items.push(n);
@@ -202,25 +200,26 @@ export default function Grid() {
                   >
                     <section>
                       <article ref={cardRef}>
-                        <Rater
-                          className="react-rater-star"
-                          total={5}
-                          rating={2}
-                          ref={starRef}
-                          onRate={(e) => {
-                            handleChange(e, item);
-                          }}
-                          onClick={handleStars}
-                        />
                         <header
                           className="text"
                           style={{
                             color: "black",
                           }}
                         >
+                          <Rater
+                            className="react-rater-star"
+                            total={5}
+                            rating={2}
+                            ref={starRef}
+                            onRate={(e) => {
+                              handleChange(e, item);
+                            }}
+                            onClick={handleStars}
+                          />
+
                           <p>#{item.id}</p>
                           <p>Description:</p>
-                          <p>
+                          <p className={styles.capital}>
                             {item.alt_description
                               ? item.alt_description
                               : item.description}
@@ -252,6 +251,7 @@ export default function Grid() {
                     className={styles.images}
                     style={{
                       height: "100%",
+                      backgroundColor: item.color,
                       backgroundImage: "url(" + loadingPhoto + ")",
                       backgroundSize: "cover",
                       backgroundRepeat: "no-repeat",
@@ -263,25 +263,26 @@ export default function Grid() {
                   >
                     <section>
                       <article ref={cardRef}>
-                        <Rater
-                          className="react-rater-star"
-                          onRate={(e) => {
-                            handleChange(e, item);
-                          }}
-                          total={5}
-                          rating={2}
-                          ref={starRef}
-                          onClick={handleStars}
-                        />
                         <header
                           className="text"
                           style={{
                             color: "black",
                           }}
                         >
+                          <Rater
+                            className="react-rater-star"
+                            onRate={(e) => {
+                              handleChange(e, item);
+                            }}
+                            total={5}
+                            rating={2}
+                            ref={starRef}
+                            onClick={handleStars}
+                          />
+
                           <p>#{item.id}</p>
                           <p>Description:</p>
-                          <p>
+                          <p className={styles.capital}>
                             {item.alt_description
                               ? item.alt_description
                               : item.description}

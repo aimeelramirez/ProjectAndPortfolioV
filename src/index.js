@@ -1,13 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
+import history from "./history";
+
+import { HashRouter as Router } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import { HashRouter as Router } from "react-router-dom";
 
-import reportWebVitals from "./reportWebVitals";
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
+    <Router history={history}>
       <App />
     </Router>
   </React.StrictMode>,
