@@ -102,14 +102,24 @@ article {
   align-items: center;
   justify-content: center;
 }
+.settings {
+  display: flex;
+  margin: 0 auto;
+}
+.settings > p {
+  display: flex;
+  flex-direction: column;
+}
 
 .socials > p:nth-child(1) > span {
   margin-right: 0.5rem;
-  padding: 0.75rem;
+  padding: 0.5rem;
   border: 1px solid var(--gunmetal);
   border-radius: 50%;
   color: var(--gunmetal);
-  width: 10%;
+  width: 5%;
+  height: 5%;
+  font-size: 0.9rem;
 }
 
 .socials > p:nth-child(1) > span:hover {
@@ -125,6 +135,17 @@ article {
   );
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   width: 10%;
+}
+.modalClose > p:nth-child(1) > span:hover {
+  color: var(--forest-green-web);
+}
+.modalClose > p > span {
+  float: right !important;
+  margin-right: 20%;
+  color: var(--gunmetal);
+  width: 5%;
+  height: 5%;
+  font-size: 1rem;
 }
 .socials > p:nth-child(2) > span {
   float: right;

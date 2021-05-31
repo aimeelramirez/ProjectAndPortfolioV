@@ -9,22 +9,24 @@ import Socials from "./components/Socials/socials.js";
 import Sections from "./components/Guest/Sections";
 import Grid from "./components/Grid";
 import Spinner from "./components/Spinner/spinner";
+import Dashboard from "./components/Dashboard";
 function App() {
   const [toggle, setToggle] = useState(false);
+  const [toggleDash, setToggleDash] = useState(false);
+
   const handleSubmit = () => {
     if (toggle) {
-      console.log("not");
       setToggle(false);
     } else {
       setToggle(true);
     }
   };
   const ShowDashboard = (e) => {
-    e.preventDefault();
-    alert("Under Construction");
-    // return(
-
-    // )
+    if (toggleDash) {
+      setToggleDash(false);
+    } else {
+      setToggleDash(true);
+    }
   };
   const ShowSearch = (e) => {
     e.preventDefault();
@@ -33,10 +35,13 @@ function App() {
 
     // )
   };
+
   const ShowAuth = () => {
     return (
       <>
         <Redirect from="/boardfeed" to="/auth" />
+        {toggleDash ? <Dashboard /> : null}
+
         <header className="App-header">
           <nav className="navigation-left">
             <p>
@@ -89,6 +94,8 @@ function App() {
     return (
       <>
         <Redirect from="/auth" to="/boardfeed" />
+        {toggleDash ? <Dashboard show={"dashboard"} /> : null}
+
         <header className="App-header">
           <nav className="navigation-left">
             <p>
@@ -178,6 +185,7 @@ function App() {
       <ShowLogin />
       <Switch>
         <Redirect from="/" to="/auth" />
+        <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/boardfeed" component={ShowFavs} />
         <Route exact path="/auth" component={ShowAuth} />
         <Route exact path="/guest" component={Sections} />
