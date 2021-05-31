@@ -77,9 +77,9 @@ function SignInScreen() {
       console.log("loading...", response);
       alert(
         "success:" +
-          JSON.stringify(postMessage) +
-          " to firestore: " +
-          JSON.stringify(response.firestore._delegate._app.options_.projectId)
+        JSON.stringify(postMessage) +
+        " to firestore: " +
+        JSON.stringify(response.firestore._delegate._app.options_.projectId)
       );
 
       if (!loading) {
@@ -172,7 +172,13 @@ function SignInScreen() {
         docRead.add(readUser);
       }
       let docRef = db.collection("users").doc(readUser.uid);
-      let o = {};
+      let o = {
+        favorites: {
+          card: {
+            items: [],
+          },
+        },
+      };
       docRef.get().then(function (thisDoc) {
         if (thisDoc.exists) {
           //user is already there, write only last login

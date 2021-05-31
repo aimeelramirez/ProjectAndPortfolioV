@@ -90,17 +90,17 @@ export default function Grid() {
         alert("~~~~Please sign in before saving favorites.~~~~~~");
         return false;
       } else if (
-        !authUser.isAnonymous &&
         authUser.providerId === "google.com"
       ) {
         let readUser = auth.currentUser;
         let docRef = db.collection("users").doc(readUser.uid);
-        docRef.get().then(function (thisDoc) {
+
+        docRef.get().then(async function (thisDoc) {
           let n = {
             item: item,
             stars: e.rating,
           };
-
+          alert(item)
           if (thisDoc.exists) {
             const items = thisDoc.data().favorites.card.items;
             items.push(n);
@@ -109,8 +109,8 @@ export default function Grid() {
             };
             //user is already there, write only last login
             o.lastLoginDate = Date.now();
-            let response = docRef.update(o);
-            console.log(response.firestore);
+            await docRef.update(o);
+            console.log(JSON.stringify(o));
           } else {
             const items = thisDoc.data().favorites.card.items;
 
