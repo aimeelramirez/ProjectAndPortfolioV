@@ -173,7 +173,6 @@ function SignInScreen() {
             <div id="modal-message">
               <h5
                 style={{
-                  textDecoration: "underline",
                   fontWeight: "700",
                   fontSize: "1.rem",
                   textAlign: "center",
