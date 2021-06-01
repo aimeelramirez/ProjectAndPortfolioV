@@ -96,9 +96,9 @@ const Timeline = () => {
                 <VerticalTimelineElement {...element.props} >
 
                     <h4 className="vertical-timeline-element-title">{element.title}</h4>
-                    <h3 className="vertical-timeline-element-subtitle">
+                    <h5 className="vertical-timeline-element-subtitle">
                         {element.subtitle}
-                    </h3>
+                    </h5>
                     <p>{element.content}</p>
 
                 </VerticalTimelineElement>
