@@ -15,6 +15,7 @@ import styles from "./styles/styles.module.css";
 import Navigation from "./components/Navigation/Navigation.tsx";
 import { FiHome, FiHeart, FiTruck, FiEdit, FiSettings } from "react-icons/fi";
 import history from "./history";
+import { auth } from "./components/Config/config";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -80,8 +81,12 @@ function App() {
                 })}
               </div>
             </form>
+            <div className="app-container">
+              <Socials />
+            </div>
           </Modal>
         </Link>
+
       </div>
     );
   };
@@ -159,6 +164,7 @@ function App() {
           </h1>
         </p>
         {SignInScreen ? <SignInScreen /> : <Spinner />}
+
       </>
     );
   };
@@ -242,18 +248,18 @@ function App() {
             <Dashboard />
             <ShowFavs />
           </Link>
+
         </>
       );
     } else if (!toggle) {
+      console.log(auth.currentUser)
       return (
         <>
           <Link to="/auth">
             <Dashboard />
             <ShowAuth />
           </Link>
-          <div className="app-container">
-            <Socials />
-          </div>
+
         </>
       );
     }

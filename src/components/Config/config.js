@@ -38,6 +38,7 @@ export const HandleLogout = () => {
     firebase.auth().currentUser.delete();
   }
   firebase.auth().signOut();
+  return window.location.reload()
 };
 
 firebase.initializeApp(Config);
