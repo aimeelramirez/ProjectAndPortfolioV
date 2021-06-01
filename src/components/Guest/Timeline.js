@@ -95,10 +95,10 @@ const Timeline = () => {
             <>
                 <VerticalTimelineElement {...element.props} >
 
-                    <h3 className="vertical-timeline-element-title">{element.title}</h3>
-                    <h4 className="vertical-timeline-element-subtitle">
+                    <h4 className="vertical-timeline-element-title">{element.title}</h4>
+                    <h3 className="vertical-timeline-element-subtitle">
                         {element.subtitle}
-                    </h4>
+                    </h3>
                     <p>{element.content}</p>
 
                 </VerticalTimelineElement>
