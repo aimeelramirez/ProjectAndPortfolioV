@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { auth, db, uiConfig, HandleLogout } from "./Config/config";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import "firebaseui/dist/firebaseui.css";
@@ -7,20 +7,29 @@ import "firebaseui/dist/firebaseui.css";
 import Sections from "./Guest/Sections";
 import styles from "./../styles/styles.module.css";
 import { FiTrash, FiEdit } from "react-icons/fi";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 // import Navigation from './navigation'
 // import { useHistory } from 'react-router-dom'
+import Modal from "./Modal/Modal";
+
 import Favorites from "./Favorites";
 import Spinner from "./Spinner/spinner";
 let items = [];
 
 function SignInScreen() {
   // let history = useHistory()
+
   const [feed, setFeed] = useState({ items: [] });
   const [loading] = useState(false);
   const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
-  const messageRef = React.useRef();
-
+  const messageRef = useRef();
+  const editRef = useRef(null);
+  const [input, setInput] = useState(null);
+  const [cardState, setCard] = useState(null);
+  const cardRef = useRef();
+  const [stateModal, setStateModal] = useState({
+    show: false,
+  });
   useEffect(() => {
     if (isSignedIn === false) {
       document.title = `You are signed out! `;
@@ -46,22 +55,28 @@ function SignInScreen() {
         console.log("No such document!");
         return;
       } else {
-        console.log(doc.docs.messages);
+        console.log(doc.docs);
       }
 
       doc.forEach((i) => {
         // console.log(i.data().name);
         let newDataName = i.data();
-        items = [];
-        items.push(newDataName);
-        setFeed({ items: [] });
-        return setFeed({ items: items });
+        console.log("new: ", newDataName);
+        let readPost = {
+          post: newDataName,
+          postId: i.id,
+        };
+
+        items.push(readPost);
       });
+      setFeed({ items: [] });
+      return setFeed({ items: items });
     });
   };
   async function UploadData(newMessage) {
     var batch = db.batch();
     const messages = db.collection("messages");
+    console.log(JSON.stringify(messages));
     let authUser = auth.currentUser.providerData[0];
     if (newMessage !== "") {
       console.log(authUser);
@@ -77,9 +92,9 @@ function SignInScreen() {
       console.log("loading...", response);
       alert(
         "success:" +
-        JSON.stringify(postMessage) +
-        " to firestore: " +
-        JSON.stringify(response.firestore._delegate._app.options_.projectId)
+          JSON.stringify(postMessage) +
+          " to firestore: " +
+          JSON.stringify(response.firestore._delegate._app.options_.projectId)
       );
 
       if (!loading) {
@@ -95,47 +110,178 @@ function SignInScreen() {
     }
   }
 
-  let ShowFeed = () => {
-    if (feed.items.length > 0 && !loading) {
-      return feed.items.map((item) => {
-        return (
-          <li className={styles.message}>
-            <p>
-              {item.email ? (
-                <>
-                  <h5>Email:</h5> <hr />
-                  {item.email}
-                </>
-              ) : (
-                <>
-                  <h5>Name:</h5> <hr /> {item.user}
-                </>
-              )}
-            </p>
-            <p>
-              <h5>Provider:</h5>
-              <hr /> {item.provider}
-            </p>
+  const DeleteFeedItem = async (e, card) => {
+    const dataRef = await db.collection("messages");
 
-            <p>
-              <h5>Message:</h5>
-              <hr /> {item.message}
-            </p>
-            <p>
-              <FiTrash
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert("404");
+    dataRef.get().then((doc) => {
+      if (doc.empty) {
+        console.log("No such document!");
+        return;
+      } else {
+        console.log(doc.docs);
+      }
+      let batch = db.batch();
+
+      doc.forEach(async (i) => {
+        if (card.current.id === i.id) {
+          console.log(card.current.id + " : " + i.id);
+          batch.delete(i.ref);
+          alert("deleted...");
+          await batch.commit();
+        }
+
+        return window.location.reload();
+      });
+    });
+  };
+  const handleChange = (e) => {
+    e.preventDefault();
+    e.target.focus();
+
+    document.getElementById("messageInput").focus();
+
+    console.log(e.target.value);
+    setInput(e.target.value);
+  };
+  function handleForm(e) {
+    e.preventDefault();
+    if (input !== "") {
+      EditFeedItem(input, editRef);
+    }
+    setStateModal({ show: false });
+  }
+  const submitModal = (e, card) => {
+    e.preventDefault();
+    setCard(card);
+  };
+  const hideModal = () => {
+    // let message = "Disregarded for edits.";
+    setStateModal({ show: false });
+  };
+  const ShowModal = (e, item) => {
+    return (
+      <>
+        <Link to="/loggedin/edit">
+          <Modal show={stateModal.show}>
+            <div id="buttons-modal">
+              <span className={styles.modalClose} onClick={hideModal}>
+                <p>
+                  <span>Close</span>
+                </p>
+              </span>
+            </div>
+
+            <div id="modal-message">
+              <h5
+                style={{
+                  textDecoration: "underline",
+                  fontWeight: "700",
+                  fontSize: "1.rem",
+                  textAlign: "center",
                 }}
-              />
-              <FiEdit
-                onClick={(e) => {
-                  e.preventDefault();
-                  alert("404");
-                }}
-              />
-            </p>
-          </li>
+              >
+                Edit
+              </h5>
+              <form id="formEl" onSubmit={handleForm}>
+                <input
+                  key={input}
+                  type="text"
+                  id="messageInput"
+                  name="messageInput"
+                  ref={editRef}
+                  onChange={handleChange}
+                  value={input}
+                />
+                <button type="submit" onClick={handleForm}>
+                  Submit
+                </button>
+              </form>
+            </div>
+          </Modal>
+        </Link>
+      </>
+    );
+  };
+  const EditFeedItem = (post) => {
+    // console.log("edit:", post)
+    let docRef = db.collection("messages").doc(cardState);
+
+    let o = {
+      message: "",
+    };
+
+    docRef.get().then(async function (doc) {
+      console.log(cardState + ": " + doc.id);
+
+      let batch = db.batch();
+
+      if (doc.exists) {
+        let item = doc.data().message;
+        console.log("item:", item);
+        item = post;
+        o = {
+          message: item,
+        };
+        o.lastLoginDate = Date.now();
+        docRef.update(o, { merge: true });
+        alert("updated!");
+        await batch.commit();
+        return window.location.reload();
+      }
+    });
+  };
+  let ShowFeed = () => {
+    if (feed.items.length > 0) {
+      console.log("feeed length:", feed.items);
+      return feed.items.map((item, i) => {
+        console.log(item);
+        return (
+          <>
+            <ShowModal></ShowModal>
+            <li
+              id={item.postId}
+              className={styles.message}
+              ref={cardRef}
+              key={i}
+            >
+              <p>
+                {item.post.email ? (
+                  <>
+                    <h5>Email:</h5> <hr />
+                    {item.post.email}
+                  </>
+                ) : (
+                  <>
+                    <h5>Name:</h5> <hr /> {item.post.user}
+                  </>
+                )}
+              </p>
+              <p>
+                <h5>Provider:</h5>
+                <hr /> {item.post.provider}
+              </p>
+
+              <p>
+                <h5>Message:</h5>
+                <hr /> {item.post.message}
+              </p>
+              <p>
+                <FiTrash
+                  onClick={(e) => {
+                    e.preventDefault();
+                    DeleteFeedItem(e, cardRef);
+                  }}
+                />
+                <FiEdit
+                  onClick={(e) => {
+                    e.preventDefault();
+                    submitModal(e, item.postId);
+                    setStateModal({ show: true });
+                  }}
+                />
+              </p>
+            </li>
+          </>
         );
       });
     } else if (loading) {
@@ -151,10 +297,6 @@ function SignInScreen() {
     }
   };
   const handleSubmit = (user) => {
-    console.log(user.currentUser.isAnonymous);
-    /* TODO */
-    //get to read the data on the page to show poc on send a message
-
     if (user.currentUser.isAnonymous) {
       return (
         <div>
@@ -172,20 +314,17 @@ function SignInScreen() {
         docRead.add(readUser);
       }
       let docRef = db.collection("users").doc(readUser.uid);
-      let o = {
-
-      };
+      let o = {};
       docRef.get().then(function (thisDoc) {
         if (thisDoc.exists) {
           const items = thisDoc.data().favorites.card.items;
           o = {
-            "favorites.card.items": items
+            "favorites.card.items": items,
           };
 
           //user is already there, write only last login
           o.lastLoginDate = Date.now();
           docRef.update(o, { merge: true });
-
         } else {
           //new user
           o.displayName = auth.currentUser.displayName;
@@ -272,16 +411,14 @@ function SignInScreen() {
       };
       docRef.get().then(function (thisDoc) {
         if (thisDoc.exists) {
-
           const items = thisDoc.data().favorites.card.items;
           o = {
-            "favorites.card.items": items
+            "favorites.card.items": items,
           };
 
           //user is already there, write only last login
           o.lastLoginDate = Date.now();
           docRef.update(o, { merge: true });
-
         } else {
           //new user
           o.displayName = auth.currentUser.displayName;
@@ -336,7 +473,7 @@ function SignInScreen() {
 
           <h4> Feed: </h4>
 
-          <ul className={styles.messages}>
+          <ul className={styles.messages} style={{ display: "flex" }}>
             <ShowFeed />
           </ul>
           <h4> Favorites: </h4>

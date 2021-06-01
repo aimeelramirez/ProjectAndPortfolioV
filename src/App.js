@@ -22,21 +22,9 @@ function App() {
     show: false,
   });
   let arrayIcons = {
-    icons: [
-      <FiHome />,
-      <FiHeart />,
-      <FiTruck />,
-      <FiEdit />,
-      <FiSettings />,
-    ],
-    names: [
-      'Home',
-      'Favorites',
-      'Orders',
-      'Edit',
-      'Settings'
-    ]
-  }
+    icons: [<FiHome />, <FiHeart />, <FiTruck />, <FiEdit />, <FiSettings />],
+    names: ["Home", "Favorites", "Orders", "Edit", "Settings"],
+  };
   // const showModal = () => {
   //   setStateModal({ show: true });
 
@@ -44,8 +32,7 @@ function App() {
   const hideModal = () => {
     // let message = "Disregarded for edits.";
     setStateModal({ show: false });
-    history.push(window.location.hash, "/boardfeed")
-
+    history.push(window.location.hash, "/boardfeed");
   };
 
   const Dashboard = () => {
@@ -53,7 +40,6 @@ function App() {
       <div>
         <Link to="/dashboard">
           <Modal show={stateModal.show}>
-
             <form>
               <div id="buttons-modal">
                 <span className={styles.modalClose} onClick={hideModal}>
@@ -69,7 +55,7 @@ function App() {
                     textDecoration: "underline",
                     fontWeight: "700",
                     fontSize: "1.rem",
-                    textAlign: 'center'
+                    textAlign: "center",
                   }}
                 >
                   Dashboard:
@@ -82,13 +68,10 @@ function App() {
                         <p
                           onClick={() => {
                             alert("404, under construction.");
-                            return (
-                              hideModal()
-                            );
+                            return hideModal();
                           }}
                         >
-
-                          <span style={{ paddingRight: '0.5rem' }}>{item}</span>
+                          <span style={{ paddingRight: "0.5rem" }}>{item}</span>
                           {arrayIcons.names[i]}
                         </p>
                       </Link>
@@ -286,6 +269,7 @@ function App() {
         <Route path="/loggedin" component={SignInScreen} />
       </Switch>
       <Route exact path="/dashboard" component={Dashboard} />
+      <Route exact path="/edit" component={SignInScreen} />
     </div>
   );
 }

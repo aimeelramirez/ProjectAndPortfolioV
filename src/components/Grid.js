@@ -13,7 +13,7 @@ import { FaHeart } from "react-icons/fa";
 import styles from "./../styles/styles.module.css";
 import { FetchProductImages } from "../action/unsplash";
 import Spinner from "./Spinner/spinner";
-import loadingPhoto from "../styles/images/loadingImage.svg";
+import loadingPhoto from "./../styles/images/loadingImage.svg";
 import Rater from "react-rater";
 import "../styles/rater.scss";
 
