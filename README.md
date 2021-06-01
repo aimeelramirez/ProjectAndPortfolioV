@@ -8,15 +8,50 @@ Deployed sites:
 
 - <s> Domain Provider: https://aimeelramirez.dev/</s>
 
-## Designing:
+## Instructions
+
+### Locally:
+
+- https:
+
+  - `npm i && npm run https`
+
+- http:
+  - `npm i && npm start`
+
+## Firestore
+
+Implement your own firebase account or use this account.
+
+- [firebase console](https://console.firebase.google.com)
+
+Needed to interact with application:
+
+- Collections:
+
+  - messages
+  - users
+
+- Providers:
+  - Apple
+  - Google
+  - Github
+  - Facebook
+
+To reset users:
+
+- Go to directory > [api](/api)
+- Run the `dumpUsers.py ` with Python to erase all logged in users (Please use with caution!).
+
+## Designing
 
 Designing tools and ideas for this project.
 
-### Dependencies:
+### Dependencies
 
 [List of Dependencies](https://github.com/aimeelramirez/ProjectAndPortfolioV/blob/final/package.json)
 
-### Lofi Frames:
+### Lofi Frames
 
 https://xd.adobe.com/view/a8f7ed98-3939-4c42-b950-2f320b721022-fda4/?fullscreen
 
@@ -45,13 +80,6 @@ https://fonts.google.com/specimen/Montserrat?preview.size=64&preview.layout=row#
 
   - Source:
     https://coolors.co/282c34-e0e2db-d2d4c8-b8bdb5-889696
-
-- #### Primary Colors
-
-  - PDF: https://documentcloud.adobe.com/link/track?uri=urn:aaid:scds:US:9fb9ded0-64bc-426f-bc03-0daaef654c11
-
-  - Source:
-    https://coolors.co/282c34-fffffa-ff312e-3abeff-ffbe0b
 
 ## Greenery
 
