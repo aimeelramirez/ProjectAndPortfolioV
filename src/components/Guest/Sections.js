@@ -11,6 +11,7 @@ import forgetmenots from "./../../styles/images/forgetmenots.svg";
 import leaves from "./../../styles/images/leaves.svg";
 import React, { useRef } from "react";
 import { ParallaxLayer } from "@react-spring/parallax";
+import Timeline from './Timeline'
 // Something for learning as i go.
 const Sections = () => {
   const parallax = useRef(0);
@@ -18,11 +19,12 @@ const Sections = () => {
     <div>
       <Redirect from="/auth" to="/guest" />
       <Link to="/guest">
-        <Pages ref={parallax} pages={3}>
+        <Pages ref={parallax} pages={6}>
           <ParallaxLayer offset={1} speed={1} />
           <ParallaxLayer offset={2} speed={1} />
           <ParallaxLayer offset={0} speed={0} factor={3} />
           <p>Please Scroll Down.</p>
+          <Timeline />
           <img
             alt="design by Nsaeoosh: floral pack"
             src={roses}
