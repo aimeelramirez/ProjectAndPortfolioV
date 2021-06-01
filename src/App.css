@@ -35,6 +35,9 @@ h5 {
   font-family: "Montserrat", sans-serif;
   color: var(--gunmetal);
 }
+a {
+  text-decoration-line: none;
+}
 h1 {
   font-size: 58pt;
 }
@@ -130,8 +133,8 @@ ul > .firebaseui-list-item {
 .parallax {
   background-image: linear-gradient(
     125deg,
-    var(--neon-blue) 20%,
-    var(--maximum-blue-green) 100%
+    var(--forest-green-web) 20%,
+    var(--gold-crayola) 100%
   );
 }
 button {
@@ -424,4 +427,29 @@ section > article {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.vertical-timeline::before {
+  /* this is the vertical line */
+  background: var(--gunmetal) !important;
+  /* border-bottom: 7px solid rgb(33, 150, 243); */
+}
+
+.style-date {
+  font-family: "Raleway", sans-serif;
+  font-size: 14pt;
+  color: var(--gunmetal);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  /* outline: 1px solid red; */
+  width: 25% !important;
+}
+@media only screen and (min-width: 1170px) {
+  #arrow {
+    margin: 0 auto;
+    width: 2rem !important;
+    border-right: 1.6rem solid transparent;
+    border-left: 1.6rem solid transparent;
+    border-top: 1.6rem solid var(--gunmetal);
+  }
 }
