@@ -94,6 +94,7 @@ function App() {
   const handleSubmit = () => {
     if (toggle) {
       history.push(window.location.hash, "/auth");
+      window.location.reload()
       setToggle(false);
     } else {
       history.push(window.location.hash, "/boardfeed");

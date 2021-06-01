@@ -23,8 +23,12 @@ export default function Favorites() {
   const [state, setState] = useState();
   useEffect(() => {
     const getApi = async () => {
-      let authUser = auth.currentUser.providerData[0];
-
+      let authUser = ""
+      if (auth.currentUser.providerData[0].providerId === 'google.com') {
+        authUser = auth.currentUser;
+      } else {
+        authUser = auth.currentUser.providerData[0];
+      }
       let docRef = db.collection("users").doc(authUser.uid);
       console.log(docRef);
       docRef.get().then(
@@ -73,7 +77,7 @@ export default function Favorites() {
 
   useEffect(() => {
     set((open) => !open);
-    return () => {};
+    return () => { };
   }, []);
   if (state && state.length > 0) {
     return (
