@@ -379,13 +379,15 @@ function SignInScreen() {
                 </form>
               </article>
             </section>
+            <section id="grid-feed">
+              <h4> Feed: </h4>
 
-            <h4> Feed: </h4>
-            <ul className={styles.messages}>
-              <ShowFeed />
-            </ul>
-            <h4> Favorites: </h4>
+              <ul className={styles.messages}>
+                <ShowFeed />
+              </ul>
+            </section>
             <section id="grid">
+              <h4> Favorites: </h4>
               {Favorites ? <Favorites /> : <p>Add Favorites from Board</p>}
             </section>
           </div>
@@ -468,15 +470,14 @@ function SignInScreen() {
               </form>
             </article>
           </section>
-
-          <h4> Feed: </h4>
-
-          <ul className={styles.messages} style={{ display: "flex" }}>
-            <ShowFeed />
-          </ul>
-          <h4> Favorites: </h4>
-
+          <section id="grid-feed">
+            <h4> Feed: </h4>
+            <ul className={styles.messages} style={{ display: "flex" }}>
+              <ShowFeed />
+            </ul>
+          </section>
           <section id="grid">
+            <h4> Favorites: </h4>
             {Favorites ? <Favorites /> : <p>Add Favorites from Board</p>}
           </section>
         </div>

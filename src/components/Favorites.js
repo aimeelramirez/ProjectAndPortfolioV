@@ -98,6 +98,7 @@ export default function Favorites() {
                     className={styles.images}
                     style={{
                       height: "100%",
+                      width: '100%',
                       backgroundImage: "url(" + fav.item.urls.full + ")",
                       backgroundSize: "cover",
                       backgroundRepeat: "no-repeat",
@@ -106,18 +107,17 @@ export default function Favorites() {
                   >
                     <section>
                       <article>
-                        <Rater
-                          className="react-rater-star"
-                          total={5}
-                          rating={fav.stars}
-                        />
-                        <br />
+
                         <header
                           className="text"
                           style={{
                             color: "black",
                           }}
-                        >
+                        >  <Rater
+                            className="react-rater-star"
+                            total={5}
+                            rating={fav.stars}
+                          />
                           <p>#{fav.item.id}</p>
                           <p>Description:</p>
                           <p>
