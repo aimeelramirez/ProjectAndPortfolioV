@@ -52,16 +52,16 @@ function SignInScreen() {
     const dataRef = db.collection("messages");
     dataRef.get().then((doc) => {
       if (doc.empty) {
-        console.log("No such document!");
+        //console.log("No such document!");
         return;
       } else {
-        console.log(doc.docs);
+        //console.log(doc.docs);
       }
 
       doc.forEach((i) => {
-        // console.log(i.data().name);
+        // //console.log(i.data().name);
         let newDataName = i.data();
-        console.log("new: ", newDataName);
+        //console.log("new: ", newDataName);
         let readPost = {
           post: newDataName,
           postId: i.id,
@@ -76,10 +76,10 @@ function SignInScreen() {
   async function UploadData(newMessage) {
     var batch = db.batch();
     const messages = db.collection("messages");
-    console.log(JSON.stringify(messages));
+    //console.log(JSON.stringify(messages));
     let authUser = auth.currentUser.providerData[0];
     if (newMessage !== "") {
-      console.log(authUser);
+      //console.log(authUser);
       let postMessage = {
         user: authUser.displayName,
         email: authUser.email,
@@ -89,7 +89,7 @@ function SignInScreen() {
       };
 
       const response = await messages.add(postMessage);
-      console.log("loading...", response);
+      //console.log("loading...", response);
       alert(
         "success:" +
           JSON.stringify(postMessage) +
@@ -102,7 +102,7 @@ function SignInScreen() {
         batch.commit();
         return window.location.reload();
       } else {
-        console.log("loading...");
+        //console.log("loading...");
       }
     } else {
       alert("Please enter vaild post that isn't empty.");
@@ -115,22 +115,21 @@ function SignInScreen() {
 
     dataRef.get().then((doc) => {
       if (doc.empty) {
-        console.log("No such document!");
+        //console.log("No such document!");
         return;
       } else {
-        console.log(doc.docs);
+        //console.log(doc.docs);
       }
       let batch = db.batch();
 
-      doc.forEach(async (i) => {
-        if (card.current.id === i.id) {
-          console.log(card.current.id + " : " + i.id);
+      doc.forEach((i) => {
+        if (card === i.id) {
+          console.log(card + " : " + i.id);
           batch.delete(i.ref);
           alert("deleted...");
-          await batch.commit();
+          batch.commit();
+          return window.location.reload();
         }
-
-        return window.location.reload();
       });
     });
   };
@@ -140,7 +139,7 @@ function SignInScreen() {
 
     document.getElementById("messageInput").focus();
 
-    console.log(e.target.value);
+    //console.log(e.target.value);
     setInput(e.target.value);
   };
   function handleForm(e) {
@@ -203,9 +202,8 @@ function SignInScreen() {
     );
   };
   const EditFeedItem = (post) => {
-    // console.log("edit:", post)
+    // //console.log("edit:", post)
     let docRef = db.collection("messages").doc(cardState);
-
     let o = {
       message: "",
     };
@@ -217,7 +215,7 @@ function SignInScreen() {
 
       if (doc.exists) {
         let item = doc.data().message;
-        console.log("item:", item);
+        //console.log("item:", item);
         item = post;
         o = {
           message: item,
@@ -232,9 +230,9 @@ function SignInScreen() {
   };
   let ShowFeed = () => {
     if (feed.items.length > 0) {
-      console.log("feeed length:", feed.items);
+      //console.log("feeed length:", feed.items);
       return feed.items.map((item, i) => {
-        console.log(item);
+        //console.log(item);
         return (
           <>
             <ShowModal></ShowModal>
@@ -269,7 +267,7 @@ function SignInScreen() {
                 <FiTrash
                   onClick={(e) => {
                     e.preventDefault();
-                    DeleteFeedItem(e, cardRef);
+                    DeleteFeedItem(e, item.postId);
                   }}
                 />
                 <FiEdit
@@ -484,7 +482,7 @@ function SignInScreen() {
         </div>
       );
     } else {
-      console.log("catch any odd errors on load.");
+      //console.log("catch any odd errors on load.");
     }
   };
 
