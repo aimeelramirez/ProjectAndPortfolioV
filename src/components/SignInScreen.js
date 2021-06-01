@@ -92,9 +92,9 @@ function SignInScreen() {
       //console.log("loading...", response);
       alert(
         "success:" +
-        JSON.stringify(postMessage) +
-        " to firestore: " +
-        JSON.stringify(response.firestore._delegate._app.options_.projectId)
+          JSON.stringify(postMessage) +
+          " to firestore: " +
+          JSON.stringify(response.firestore._delegate._app.options_.projectId)
       );
 
       if (!loading) {
@@ -495,8 +495,7 @@ function SignInScreen() {
       </>
     );
   } else {
-    return handleSubmit(auth)
-
+    return handleSubmit(auth);
   }
 }
 

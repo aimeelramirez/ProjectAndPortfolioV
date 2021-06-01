@@ -23,8 +23,8 @@ export default function Favorites() {
   const [state, setState] = useState();
   useEffect(() => {
     const getApi = async () => {
-      let authUser = ""
-      if (auth.currentUser.providerData[0].providerId === 'google.com') {
+      let authUser = "";
+      if (auth.currentUser.providerData[0].providerId === "google.com") {
         authUser = auth.currentUser;
       } else {
         authUser = auth.currentUser.providerData[0];
@@ -77,7 +77,7 @@ export default function Favorites() {
 
   useEffect(() => {
     set((open) => !open);
-    return () => { };
+    return () => {};
   }, []);
   if (state && state.length > 0) {
     return (
@@ -98,7 +98,7 @@ export default function Favorites() {
                     className={styles.images}
                     style={{
                       height: "100%",
-                      width: '100%',
+                      width: "100%",
                       backgroundImage: "url(" + fav.item.urls.full + ")",
                       backgroundSize: "cover",
                       backgroundRepeat: "no-repeat",
@@ -107,13 +107,14 @@ export default function Favorites() {
                   >
                     <section>
                       <article>
-
                         <header
                           className="text"
                           style={{
                             color: "black",
                           }}
-                        >  <Rater
+                        >
+                          {" "}
+                          <Rater
                             className="react-rater-star"
                             total={5}
                             rating={fav.stars}

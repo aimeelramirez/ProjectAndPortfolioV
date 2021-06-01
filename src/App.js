@@ -86,7 +86,6 @@ function App() {
             </div>
           </Modal>
         </Link>
-
       </div>
     );
   };
@@ -94,7 +93,7 @@ function App() {
   const handleSubmit = () => {
     if (toggle) {
       history.push(window.location.hash, "/auth");
-      window.location.reload()
+      window.location.reload();
       setToggle(false);
     } else {
       history.push(window.location.hash, "/boardfeed");
@@ -165,7 +164,6 @@ function App() {
           </h1>
         </p>
         {SignInScreen ? <SignInScreen /> : <Spinner />}
-
       </>
     );
   };
@@ -249,18 +247,16 @@ function App() {
             <Dashboard />
             <ShowFavs />
           </Link>
-
         </>
       );
     } else if (!toggle) {
-      console.log(auth.currentUser)
+      console.log(auth.currentUser);
       return (
         <>
           <Link to="/auth">
             <Dashboard />
             <ShowAuth />
           </Link>
-
         </>
       );
     }
