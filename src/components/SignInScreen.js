@@ -19,12 +19,12 @@ let items = [];
 function SignInScreen() {
   // let history = useHistory()
 
-  const [feed, setFeed] = useState({ items: [] });
-  const [loading] = useState(false);
+  const [feed, setFeed] = useState({ items: undefined });
+  const [loading, setLoading] = useState(true);
   const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
   const messageRef = useRef();
   const editRef = useRef(null);
-  const [input, setInput] = useState(null);
+  const [input,] = useState(null);
   const [cardState, setCard] = useState(null);
   const cardRef = useRef();
   const [stateModal, setStateModal] = useState({
@@ -35,6 +35,7 @@ function SignInScreen() {
       document.title = `You are signed out! `;
     } else {
       document.title = `You are signed in! `;
+
     }
   });
 
@@ -44,34 +45,38 @@ function SignInScreen() {
     });
     return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
   }, []);
-  useEffect(() => {
-    GetData();
-  }, []);
 
   const GetData = () => {
+    setLoading(false)
     const dataRef = db.collection("messages");
     dataRef.get().then((doc) => {
       if (doc.empty) {
-        //console.log("No such document!");
+        console.log("No such document!");
+        setFeed({ items: [] });
+
         return;
       } else {
-        //console.log(doc.docs);
+        console.log(doc.docs);
       }
 
       doc.forEach((i) => {
         // //console.log(i.data().name);
         let newDataName = i.data();
-        //console.log("new: ", newDataName);
+        console.log("new: ", i);
         let readPost = {
           post: newDataName,
           postId: i.id,
         };
-
+        items = []
         items.push(readPost);
       });
       setFeed({ items: [] });
+
+
+
       return setFeed({ items: items });
     });
+
   };
   async function UploadData(newMessage) {
     var batch = db.batch();
@@ -92,9 +97,9 @@ function SignInScreen() {
       //console.log("loading...", response);
       alert(
         "success:" +
-          JSON.stringify(postMessage) +
-          " to firestore: " +
-          JSON.stringify(response.firestore._delegate._app.options_.projectId)
+        JSON.stringify(postMessage) +
+        " to firestore: " +
+        JSON.stringify(response.firestore._delegate._app.options_.projectId)
       );
 
       if (!loading) {
@@ -133,19 +138,14 @@ function SignInScreen() {
       });
     });
   };
-  const handleChange = (e) => {
-    e.preventDefault();
-    e.target.focus();
 
-    document.getElementById("messageInput").focus();
-
-    //console.log(e.target.value);
-    setInput(e.target.value);
-  };
-  function handleForm(e) {
+  function handleForm(e, post) {
     e.preventDefault();
+    let postInput = editRef.current.value
+
+    console.log("post == edit ref", post)
     if (input !== "") {
-      EditFeedItem(input, editRef);
+      EditFeedItem(postInput, post);
     }
     setStateModal({ show: false });
   }
@@ -180,17 +180,16 @@ function SignInScreen() {
               >
                 Edit
               </h5>
-              <form id="formEl" onSubmit={handleForm}>
+              <form id="formEl">
                 <input
-                  key={input}
                   type="text"
                   id="messageInput"
                   name="messageInput"
                   ref={editRef}
-                  onChange={handleChange}
-                  value={input}
                 />
-                <button type="submit" onClick={handleForm}>
+                <button type="submit" onClick={(e) => {
+                  handleForm(e, editRef)
+                }}>
                   Submit
                 </button>
               </form>
@@ -201,7 +200,7 @@ function SignInScreen() {
     );
   };
   const EditFeedItem = (post) => {
-    // //console.log("edit:", post)
+    console.log("edit:", post)
     let docRef = db.collection("messages").doc(cardState);
     let o = {
       message: "",
@@ -228,8 +227,14 @@ function SignInScreen() {
     });
   };
   let ShowFeed = () => {
-    if (feed.items.length > 0) {
-      //console.log("feeed length:", feed.items);
+    setLoading(true)
+    if (feed.items === undefined) {
+      GetData()
+      console.log(feed.items)
+      return <Spinner />;
+    }
+    else if (feed.items.length > 0) {
+      console.log(feed.items)
       return feed.items.map((item, i) => {
         //console.log(item);
         return (
@@ -281,9 +286,8 @@ function SignInScreen() {
           </>
         );
       });
-    } else if (loading) {
-      return <Spinner />;
     } else if (feed.items.length === 0) {
+      console.log("pooop")
       return (
         <span
           style={{ margin: "0 auto", color: "lightgrey", fontSize: "18px" }}
@@ -292,6 +296,7 @@ function SignInScreen() {
         </span>
       );
     }
+
   };
   const handleSubmit = (user) => {
     if (user.currentUser.isAnonymous) {
@@ -322,6 +327,7 @@ function SignInScreen() {
           //user is already there, write only last login
           o.lastLoginDate = Date.now();
           docRef.update(o, { merge: true });
+
         } else {
           //new user
           o.displayName = auth.currentUser.displayName;
@@ -336,6 +342,7 @@ function SignInScreen() {
           // Send it
           docRef.set(o);
         }
+
       });
       return (
         <>
@@ -418,6 +425,8 @@ function SignInScreen() {
           //user is already there, write only last login
           o.lastLoginDate = Date.now();
           docRef.update(o, { merge: true });
+
+
         } else {
           //new user
           o.displayName = auth.currentUser.displayName;
@@ -432,6 +441,7 @@ function SignInScreen() {
           // Send it
           docRef.set(o);
         }
+
       });
       return (
         // Get private routes unless signed in
@@ -482,7 +492,7 @@ function SignInScreen() {
         </div>
       );
     } else {
-      //console.log("catch any odd errors on load.");
+      console.log("catch any odd errors on load.");
     }
   };
 

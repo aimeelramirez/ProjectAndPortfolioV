@@ -77,7 +77,7 @@ export default function Favorites() {
 
   useEffect(() => {
     set((open) => !open);
-    return () => {};
+    return () => { };
   }, []);
   if (state && state.length > 0) {
     return (
@@ -201,7 +201,7 @@ export default function Favorites() {
         </animated.div>
       </div>
     );
-  } else if (!state) {
+  } else if (!state || state.length === 0) {
     return (
       <span style={{ margin: "0 auto", color: "lightgrey", fontSize: "18px" }}>
         There are no favorites yet, add them from board.
