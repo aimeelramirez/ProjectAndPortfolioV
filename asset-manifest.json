@@ -1,19 +1,19 @@
 {
   "files": {
     "main.css": "/ProjectAndPortfolioV/static/css/main.774cc15c.chunk.css",
-    "main.js": "/ProjectAndPortfolioV/static/js/main.c923504e.chunk.js",
-    "main.js.map": "/ProjectAndPortfolioV/static/js/main.c923504e.chunk.js.map",
+    "main.js": "/ProjectAndPortfolioV/static/js/main.b1a3239d.chunk.js",
+    "main.js.map": "/ProjectAndPortfolioV/static/js/main.b1a3239d.chunk.js.map",
     "runtime-main.js": "/ProjectAndPortfolioV/static/js/runtime-main.ed145c79.js",
     "runtime-main.js.map": "/ProjectAndPortfolioV/static/js/runtime-main.ed145c79.js.map",
     "static/css/2.969c3486.chunk.css": "/ProjectAndPortfolioV/static/css/2.969c3486.chunk.css",
-    "static/js/2.ad16a7f8.chunk.js": "/ProjectAndPortfolioV/static/js/2.ad16a7f8.chunk.js",
-    "static/js/2.ad16a7f8.chunk.js.map": "/ProjectAndPortfolioV/static/js/2.ad16a7f8.chunk.js.map",
+    "static/js/2.fff6daf8.chunk.js": "/ProjectAndPortfolioV/static/js/2.fff6daf8.chunk.js",
+    "static/js/2.fff6daf8.chunk.js.map": "/ProjectAndPortfolioV/static/js/2.fff6daf8.chunk.js.map",
     "static/js/3.12088f0b.chunk.js": "/ProjectAndPortfolioV/static/js/3.12088f0b.chunk.js",
     "static/js/3.12088f0b.chunk.js.map": "/ProjectAndPortfolioV/static/js/3.12088f0b.chunk.js.map",
     "index.html": "/ProjectAndPortfolioV/index.html",
     "static/css/2.969c3486.chunk.css.map": "/ProjectAndPortfolioV/static/css/2.969c3486.chunk.css.map",
     "static/css/main.774cc15c.chunk.css.map": "/ProjectAndPortfolioV/static/css/main.774cc15c.chunk.css.map",
-    "static/js/2.ad16a7f8.chunk.js.LICENSE.txt": "/ProjectAndPortfolioV/static/js/2.ad16a7f8.chunk.js.LICENSE.txt",
+    "static/js/2.fff6daf8.chunk.js.LICENSE.txt": "/ProjectAndPortfolioV/static/js/2.fff6daf8.chunk.js.LICENSE.txt",
     "static/media/flower.abb5dbf2.svg": "/ProjectAndPortfolioV/static/media/flower.abb5dbf2.svg",
     "static/media/forgetmenots.13ac54a3.svg": "/ProjectAndPortfolioV/static/media/forgetmenots.13ac54a3.svg",
     "static/media/leaves.15fe27a6.svg": "/ProjectAndPortfolioV/static/media/leaves.15fe27a6.svg",
@@ -24,8 +24,8 @@
   "entrypoints": [
     "static/js/runtime-main.ed145c79.js",
     "static/css/2.969c3486.chunk.css",
-    "static/js/2.ad16a7f8.chunk.js",
+    "static/js/2.fff6daf8.chunk.js",
     "static/css/main.774cc15c.chunk.css",
-    "static/js/main.c923504e.chunk.js"
+    "static/js/main.b1a3239d.chunk.js"
   ]
 }
