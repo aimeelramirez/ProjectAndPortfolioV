@@ -7,8 +7,13 @@ import {
 } from "react-icons/fi";
 import { IoHelp } from "react-icons/io5";
 import styles from "./../../styles/styles.module.css";
+import { notify } from "./../Config/config";
+
 //getting footer for reusable component
 export default function Socials() {
+  const note = (type, note) => {
+    notify(type, note);
+  }
   const arraySocials = [
     <FiFacebook />,
     <FiTwitter />,
@@ -23,7 +28,7 @@ export default function Socials() {
           <span
             key={i}
             onClick={() => {
-              alert("404: Under Construction");
+              note("error", "404: Under Construction");
             }}
           >
             {item}
@@ -33,7 +38,7 @@ export default function Socials() {
       <p>
         <span
           onClick={() => {
-            alert("404");
+            note("error", "404");
           }}
         >
           <IoHelp />

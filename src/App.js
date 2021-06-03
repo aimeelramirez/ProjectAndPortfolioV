@@ -15,7 +15,8 @@ import styles from "./styles/styles.module.css";
 import Navigation from "./components/Navigation/Navigation.tsx";
 import { FiHome, FiHeart, FiTruck, FiEdit, FiSettings } from "react-icons/fi";
 import history from "./history";
-import { auth } from "./components/Config/config";
+import { auth, notify } from "./components/Config/config";
+import Timeline from "./components/Guest/Timeline";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -26,6 +27,9 @@ function App() {
     icons: [<FiHome />, <FiHeart />, <FiTruck />, <FiEdit />, <FiSettings />],
     names: ["Home", "Favorites", "Orders", "Edit", "Settings"],
   };
+  const note = (type, note) => {
+    notify(type, note);
+  }
   // const showModal = () => {
   //   setStateModal({ show: true });
 
@@ -68,7 +72,7 @@ function App() {
                       <Link to="/boardfeed">
                         <p
                           onClick={() => {
-                            alert("404, under construction.");
+                            note("error", "404, under construction.");
                             return hideModal();
                           }}
                         >
@@ -103,7 +107,7 @@ function App() {
 
   const ShowSearch = (e) => {
     e.preventDefault();
-    alert("Under Construction");
+    note("error", "Under Construction");
     // return(
 
     // )
@@ -269,6 +273,8 @@ function App() {
         <Route exact path="/auth" component={ShowAuth} />
         <Route exact path="/boardfeed" component={ShowFavs} />
         <Route exact path="/guest" component={Sections} />
+        <Route exact path="/guest/timeline" component={Timeline} />
+
         <Route path="/loggedin" component={SignInScreen} />
       </Switch>
       <Route exact path="/dashboard" component={Dashboard} />

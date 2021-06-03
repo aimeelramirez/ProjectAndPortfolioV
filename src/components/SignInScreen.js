@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { auth, db, uiConfig, HandleLogout } from "./Config/config";
+import { auth, db, uiConfig, HandleLogout, notify } from "./Config/config";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import "firebaseui/dist/firebaseui.css";
 // import * as actionTypes from "../action/action";
@@ -14,11 +14,14 @@ import Modal from "./Modal/Modal";
 
 import Favorites from "./Favorites";
 import Spinner from "./Spinner/spinner";
+import { ToastContainer } from "react-toastify"
+import "./../../node_modules/react-toastify/dist/ReactToastify.css"
+
 let items = [];
 
 function SignInScreen() {
   // let history = useHistory()
-
+  let toastId = useRef(null)
   const [feed, setFeed] = useState({ items: undefined });
   const [loading, setLoading] = useState(true);
   const [isSignedIn, setIsSignedIn] = useState(false); // Local signed-in state.
@@ -99,24 +102,27 @@ function SignInScreen() {
         favs: [],
       };
 
-      const response = await messages.add(postMessage);
+      await messages.add(postMessage);
       //console.log("loading...", response);
-      alert(
-        "success:" +
-        JSON.stringify(postMessage) +
-        " to firestore: " +
-        JSON.stringify(response.firestore._delegate._app.options_.projectId)
-      );
+      // note(
+      //   "success:" +
+      //   JSON.stringify(postMessage) +
+      //   " to firestore: " +
+      //   JSON.stringify(response.firestore._delegate._app.options_.projectId)
+      // );
 
       if (loading) {
-        alert("success");
+        note("success", "Success!");
         batch.commit();
-        return window.location.reload();
+        setTimeout(() => {
+          return window.location.reload();
+
+        }, 5000);
       } else {
         //console.log("loading...");
       }
     } else {
-      alert("Please enter vaild post that isn't empty.");
+      note("error", "Please enter vaild post that isn't empty.");
       return null;
     }
   }
@@ -137,9 +143,12 @@ function SignInScreen() {
         if (card === i.id) {
           console.log(card + " : " + i.id);
           batch.delete(i.ref);
-          alert("deleted...");
+          note("info", "Deleted!");
           batch.commit();
-          return window.location.reload();
+          setTimeout(() => {
+            return window.location.reload();
+
+          }, 5000);
         }
       });
     });
@@ -160,16 +169,19 @@ function SignInScreen() {
     setCard(card);
   };
   const hideModal = () => {
-    // let message = "Disregarded for edits.";
+    let message = "Disregarded for edits.";
+    note("info", message);
+
     setStateModal({ show: false });
   };
+
   const ShowModal = () => {
     return (
       <>
         <Link to="/loggedin/edit">
           <Modal show={stateModal.show}>
             <div id="buttons-modal">
-              <span className={styles.modalClose} onClick={hideModal}>
+              <span className={styles.modalClose} ref={toastId} onClick={hideModal}>
                 <p>
                   <span>Close</span>
                 </p>
@@ -195,6 +207,7 @@ function SignInScreen() {
                 />
                 <button type="submit" onClick={(e) => {
                   handleForm(e, editRef)
+
                 }}>
                   Submit
                 </button>
@@ -226,9 +239,12 @@ function SignInScreen() {
         };
         o.lastLoginDate = Date.now();
         docRef.update(o, { merge: true });
-        alert("updated!");
+        note("success", "Updated!");
         await batch.commit();
-        return window.location.reload();
+        setTimeout(() => {
+          return window.location.reload();
+
+        }, 5000);
       }
     });
   };
@@ -303,12 +319,16 @@ function SignInScreen() {
     }
 
   };
+
   const handleSubmit = (user) => {
     if (user.currentUser.isAnonymous) {
       return (
-        <div>
-          <Sections />
-        </div>
+        <>
+          <ToastContainer limit={1} />
+          <div>
+            <Sections />
+          </div>
+        </>
       );
       // eslint-disable-next-line
     } else if (
@@ -351,6 +371,8 @@ function SignInScreen() {
       });
       return (
         <>
+          <ToastContainer limit={1} />
+
           <div className={styles.welcome}>
             <Redirect from="/auth" to="/loggedin" />
 
@@ -362,7 +384,7 @@ function SignInScreen() {
                   You are now signed-in with email: {readUser.email}!
                   <br /> As your sign-in provider:{" "}
                   {user.currentUser.providerData[0].providerId}
-                  <button onClick={() => HandleLogout()}>Sign-out</button>
+                  <button onClick={() => { HandleLogout(); }}>Sign-out</button>
                 </p>
               </article>
               <article>
@@ -405,6 +427,7 @@ function SignInScreen() {
         </>
       );
     } else if (!user.currentUser.isAnonymous) {
+
       let readUser = user.currentUser.providerData[0];
       let readUser1 = user.currentUser.providerData[0];
 
@@ -450,7 +473,10 @@ function SignInScreen() {
       });
       return (
         // Get private routes unless signed in
+
         <div className={styles.welcome}>
+          <ToastContainer limit={1} />
+
           <Redirect from="/auth" to="/loggedin" />
 
           <section>
@@ -500,10 +526,14 @@ function SignInScreen() {
       console.log("catch any odd errors on load.");
     }
   };
+  const note = (type, note) => {
 
+    notify(type, note)
+  }
   if (!isSignedIn) {
     return (
       <>
+
         <p>Please sign-in:</p>
         <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
       </>

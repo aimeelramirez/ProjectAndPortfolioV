@@ -453,6 +453,31 @@ section > article {
   /* outline: 1px solid red; */
   width: 25% !important;
 }
+#arrow {
+  margin-left: 0.5rem;
+  width: 2rem !important;
+  border-right: 1.6rem solid transparent;
+  border-left: 1.6rem solid transparent;
+  border-top: 1.6rem solid var(--gunmetal);
+}
+@media only screen and (min-width: 600px) {
+  #arrow {
+    margin-left: 1.9%;
+    width: 2rem !important;
+    border-right: 1.6rem solid transparent;
+    border-left: 1.6rem solid transparent;
+    border-top: 1.6rem solid var(--gunmetal);
+  }
+}
+@media only screen and (min-width: 800px) {
+  #arrow {
+    margin-left: 2%;
+    width: 2rem !important;
+    border-right: 1.6rem solid transparent;
+    border-left: 1.6rem solid transparent;
+    border-top: 1.6rem solid var(--gunmetal);
+  }
+}
 @media only screen and (min-width: 1170px) {
   #arrow {
     margin: 0 auto;
@@ -461,4 +486,8 @@ section > article {
     border-left: 1.6rem solid transparent;
     border-top: 1.6rem solid var(--gunmetal);
   }
+}
+.timeline {
+  background: var(--maximum-blue-green) !important;
+  color: white !important;
 }

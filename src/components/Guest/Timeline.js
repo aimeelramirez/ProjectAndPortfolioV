@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { MdSchool, MdAdd, MdStar, MdPersonPinCircle } from "react-icons/md";
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-// import Notify from './../Notifications/notify'
+import "./../../../node_modules/react-toastify/dist/ReactToastify.css"
+import { notify } from './../Config/config'
 
 const dataExamples = [
     {
@@ -64,7 +65,6 @@ const dataExamples = [
 
 const Timeline = () => {
     const [elements, setElements] = useState([]);
-
     const loadMore = (e) => {
         e.preventDefault()
 
@@ -80,9 +80,11 @@ const Timeline = () => {
             }
         }
     };
-    const endLoad = () => {
-        return alert("End of List!")
+
+    const notification = () => {
+        note("timeline", "That's all for now!");
     }
+
     const addButton = () => (
         <MdAdd />
     );
@@ -93,8 +95,7 @@ const Timeline = () => {
 
         elements.map(element => (
             <>
-                <VerticalTimelineElement {...element.props} >
-
+                <VerticalTimelineElement {...element.props}>
                     <h4 className="vertical-timeline-element-title">{element.title}</h4>
                     <h5 className="vertical-timeline-element-subtitle">
                         {element.subtitle}
@@ -104,14 +105,18 @@ const Timeline = () => {
                 </VerticalTimelineElement>
             </>
         ));
+    const note = (type, note) => {
 
+        notify(type, note)
+    }
     return (
         <>
             <div>
+                <h4 style={{ color: 'black' }}><u>Timeline:</u></h4>
                 <VerticalTimeline>
                     {getTimelineElements()}
                     <VerticalTimelineElement
-                        iconOnClick={elements.length === 3 ? endLoad : loadMore}
+                        iconOnClick={elements.length === 3 ? notification : loadMore}
                         iconStyle={{ background: 'rgb(16, 204, 82)', color: '#fff' }}
                         iconClassName="vertical-timeline-element-icon--button"
                         icon={elements.length === 3 ? showStar() : addButton()}

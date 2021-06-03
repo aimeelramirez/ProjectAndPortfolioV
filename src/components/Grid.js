@@ -7,7 +7,6 @@ import {
   animated,
   useSpringRef,
 } from "@react-spring/web";
-import { auth, db } from "./Config/config";
 // import { MdStar } from "react-icons/md"
 import { FaHeart } from "react-icons/fa";
 import styles from "./../styles/styles.module.css";
@@ -16,6 +15,7 @@ import Spinner from "./Spinner/spinner";
 import loadingPhoto from "./../styles/images/loadingImage.svg";
 import Rater from "react-rater";
 import "../styles/rater.scss";
+import { auth, notify, db } from "./Config/config";
 
 export default function Grid() {
   const [open, set] = useState(false);
@@ -35,7 +35,9 @@ export default function Grid() {
     };
     getApi();
   }, []);
-
+  const note = (type, note) => {
+    notify(type, note);
+  }
   const { size, ...rest } = useSpring({
     ref: springApi,
     config: config.stiff,
@@ -70,24 +72,24 @@ export default function Grid() {
   }, []);
   const handleCard = (e, item) => {
     e.preventDefault();
-    // alert(item.alt_description)
+    // note("info",item.alt_description)
     // console.log("card ref:", cardRef.current.children[0])
     let message = "You clicked: " + item.alt_description;
     // console.log("current: ", starRef.current)
-    alert(message);
+    note("info", message);
   };
 
   const handleChange = (e, item) => {
     setStarCount(e.rating);
     var batch = db.batch();
     if (!auth.currentUser) {
-      alert("~~~~Please sign in before saving favorites.~~~~~~");
+      note("error", "Please sign in before saving favorites.");
       return false;
     } else {
       let authUser = auth.currentUser.providerData[0];
 
       if (authUser.isAnonymous) {
-        alert("~~~~Please sign in before saving favorites.~~~~~~");
+        note("error", "Please sign in before saving favorites.");
         return false;
       } else if (authUser.providerId === "google.com") {
         let readUser = auth.currentUser;
@@ -98,7 +100,6 @@ export default function Grid() {
             item: item,
             stars: e.rating,
           };
-          alert(item);
           if (thisDoc.exists) {
             const items = thisDoc.data().favorites.card.items;
             items.push(n);
@@ -157,7 +158,7 @@ export default function Grid() {
       }
 
       if (!loading) {
-        alert("success");
+        note("success", "Success!");
         batch.commit();
       } else {
         console.log("loading...");

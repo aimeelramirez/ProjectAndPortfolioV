@@ -1,5 +1,55 @@
 import firebase from "firebase";
 import * as firebaseui from "firebaseui";
+import { toast } from "react-toastify"
+import "./../../../node_modules/react-toastify/dist/ReactToastify.css"
+import "./../../App.css"
+
+export const notify = (toastType, note) => {
+  if (note !== "") {
+    switch (toastType) {
+      case "success":
+        toast('👍 ' + note, {
+          autoClose: 5000,
+          type: toast.TYPE.SUCCESS,
+          closeButton: false,// Remove the closeButton
+          closeOnClick: false,
+          pauseOnHover: false,
+        });
+        break;
+      case "error":
+        toast('🖐 ' + note, {
+          autoClose: 5000,
+          type: toast.TYPE.ERROR,
+          closeButton: false,// Remove the closeButton
+          closeOnClick: false,
+          pauseOnHover: false,
+        });
+        break;
+      case "info":
+        toast('✍️ ' + note, {
+          autoClose: 5000,
+          type: toast.TYPE.INFO,
+          closeButton: false,// Remove the closeButton
+          closeOnClick: false,
+          pauseOnHover: false,
+        });
+        break;
+      case "timeline":
+        toast('💕  ' + note, {
+          className: 'timeline',
+          autoClose: 5000,
+          type: toast.TYPE.INFO,
+          closeButton: false,// Remove the closeButton
+          closeOnClick: false,
+          pauseOnHover: false,
+        });
+        break;
+      default:
+        break;
+    }
+
+  } else { return null }
+}
 
 // Configure Firebase.
 export const Config = {
@@ -54,3 +104,5 @@ console.log(
 export const db = firebase.firestore();
 
 export const auth = firebase.auth();
+
+
