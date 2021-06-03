@@ -17,6 +17,8 @@ import Spinner from "./Spinner/spinner";
 import styles from "./../styles/styles.module.css";
 import "./../styles/rater.scss";
 import Rater from "react-rater";
+
+
 export default function Favorites() {
   const [open, set] = useState(false);
   const springApi = useSpringRef();

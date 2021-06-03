@@ -17,7 +17,8 @@ import { FiHome, FiHeart, FiTruck, FiEdit, FiSettings } from "react-icons/fi";
 import history from "./history";
 import { auth, notify } from "./components/Config/config";
 import Timeline from "./components/Guest/Timeline";
-
+import { ToastContainer } from "react-toastify"
+import "./../node_modules/react-toastify/dist/ReactToastify.css"
 function App() {
   const [toggle, setToggle] = useState(false);
   const [stateModal, setStateModal] = useState({
@@ -247,6 +248,8 @@ function App() {
     if (toggle) {
       return (
         <>
+          <ToastContainer limit={1} />
+
           <Link to="/boardfeed">
             <Dashboard />
             <ShowFavs />

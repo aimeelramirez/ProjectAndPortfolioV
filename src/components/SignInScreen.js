@@ -420,6 +420,8 @@ function SignInScreen() {
               </ul>
             </section>
             <section id="grid">
+              <ToastContainer limit={1} />
+
               <h4> Favorites: </h4>
               {Favorites ? <Favorites /> : <p>Add Favorites from Board</p>}
             </section>
@@ -517,6 +519,8 @@ function SignInScreen() {
             </ul>
           </section>
           <section id="grid">
+            <ToastContainer limit={1} />
+
             <h4> Favorites: </h4>
             {Favorites ? <Favorites /> : <p>Add Favorites from Board</p>}
           </section>

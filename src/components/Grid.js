@@ -70,6 +70,8 @@ export default function Grid() {
   useEffect(() => {
     return set((open) => !open);
   }, []);
+
+
   const handleCard = (e, item) => {
     e.preventDefault();
     // note("info",item.alt_description)
