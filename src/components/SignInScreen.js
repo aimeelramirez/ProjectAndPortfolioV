@@ -46,6 +46,11 @@ function SignInScreen() {
     return () => unregisterAuthObserver(); // Make sure we un-register Firebase observers when the component unmounts.
   }, []);
 
+  useEffect(() => {
+    GetData()
+
+  }, [])
+
   const GetData = () => {
     setLoading(false)
     const dataRef = db.collection("messages");
@@ -67,14 +72,15 @@ function SignInScreen() {
           post: newDataName,
           postId: i.id,
         };
-        items = []
         items.push(readPost);
+        setFeed({ items: [] });
+        return setFeed({ items: items });
+
       });
-      setFeed({ items: [] });
+      items = []
 
 
 
-      return setFeed({ items: items });
     });
 
   };
@@ -102,7 +108,7 @@ function SignInScreen() {
         JSON.stringify(response.firestore._delegate._app.options_.projectId)
       );
 
-      if (!loading) {
+      if (loading) {
         alert("success");
         batch.commit();
         return window.location.reload();
@@ -120,10 +126,10 @@ function SignInScreen() {
 
     dataRef.get().then((doc) => {
       if (doc.empty) {
-        //console.log("No such document!");
+        console.log("No such document!");
         return;
       } else {
-        //console.log(doc.docs);
+        console.log(doc.docs);
       }
       let batch = db.batch();
 
@@ -157,7 +163,7 @@ function SignInScreen() {
     // let message = "Disregarded for edits.";
     setStateModal({ show: false });
   };
-  const ShowModal = (e, item) => {
+  const ShowModal = () => {
     return (
       <>
         <Link to="/loggedin/edit">
@@ -287,7 +293,6 @@ function SignInScreen() {
         );
       });
     } else if (feed.items.length === 0) {
-      console.log("pooop")
       return (
         <span
           style={{ margin: "0 auto", color: "lightgrey", fontSize: "18px" }}
@@ -481,7 +486,7 @@ function SignInScreen() {
           </section>
           <section id="grid-feed">
             <h4> Feed: </h4>
-            <ul className={styles.messages} style={{ display: "flex" }}>
+            <ul className={styles.messages}>
               <ShowFeed />
             </ul>
           </section>
