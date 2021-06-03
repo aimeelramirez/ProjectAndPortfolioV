@@ -65,6 +65,7 @@ const dataExamples = [
 
 const Timeline = () => {
     const [elements, setElements] = useState([]);
+    const [update, updated] = useState(false)
     const loadMore = (e) => {
         e.preventDefault()
 
@@ -76,13 +77,17 @@ const Timeline = () => {
             }
             else if (dataExamples[i].id !== elements[elements.length - 1].id && i > 0) {
                 setElements([...elements, dataExamples[i]])
-                return getTimelineElements()
+                return getTimelineElements() && updated(true)
             }
         }
     };
 
     const notification = () => {
-        note("timeline", "That's all for now!");
+        if (update) {
+            note("timeline", "That's all for now!");
+            updated(false)
+        }
+
     }
 
     const addButton = () => (
@@ -106,13 +111,13 @@ const Timeline = () => {
             </>
         ));
     const note = (type, note) => {
-
         notify(type, note)
     }
     return (
         <>
             <div>
                 <h4 style={{ color: 'black' }}><u>Timeline:</u></h4>
+                {elements.length < 3 ? <p>Click the plus sign to continue.</p> : <p>Thanks for reading!</p>}
                 <VerticalTimeline>
                     {getTimelineElements()}
                     <VerticalTimelineElement
